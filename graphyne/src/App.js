@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import Menu from "./Menu/Menu.js"
-import Ustawienia from "./Ustawienia/Ustawienia.js"
+import Settings from "./Settings/Settings.js"
 
 class App extends Component {
 
   render() {
     return (
-      <Ustawienia />
+      <Settings subtitle="pomoc" data="Help" />
     )
   }
 }

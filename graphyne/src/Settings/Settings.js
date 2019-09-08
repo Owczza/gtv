@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import '../App.css';
 import {settings, Container} from "../Components/Components.js"
 
-class App extends Component {
+class Settings extends Component {
 
   state = {
     slides: [],
-    activeSlideIndex: 1,
+    activeSlideIndex: null
   }
 
   nextSlide = () => {
@@ -15,8 +15,7 @@ class App extends Component {
         activeSlideIndex: this.state.activeSlideIndex+1
       });
     } 
-    this.displayActiveSlideIndex();
-}
+  }
 
   prevSlide = () => {
     if (this.state.activeSlideIndex > 0) {
@@ -24,27 +23,27 @@ class App extends Component {
         activeSlideIndex: this.state.activeSlideIndex-1
       });
     } 
-    this.displayActiveSlideIndex();
-}
+  }
 
   componentDidMount() {
-    fetch("/settingsMenu.json")
+    fetch(`/settingsMenu/settings${this.props.data}.json`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          slides: data
+          slides: data,
+          activeSlideIndex: data.length - 1
         });
       });
 
     document.addEventListener("keydown", event => {
-      if (event.isComposing || event.keyCode === 37) {
+      if (event.isComposing || event.keyCode === 38) {
         return;
       }
       this.nextSlide();
     });
   
     document.addEventListener("keydown", event => {
-      if (event.isComposing || event.keyCode === 39) {
+      if (event.isComposing || event.keyCode === 40) {
           return;
       }
       this.prevSlide();
@@ -62,10 +61,13 @@ class App extends Component {
         <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
             <h1>ustawienia</h1>
-            <div>
+            <div className="element-container">
+                <h2>/{this.props.subtitle}</h2>
                 <ul>
-                {this.state.slides.map( option =>
-                    <li className={option.isActive ? `active` : "" }>{option.name}</li>)}
+                    {this.state.slides.map( option =>
+                      <li className=
+                        {this.state.slides.indexOf(option) === this.state.activeSlideIndex ? `active` : ""}>
+                     {option}</li>)}
                 </ul>
             </div>
             </div>
@@ -76,4 +78,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Settings;
