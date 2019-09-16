@@ -1,20 +1,57 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "../App.css";
-import { settings, Container } from "../Components/Components.js";
-
-import dataActions from "../Redux/Actions/dataActions";
-import { connect } from "react-redux";
+import { Container, settings } from "../Components/Components.js";
 
 class Settings extends Component {
 
-    componentDidMount() {
-    this.props.fetchSettingsData(this.props.data);
+  state = {
+    slides: [],
+    activeSlideIndex: null
+  }
+
+  nextSlide = () => {
+    if (this.state.activeSlideIndex+1 < this.state.slides.length) {
+      this.setState({
+        activeSlideIndex: this.state.activeSlideIndex+1
+      });
+    } 
+  }
+
+  prevSlide = () => {
+    if (this.state.activeSlideIndex > 0) {
+      this.setState({
+        activeSlideIndex: this.state.activeSlideIndex-1
+      });
+    } 
+  }
+
+  componentDidMount() {
+    fetch(`/settingsMenu/settings${this.props.data}.json`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          slides: data,
+          activeSlideIndex: data.length - 1
+        });
+      });
+
+    document.addEventListener("keydown", event => {
+      if (event.isComposing || event.key === "ArrowUp") {
+        return;
+      }
+      this.nextSlide();
+    });
+  
+    document.addEventListener("keydown", event => {
+      if (event.isComposing || event.key === "ArrowDown") {
+          return;
+      }
+      this.prevSlide();
+    });
   }
 
   render() {
-    this.props.nextSlide(this.props.activeSlideIndex, 40);
-    this.props.prevSlide(this.props.activeSlideIndex, 38);
-    const { slides, activeSlideIndex } = this.props;
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -28,15 +65,15 @@ class Settings extends Component {
             <div className="element-container">
               <h2 className="graphyne-font header2">{this.props.subtitle}</h2>
               <ul>
-                {slides.map(option => (
+                {this.state.slides.map(option => (
                   <li
                     className={
-                      slides.indexOf(option) === activeSlideIndex
-                        ? "graphyne-font " + "active"
+                      this.state.slides.indexOf(option) === this.state.activeSlideIndex
+                        ? "graphyne-font " + "blue program-channel-number"
                         : "graphyne-font"
                     }
                   >
-                    {option}
+                    <Link to={`/ustawienia/${option}`}>{option}</Link>
                   </li>
                 ))}
               </ul>
@@ -49,15 +86,4 @@ class Settings extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  slides: state.data.slides,
-  slidesLength: state.data.slidesLength,
-  activeSlideIndex: state.data.activeSlideIndex
-});
-
-const mapDispatchToProps = dataActions;
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Settings);
+export default Settings;

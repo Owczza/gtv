@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #989fa9;
 }
 
 .App-link {
@@ -38,6 +38,10 @@ li {
   font-size: 20px;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 .auto-height {
   height: 100%;
@@ -46,9 +50,8 @@ li {
 .vectra {
   grid-area: vectra;
 }
-
-.nav-selected {
-  grid-area: nav-selected;
+.title {
+  grid-area: title;
   background-color: #000000;
 }
 
@@ -58,6 +61,21 @@ li {
 
 .nav-left {
   grid-area: nav-left;
+}
+
+.nav-selected {
+  grid-area: nav-selected;
+  background-color: #000000;
+}
+
+.nav-selected-top {
+  grid-area: nav-selected-top;
+  background-color: #000000;
+}
+
+.nav-selected-bottom {
+  grid-area: nav-selected-bottom;
+  background-color: #000000;
 }
 
 .nav-right {
@@ -92,6 +110,20 @@ li {
   align-items: center;
 }
 
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.align-bottom {
+  align-items: flex-end;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
 .nav-selected-padding {
   padding: 270px 40px 110px 40px;
 }
@@ -104,21 +136,21 @@ li {
 }
 
 .graphyne-font {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #989fa9;
   font-weight: 400;
   letter-spacing: 1.5px;
-  -webkit-transform:scale(1.0, 1.1);
-  -moz-transform:scale(1.0, 1.1);
-  -ms-transform:scale(1.0, 1.1);
-  -o-transform:scale(1.0, 1.1);
-  transform:scale(1.0,1.1);
+  -webkit-transform: scale(1, 1.1);
+  -moz-transform: scale(1, 1.1);
+  -ms-transform: scale(1, 1.1);
+  -o-transform: scale(1, 1.1);
+  transform: scale(1, 1.1);
 }
 
 .header1 {
   font-size: 43px;
-  font-weight: 200
+  font-weight: 200;
 }
 
 .header2 {
@@ -126,8 +158,78 @@ li {
   letter-spacing: 0;
 }
 
-.active {
-  color: #3080bd;
+.blue {
+  color: #40a0e9;
+}
+
+.margin20-sides {
+  margin: 10px 20px;
+}
+
+.margin10-sides {
+  margin: 0 10px;
+}
+
+.padding455-left{
+  padding: 0 0 0 455px;
+}
+
+.program-channel-number {
   font-weight: 800;
   font-size: 21px;
+}
+
+.program-channel-title {
+  font-size: 30px;
+}
+
+.program-title {
+  font-weight: 400;
+}
+
+.program-time-and-type {
+  font-size: 15px;
+  font-weight: 400;
+  color: #989fa9
+}
+
+.active-channel{
+  border-radius: 5px;
+  border: 3px solid #40a0e9;
+  box-shadow: 0px 0px 3px 2px #40a0e9;
+}
+
+.opt{
+  background-color: #000000;
+  border: 1px solid #989fa9;
+  border-radius: 5px;
+  color: #989fa9;
+  padding: 0 5px
+}
+
+.text-align-right {
+  text-align: right
+}
+
+.white-text {
+  color: #989fa9
+}
+
+.program-shadow {
+  box-shadow: -137px 313px 161px 90px #000000;
+}
+
+.filler {
+  background-color: #1a1919;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.list-line-height {
+  line-height: 48px;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
 }

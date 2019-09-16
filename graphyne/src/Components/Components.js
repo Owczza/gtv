@@ -19,7 +19,7 @@ export const menu = {
     "background-left-top nav-selected background-right-top"
     "nav-left nav-selected nav-right"
     "background-left-bottom nav-selected background-right-bottom"`,
-    rows: `4fr 15fr auto 142px`,
+    rows: `106px 1fr auto 142px`,
     columns: `270px auto 1fr`,
 }
 
@@ -28,6 +28,24 @@ export const settings = {
     "background-left-top nav-selected background-right-top"
     "background-left-top nav-selected background-right-top"
     "background-left-top nav-selected background-right-top"`,
-    rows: `4fr 15fr auto 142px`,
+    rows: `106px 1fr auto 142px`,
     columns: `270px 1fr 1fr`,
+}
+
+export const television = {
+    area: `"vectra title clock"
+    "background-left-top nav-selected-top background-right-top"
+    "nav-left nav-selected nav-right"
+    "background-left-bottom nav-selected-bottom background-right-bottom"`,
+    rows: `106px 1fr auto 142px`,
+    columns: `270px 505px 505px`,
+}
+
+export const program = {
+    area: `"vectra background-right-bottom clock"
+    "background-left-top background-left-bottom background-right-top"
+    "background-left-top background-left-bottom background-right-top"
+    "background-left-top background-left-bottom background-right-top"`,
+    rows: `106px 1fr auto 142px`,
+    columns: `2fr 3fr 3fr`,
 }

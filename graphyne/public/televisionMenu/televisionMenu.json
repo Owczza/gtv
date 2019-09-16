@@ -1,0 +1,58 @@
+[
+    [
+        {
+            "channelNumber": 135,
+            "channelTitle": "TVP KULTURA",
+            "title": "Czarno na białym",
+            "time": "20:35-21:15",
+            "type": "Informacje",
+            "image": "/television-logos/TVP_Kultura_Logo.png"
+        },
+        {
+            "channelNumber": 136,
+            "channelTitle": "TVN 24 HD",
+            "title": "Czarno na białym",
+            "time": "20:35-21:15",
+            "type": "Informacje",
+            "image": "/television-logos/TVN_24_HD_Logo.png"
+        },
+        {
+            "channelNumber": 137,
+            "channelTitle": "TVN 24 BiS",
+            "title": "Fakty o świecie",
+            "time": "20:35-21:15",
+            "type": "Informacje",
+            "image": "/television-logos/TVN_24_BiS_Logo.png"
+        },
+        {
+            "channelNumber": 138,
+            "channelTitle": "TVP 3",
+            "title": "Fakty o świecie",
+            "time": "20:35-21:15",
+            "type": "Informacje",
+            "image": "/television-logos/TVP3_Logo.png"
+        }
+    ],
+    [
+        
+        "wszystkie",
+        "ostatnie",
+        "częste",
+        "ogólne",
+        "soprt",
+        "film",
+        "dzieci",
+        "edukacja",
+        "muzyka",
+        "lifestyle",
+        "informacja",
+        "erotyka",
+        "ulubione"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]

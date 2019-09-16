@@ -2,6 +2,7 @@ import { FETCH_DATA } from "../Actions/dataActions";
 import { FETCH_SETTINGS_DATA } from "../Actions/dataActions";
 import { NEXT_SLIDE } from "../Actions/dataActions";
 import { PREV_SLIDE } from "../Actions/dataActions";
+import { SET_ACTIVE_SLIDE_INDEX } from "../Actions/dataActions";
 
 const initialState = {
     slides: [],
@@ -25,6 +26,13 @@ export default function dataReducer(state = initialState, action) {
         slides: action.slides,
         slidesLength: action.slidesLength,
         activeSlideIndex: action.slidesLength
+      };
+    }
+
+    case SET_ACTIVE_SLIDE_INDEX: {
+      return {
+        ...state,
+        activeSlideIndex: action.index
       };
     }
 
