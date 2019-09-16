@@ -86,7 +86,7 @@ class Menu extends Component {
               alt={this.state.slides[this.state.activeSlideIndex]}
             />
           </Link>
-        </div>
+        </div> 
         <div className="nav-right flex-center">
           <img
             className="auto-height"

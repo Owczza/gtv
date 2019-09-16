@@ -8,7 +8,7 @@ const Navigation = () => {
       <br />
       <NavLink exact to="/telewizja">Telewizja</NavLink>
       {" | "}
-      <NavLink exact to="/telewizja/136">Telewizja-Program</NavLink>
+      <NavLink exact to="/telewizja/:channelNumber">Telewizja-Program</NavLink>
       <br />
       <NavLink exact to="/ustawienia">Ustawienia</NavLink>
       {" | "}

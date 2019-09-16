@@ -69,7 +69,7 @@ class Settings extends Component {
                   <li
                     className={
                       this.state.slides.indexOf(option) === this.state.activeSlideIndex
-                        ? "graphyne-font " + "blue program-channel-number"
+                        ? "graphyne-font blue program-channel-number"
                         : "graphyne-font"
                     }
                   >

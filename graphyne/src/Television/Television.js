@@ -24,7 +24,7 @@ class Television extends Component {
   }
 
   render() {
-    const { programs, list, options, activeSlideIndex } = this.state;
+    const { programs, list, activeSlideIndex } = this.state;
     return (
       <Container theme={television}>
         <div className="vectra flex-center">
@@ -60,10 +60,10 @@ class Television extends Component {
           />
         </div>
         <div className="nav-selected flex-center auto-height">
-          <img
+          <Link to={`telewizja/${programs[activeSlideIndex].channelNumber}`} ><img
             className="auto-height margin20-sides active-channel"
             src={programs[activeSlideIndex].image}
-          />
+          /></Link>
         </div>
         <div className="nav-right flex-center padding455-left">
           <img
@@ -90,6 +90,7 @@ class Television extends Component {
       </Container>
     );
   }
+  
 }
 
 export default Television;
