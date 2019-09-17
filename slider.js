@@ -44,30 +44,6 @@ document.addEventListener("keydown", event => {
 //     exitToMenu();
 // });
 
-var activeSlideIndex = 1;
-
-var slides = [
-    {name: "polecane"},
-    {name: "telewizja"},
-    {name: "vod"},
-    {name: "radio"},
-    {name: "nagrania"},
-    {name: "program_tv"},
-    {name: "portal"},
-    {name: "szukaj"},
-    {name: "wiadomosci"},
-    {name: "ustawienia"}
-];
-
-var settingsMenu = [
-    {name: "pomoc"},
-    {name: "diagnostyka"},
-    {name: "ochrona rodzicielska"},
-    {name: "preferencje"},
-    {name: "instalacja"},
-    {name: "multiroom"}
-]
-
 function displayactiveSlideIndex() {
     var image = `./menu-icons/menu_${slides[activeSlideIndex].name}.jpg`;
     var navLeft = 

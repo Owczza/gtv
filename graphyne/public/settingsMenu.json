@@ -1,8 +1,26 @@
 [
-    {"name": "pomoc"},
-    {"name": "diagnostyka"},
-    {"name": "ochrona rodzicielska"},
-    {"name": "preferencje"},
-    {"name": "instalacja"},
-    {"name": "multiroom"}
+    {
+        "name": "pomoc",
+        "isActive": false
+    },
+    {
+        "name": "multiroom",
+        "isActive": false
+    },
+    {
+        "name": "instalacja",
+        "isActive": false
+    },
+    {
+        "name": "preferencje",
+        "isActive": false
+    },
+    {
+        "name": "ochrona rodzicielska",
+        "isActive": false
+    },
+    {
+        "name": "diagnostyka",
+        "isActive": true
+    }
 ]
