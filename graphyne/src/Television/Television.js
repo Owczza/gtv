@@ -8,7 +8,32 @@ class Television extends Component {
     programs: [{}, {}, {}, {}],
     list: [],
     options: [],
-    activeSlideIndex: 1
+    activeSlideIndex: 1,
+    vertical: false
+  };
+
+  nextSlide = () => {
+    if (this.state.activeSlideIndex + 1 < this.state.programs.length) {
+      this.setState({
+        activeSlideIndex: this.state.activeSlideIndex + 1
+      });
+    } else {
+      this.setState({
+        activeSlideIndex: 0
+      })
+    }
+  };
+
+  prevSlide = () => {
+    if (this.state.activeSlideIndex > 0) {
+      this.setState({
+        activeSlideIndex: this.state.activeSlideIndex - 1
+      });
+    } else {
+      this.setState({
+        activeSlideIndex: this.state.programs.length - 1
+      })
+    }
   };
 
   componentDidMount() {
@@ -20,6 +45,37 @@ class Television extends Component {
           list: data[1],
           options: data[2]
         });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "ArrowLeft" && !this.state.vertical) {
+          return;
+        }
+        this.nextSlide();
+      });
+  
+      document.addEventListener("keydown", event => {
+        if (event.key === "ArrowRight" && !this.state.vertical) {
+          return;
+        }
+        this.prevSlide();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "ArrowDown") {
+          return;
+        }
+        this.setState({
+          vertical
+        })
+        this.nextSlide();
+      });
+  
+      document.addEventListener("keydown", event => {
+        if (event.key === "ArrowUp" && this.state.vertical) {
+          return;
+        }
+        this.prevSlide();
       });
   }
 
@@ -56,7 +112,7 @@ class Television extends Component {
         <div className="nav-left flex-end auto-height">
           <img
             className="margin10-sides"
-            src={programs[activeSlideIndex - 1].image}
+            src={programs[activeSlideIndex > 0 ? activeSlideIndex - 1 : programs.length-1].image}
             alt="program1"
           />
         </div>
@@ -70,12 +126,12 @@ class Television extends Component {
         <div className="nav-right flex-center padding455-left">
           <img
             className="margin10-sides"
-            src={programs[activeSlideIndex + 1].image}
+            src={programs[activeSlideIndex + 1 < programs.length ? activeSlideIndex + 1 : 0].image}
             alt="program3"
           />
           <img
             className="margin10-sides"
-            src={programs[activeSlideIndex + 2].image}
+            src={programs[activeSlideIndex + 2 < programs.length ? activeSlideIndex + 2 : 0].image}
             alt="program4"
           />
         </div>

@@ -46,8 +46,8 @@ class Program extends Component {
           </div>
         </div>
         <div className="background-left-bottom program-shadow">
-          <div className="nav-selected-padding padding200-top no-padding-bottom white-text">
-            <h1 class="font-weight400">{activeProgram.title}</h1>
+          <div className="nav-selected-padding padding145-top no-padding-bottom white-text">
+            <h1 className="font-weight400">{activeProgram.title}</h1>
             <div className="separator"></div>
             <span className="font20">
               {activeProgram.time} / {activeProgram.type}
