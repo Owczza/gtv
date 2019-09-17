@@ -55,34 +55,38 @@ class Television extends Component {
         <div className="background-right-top flex-center"></div>
         <div className="nav-left flex-end auto-height">
           <img
-            className="auto-height margin10-sides"
+            className="margin10-sides"
             src={programs[activeSlideIndex - 1].image}
+            alt="program1"
           />
         </div>
         <div className="nav-selected flex-center auto-height">
           <Link to={`telewizja/${programs[activeSlideIndex].channelNumber}`} ><img
-            className="auto-height margin20-sides active-channel"
+            className="margin20-sides active-channel"
             src={programs[activeSlideIndex].image}
+            alt="program2"
           /></Link>
         </div>
         <div className="nav-right flex-center padding455-left">
           <img
-            className="auto-height margin10-sides"
+            className="margin10-sides"
             src={programs[activeSlideIndex + 1].image}
+            alt="program3"
           />
           <img
-            className="auto-height margin10-sides"
+            className="margin10-sides"
             src={programs[activeSlideIndex + 2].image}
+            alt="program4"
           />
         </div>
         <div className="background-left-bottom align-top flex-end">
-          <div className="white-text text-align-right margin20-sides">Wybierz <span className="opt">OPT</span> na pilocie<br />
+          <div className="gray-text text-align-right margin20-sides">Wybierz <span className="opt">OPT</span> na pilocie<br />
           aby przejść do opcji</div>
         </div>
         <div className="nav-selected-bottom">
           <ul className="margin20-sides">
             {list.map(type => (
-              <li className={type === list[0] ? "graphyne-font" + " program-channel-number" : "graphyne-font"}>{type}</li>
+              <li className={type === list[0] ? "graphyne-font program-channel-number" : "graphyne-font"} key={type}>{type}</li>
             ))}
           </ul>
         </div>

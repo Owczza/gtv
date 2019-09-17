@@ -211,8 +211,12 @@ a {
   text-align: right
 }
 
-.white-text {
+.gray-text {
   color: #989fa9
+}
+
+.white-text {
+  color: #ffffff
 }
 
 .program-shadow {
@@ -232,4 +236,43 @@ a {
 
 .no-padding-bottom {
   padding-bottom: 0;
+}
+
+.padding200-top {
+  padding-top: 200px;
+}
+
+.padding50-bottom {
+  padding-bottom: 50px;
+}
+
+.padding60-right {
+  padding-right: 60px;
+}
+
+.padding20-left {
+  padding-left: 20px;
+}
+
+p {
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.font20 {
+  font-size: 20px
+}
+
+.font-weight500 {
+  font-weight: 500
+}
+
+.font-weight400 {
+  font-weight: 400;
+}
+
+.separator {
+  background-color: #989fa9;
+  padding: 2px;
+  margin: 5px 100px 5px 0px
 }

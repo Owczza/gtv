@@ -12,7 +12,7 @@ class App extends Component {
       <div>
           <Route exact path="/" component={Menu} />
           <Route exact path="/telewizja" component={ () => <Television data="Menu" /> } />
-          <Route exact path="/telewizja/:channelNumber" component={ () => <Program data="Program" subData="Menu" /> } />
+          <Route exact path="/telewizja/:channelNumber" render={ (props) => <Program data="Program" subData="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia" component={ () => <Settings subtitle="" data="Menu" /> } />
           <Route exact path="/ustawienia/pomoc" component={ () => <Settings subtitle="/ pomoc" data="Help" /> } />
           <Route exact path="/ustawienia/diagnostyka" component={ () => <Settings subtitle="/ diagnostyka" data="Diagnostic" /> } />

@@ -1,30 +1,29 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
 
 class Settings extends Component {
-
   state = {
     slides: [],
     activeSlideIndex: null
-  }
+  };
 
   nextSlide = () => {
-    if (this.state.activeSlideIndex+1 < this.state.slides.length) {
+    if (this.state.activeSlideIndex + 1 < this.state.slides.length) {
       this.setState({
-        activeSlideIndex: this.state.activeSlideIndex+1
+        activeSlideIndex: this.state.activeSlideIndex + 1
       });
-    } 
-  }
+    }
+  };
 
   prevSlide = () => {
     if (this.state.activeSlideIndex > 0) {
       this.setState({
-        activeSlideIndex: this.state.activeSlideIndex-1
+        activeSlideIndex: this.state.activeSlideIndex - 1
       });
-    } 
-  }
+    }
+  };
 
   componentDidMount() {
     fetch(`/settingsMenu/settings${this.props.data}.json`)
@@ -42,10 +41,10 @@ class Settings extends Component {
       }
       this.nextSlide();
     });
-  
+
     document.addEventListener("keydown", event => {
       if (event.isComposing || event.key === "ArrowDown") {
-          return;
+        return;
       }
       this.prevSlide();
     });
@@ -55,7 +54,7 @@ class Settings extends Component {
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
-          <img src="/menu-icons/vectra.png" />
+          <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
         <div className="clock flex-center"></div>
         <div className="background-left-top flex-center"></div>
@@ -68,10 +67,12 @@ class Settings extends Component {
                 {this.state.slides.map(option => (
                   <li
                     className={
-                      this.state.slides.indexOf(option) === this.state.activeSlideIndex
+                      this.state.slides.indexOf(option) ===
+                      this.state.activeSlideIndex
                         ? "graphyne-font blue program-channel-number"
                         : "graphyne-font"
                     }
+                    key={option}
                   >
                     <Link to={`/ustawienia/${option}`}>{option}</Link>
                   </li>
