@@ -10,7 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
-          <Route exact path="/" component={Menu} />
+          <Route exact path="/" component={ () => <Menu data="slides" photos="menu-icons" address=""/>} />
+          <Route exact path="/moje_pliki" render={ () => <Menu data="my-files"  photos="my-files-icons" address="moje_pliki/"/> } />
+          <Route exact path="/moje_pliki/:type" render={ (props) => <Menu data="my-files"  photos="my-files-icons" {...this.props} {...props} />} />
           <Route exact path="/telewizja" component={ () => <Television data="Menu" /> } />
           <Route exact path="/telewizja/:channelNumber" render={ (props) => <Program data="Program" subData="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia" component={ () => <Settings subtitle="" data="Menu" /> } />
