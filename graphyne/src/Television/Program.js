@@ -50,7 +50,7 @@ class Program extends Component {
             <h1 className="font-weight400">{activeProgram.title}</h1>
             <div className="separator"></div>
             <span className="font20">
-              {activeProgram.time} / {activeProgram.type}
+              {activeProgram.time}{activeProgram.type}
             </span>
             <br />
             <br />

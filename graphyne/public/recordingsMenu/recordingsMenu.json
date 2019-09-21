@@ -1,0 +1,69 @@
+[
+    [
+        {
+            "channelNumber": 1,
+            "channelTitle": "Paramount Channel",
+            "title": "Doktor Hollywood",
+            "time": "PIĄ, 18 STY / 11:50 / 150 min / ",
+            "type": "Nieobejrzane",
+            "image": "/recordings-logos/Paramount.jpg",
+            "icon": "/recordings-logos/Paramount.png",
+            "description": "Film fabularny, Komedia romantyczna. Ben Stone dostał wymarzoną posadę chirurga plastycznego w Beverly Hills. Podczas podróży samochodem do los Agneles dochodzi do wypadku. W małym miasteczku Ben uderza w ogrodzenie posesji miejscowego sędziego. Nieostrożny kierowca zostaje skazany na 32 godziny prac",
+            "genre": "Romansidło"
+        },
+        {
+            "channelNumber": 2,
+            "channelTitle": "HBO",
+            "title": "Czarna Pantera",
+            "time": "ŚRO, 2 STY / 14:50 / 1 min / ",
+            "type": "Nieobejrzane",
+            "image": "/recordings-logos/HBO.jpg",
+            "icon": "/recordings-logos/HBO.png",
+            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "genre": "Film"
+        },
+        {
+            "channelNumber": 3,
+            "channelTitle": "VH1",
+            "title": "Best of Britney Spears",
+            "time": "",
+            "type": "Informacje",
+            "image": "/recordings-logos/VH1.jpg",
+            "icon": "/recordings-logos/VH1.png",
+            "genre": "Muzyka"
+        },
+        {
+            "channelNumber": 4,
+            "channelTitle": "FilmBox Action",
+            "title": "Syn Smoka",
+            "time": "NIE, 10 LUT / 17:05 / 5 min / ",
+            "type": "Film / 12+",
+            "image": "/recordings-logos/FilmBox.jpg",
+            "icon": "/recordings-logos/FilmBox.png",
+            "description": "Film fabularny, Film fantastyczny. ",
+            "genre": "Science Fiction"
+        }
+    ],
+    [
+        
+        "wszystkie",
+        "ostatnie",
+        "częste",
+        "ogólne",
+        "soprt",
+        "film",
+        "dzieci",
+        "edukacja",
+        "muzyka",
+        "lifestyle",
+        "informacja",
+        "erotyka",
+        "ulubione"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]

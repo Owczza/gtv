@@ -13,7 +13,13 @@ class Television extends Component {
     vertical: false
   };
 
-  nextSlide = () => {
+  nextSlide = event => {
+    if (
+      event.isComposing ||
+      (event.key === "ArrowRight" && !this.state.vertical)
+    ) {
+      return;
+    }
     if (this.state.activeSlideIndex + 1 < this.state.programs.length) {
       this.setState({
         activeSlideIndex: this.state.activeSlideIndex + 1
@@ -25,34 +31,13 @@ class Television extends Component {
     }
   };
 
-  goUp = () => {
-    if (this.state.activeListIndex > 0) {
-      this.setState({
-        activeListIndex: this.state.activeListIndex - 1
-      });
-    } else {
-      this.setState({
-        activeListIndex: this.state.list.length - 1
-      });
+  prevSlide = event => {
+    if (
+      event.isComposing ||
+      (event.key === "ArrowLeft" && !this.state.vertical)
+    ) {
+      return;
     }
-  };
-
-  goDown = () => {
-    
-    if (this.state.activeListIndex + 1 < this.state.list.length) {
-      this.setState({
-        activeListIndex: this.state.activeListIndex + 1
-      });
-      console.log(this.state.activeListIndex)
-    } else {
-      this.setState({
-        activeListIndex: 0
-      });
-      console.log(this.state.activeListIndex)
-    }
-  };
-
-  prevSlide = () => {
     if (this.state.activeSlideIndex > 0) {
       this.setState({
         activeSlideIndex: this.state.activeSlideIndex - 1
@@ -64,8 +49,48 @@ class Television extends Component {
     }
   };
 
+  goUp = event => {
+    if (
+      event.isComposing ||
+      (event.key === "ArrowDown" && this.state.vertical)
+    ) {
+      return;
+    }
+    if (this.state.activeListIndex > 0) {
+      this.setState({
+        activeListIndex: this.state.activeListIndex - 1
+      });
+    } else {
+      this.setState({
+        activeListIndex: this.state.list.length - 1
+      });
+    }
+  };
+
+  goDown = event => {
+    if (event.isComposing || event.key === "ArrowUp") {
+      this.setState({
+        vertical: true
+      });
+    }
+    if (this.state.activeListIndex === null) {
+      this.setState({
+        activeListIndex: 0
+      });
+    }
+    if (this.state.activeListIndex + 1 < this.state.list.length) {
+      this.setState({
+        activeListIndex: this.state.activeListIndex + 1
+      });
+    } else {
+      this.setState({
+        activeListIndex: 0
+      });
+    }
+  };
+
   componentDidMount() {
-    fetch(`/televisionMenu/television${this.props.data}.json`)
+    fetch(`/${this.props.data}Menu/${this.props.data}Menu.json`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -76,39 +101,40 @@ class Television extends Component {
       });
 
     document.addEventListener("keydown", event => {
-      if (event.isComposing || (event.keyCode === 37 && !this.state.vertical)) {
-        return;
-      }
-      this.nextSlide();
+      this.nextSlide(event);
     });
 
     document.addEventListener("keydown", event => {
-      if (event.isComposing || (event.keyCode === 39 && !this.state.vertical)) {
-        return;
-      }
-      this.prevSlide();
+      this.prevSlide(event);
     });
 
     document.addEventListener("keydown", event => {
-      if (event.isComposing || event.keyCode === 38) {
-        this.setState({
-          vertical: true
-        });
-      }
-      if (this.state.activeListIndex === null) {
-        this.setState({
-          activeListIndex: 0
-        });}
-        console.log("fuck")
-        console.log(this.state.activeListIndex)
-      this.goDown();
+      this.goDown(event);
     });
 
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || (event.keyCode === 40 && this.state.vertical)) {
-        return;
-      }
-      this.goUp();
+    document.removeEventListener("keydown", event => {
+      this.goUp(event);
+    });
+  }
+
+  componentWillUnmount() {
+    const controller = new AbortController();
+    controller.abort();
+
+    document.removeEventListener("keydown", event => {
+      this.nextSlide(event);
+    });
+
+    document.removeEventListener("keydown", event => {
+      this.prevSlide(event);
+    });
+
+    document.removeEventListener("keydown", event => {
+      this.goDown(event);
+    });
+
+    document.removeEventListener("keydown", event => {
+      this.goUp(event);
     });
   }
 
@@ -120,7 +146,7 @@ class Television extends Component {
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
         <div className="title graphyne-font header1 flex-start">
-          <span className="margin20-sides">TELEWIZJA</span>
+          <span className="margin20-sides">{this.props.title}</span>
         </div>
         <div className="clock flex-center"></div>
         <div className="background-left-top flex-center"></div>
@@ -136,8 +162,7 @@ class Television extends Component {
               {programs[activeSlideIndex].title}
             </h2>
             <h3 className="program-time-and-type">
-              {programs[activeSlideIndex].time} /{" "}
-              {programs[activeSlideIndex].type}
+              {programs[activeSlideIndex].time}{programs[activeSlideIndex].type}
             </h3>
           </div>
         </div>
@@ -156,13 +181,21 @@ class Television extends Component {
           />
         </div>
         <div className="nav-selected flex-center auto-height">
-          <Link to={`telewizja/${programs[activeSlideIndex].channelNumber}`}>
+          {this.props.data !== "radio" ? (
+            <Link to={`telewizja/${programs[activeSlideIndex].channelNumber}`}>
+              <img
+                className="margin20-sides active-channel"
+                src={programs[activeSlideIndex].image}
+                alt="program2"
+              />
+            </Link>
+          ) : (
             <img
               className="margin20-sides active-channel"
               src={programs[activeSlideIndex].image}
               alt="program2"
             />
-          </Link>
+          )}
         </div>
         <div className="nav-right flex-center padding455-left">
           <img

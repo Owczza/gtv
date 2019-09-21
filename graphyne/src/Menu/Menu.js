@@ -59,16 +59,15 @@ class Menu extends Component {
 
   render() {
     const { slides, activeSlideIndex } = this.state;
-    const { data, photos } = this.props;
+    const { photos } = this.props;
     return (
       <Container theme={menu}>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
         <div className="clock flex-center"></div>
-        <div className="nav-left flex-end auto-height">
+        <div className="nav-left flex-end">
           <img
-            className="auto-height"
             src={
               activeSlideIndex > 0
                 ? `/${photos}/${slides[activeSlideIndex - 1]}.png`
