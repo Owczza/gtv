@@ -118,6 +118,14 @@ a {
   align-items: flex-start;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
 .nav-selected-padding {
   padding: 270px 40px 110px 40px;
 }
@@ -185,6 +193,10 @@ a {
   font-size: 15px;
   font-weight: 400;
   color: #989fa9
+}
+
+.width200 {
+  width: 200px;
 }
 
 .active-channel{

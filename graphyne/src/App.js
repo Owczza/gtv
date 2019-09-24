@@ -14,9 +14,11 @@ class App extends Component {
           <Route exact path="/" component={ () => <Menu data="slides" photos="menu-icons" address=""/>} />
           <Route exact path="/portal" render={ () => <img src="/portal.jpg" />} />
           <Route exact path="/wiadomosci" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
-          <Route exact path="/telewizja" component={ () => <Television data="television" title="TELEWIZJA"/> } />
-          <Route exact path="/telewizja/:channelNumber" render={ (props) => <Program data="Program" subData="Menu" {...this.props} {...props} /> } />
+          <Route exact path="/telewizja" component={ () => <Television data="television" title="telewizja"/> } />
+          <Route exact path="/telewizja/:channelNumber" render={ (props) => <Program data="television" {...this.props} {...props} /> } />
           <Route exact path="/radio" component={ () => <Television data="radio" title="RADIO"/> } />
+          <Route exact path="/nagrania" component={ () => <Television data="recordings" title="nagrania"/> } />
+          <Route exact path="/nagrania/:channelNumber" render={ (props) => <Program data="recordings" {...this.props} {...props} /> } />
           <Route exact path="/moje_pliki" render={ () => <Menu data="my-files"  photos="my-files-icons" address="moje_pliki/"/> } />
           <Route exact path="/moje_pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
           <Route exact path="/ustawienia" component={ () => <Settings subtitle="" data="Menu" /> } />

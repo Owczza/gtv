@@ -16,7 +16,7 @@ class Television extends Component {
   nextSlide = event => {
     if (
       event.isComposing ||
-      (event.key === "ArrowRight" && !this.state.vertical)
+      (event.key === "ArrowLeft" && !this.state.vertical)
     ) {
       return;
     }
@@ -34,7 +34,7 @@ class Television extends Component {
   prevSlide = event => {
     if (
       event.isComposing ||
-      (event.key === "ArrowLeft" && !this.state.vertical)
+      (event.key === "ArrowRight" && !this.state.vertical)
     ) {
       return;
     }
@@ -162,7 +162,12 @@ class Television extends Component {
               {programs[activeSlideIndex].title}
             </h2>
             <h3 className="program-time-and-type">
-              {programs[activeSlideIndex].time}{programs[activeSlideIndex].type}
+              {programs[activeSlideIndex].time}
+              {programs[activeSlideIndex].type}
+              <br />
+              {programs[activeSlideIndex].isRecorded
+                ? programs[activeSlideIndex].isRecorded
+                : ""}
             </h3>
           </div>
         </div>
@@ -182,7 +187,7 @@ class Television extends Component {
         </div>
         <div className="nav-selected flex-center auto-height">
           {this.props.data !== "radio" ? (
-            <Link to={`telewizja/${programs[activeSlideIndex].channelNumber}`}>
+            <Link to={`${this.props.title}/${programs[activeSlideIndex].channelNumber}`}>
               <img
                 className="margin20-sides active-channel"
                 src={programs[activeSlideIndex].image}
@@ -215,6 +220,8 @@ class Television extends Component {
               programs[
                 activeSlideIndex + 2 < programs.length
                   ? activeSlideIndex + 2
+                  : activeSlideIndex === programs.length - 1
+                  ? 1
                   : 0
               ].image
             }

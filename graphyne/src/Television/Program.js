@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "../App.css";
 import { Container, program } from "../Components/Components.js";
+import { ProgramDescription } from "./ProgramDescription";
 
 class Program extends Component {
   state = {
@@ -10,7 +11,7 @@ class Program extends Component {
 
   componentDidMount() {
     const { channelNumber } = this.props.match.params;
-    fetch(`/televisionMenu/television${this.props.data}.json`)
+    fetch(`/${this.props.data}Menu/${this.props.data}Program.json`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -18,7 +19,7 @@ class Program extends Component {
         });
       });
 
-    fetch(`/televisionMenu/television${this.props.subData}.json`)
+    fetch(`/${this.props.data}Menu/${this.props.data}Menu.json`)
       .then(response => response.json())
       .then(programs => {
         const activeProgram = programs[0].find(
@@ -29,7 +30,9 @@ class Program extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { list, activeProgram } = this.state;
+    const { data } = this.props;
     return (
       <Container theme={program}>
         <div className="vectra flex-center">
@@ -38,33 +41,46 @@ class Program extends Component {
         <div className="background-right-bottom"></div>
         <div className="clock flex-center"></div>
         <div className="background-left-top flex-center program-shadow">
-          <div className="filler flex-center align-bottom padding50-bottom padding60-right padding20-left">
-            <h1 className="graphyne-font program-channel-number">
-              {activeProgram.channelNumber}
-            </h1>
+          <div
+            className={`filler flex-center padding50-bottom ${
+              data === "recordings"
+                ? "flex-column justify-end"
+                : "align-bottom padding60-right padding20-left"
+            }`}
+          >
+            {data === "recordings" ? (
+              <img src={activeProgram.image} className="width200" />
+            ) : data === "television" ? (
+              <h1 className="graphyne-font program-channel-number">
+                {activeProgram.channelNumber}
+              </h1>
+            ) : (
+              ""
+            )}
             <img src={activeProgram.icon} alt="Channel Logo" />
           </div>
         </div>
         <div className="background-left-bottom program-shadow">
           <div className="nav-selected-padding padding145-top no-padding-bottom white-text">
             <h1 className="font-weight400">{activeProgram.title}</h1>
-            <div className="separator"></div>
+            {data !== "recordings" ? (
+              <div className="separator"></div>
+            ) : (
+              <h3 className="font-weight400">{activeProgram.genre}</h3>
+            )}
             <span className="font20">
-              {activeProgram.time}{activeProgram.type}
+              {activeProgram.time}
+              {activeProgram.type}
             </span>
             <br />
             <br />
             <p>{activeProgram.description}</p>
             <br />
-            <p>
-              Gatunek: {activeProgram.genre} <br />
-              Produkcja: {activeProgram.production} <br />
-              {activeProgram.orgTitle
-                ? `Tytuł oryginalny: ${activeProgram.orgTitle}`
-                : activeProgram.actors
-                ? `Aktorzy: ${activeProgram.actors}`
-                : ""}
-            </p>
+            {data !== "recordings" ? (
+              <ProgramDescription activeProgram={this.state.activeProgram} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="background-right-top flex-center">

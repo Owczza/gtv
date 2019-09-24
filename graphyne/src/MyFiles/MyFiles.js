@@ -4,7 +4,6 @@ import { Container, menu } from "../Components/Components.js";
 
 const MyFiles = props => {
   const type = props.match.params.type;
-  console.log(props)
   return (
     <Container theme={menu}>
       <div className="vectra flex-center">
@@ -15,7 +14,7 @@ const MyFiles = props => {
       <div className="nav-selected flex-center auto-height">
         <img
           className="auto-height"
-          src={`/${props.photos}${type}.jpg`}
+          src={`/${props.photos}${ type ? type : "wiadomosci"}.jpg`}
           alt={type}
         />
       </div>
