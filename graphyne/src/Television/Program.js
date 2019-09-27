@@ -43,12 +43,12 @@ class Program extends Component {
         <div className="background-left-top flex-center program-shadow">
           <div
             className={`filler flex-center padding50-bottom ${
-              data === "recordings"
+              data === "recordings" || data === "vod"
                 ? "flex-column justify-end"
                 : "align-bottom padding60-right padding20-left"
             }`}
           >
-            {data === "recordings" ? (
+            {data === "recordings" || data === "vod" ? (
               <img src={activeProgram.image} className="width200" />
             ) : data === "television" ? (
               <h1 className="graphyne-font program-channel-number">
@@ -57,7 +57,15 @@ class Program extends Component {
             ) : (
               ""
             )}
-            <img src={activeProgram.icon} alt="Channel Logo" />
+            {data === "vod" ? (
+              <h3 className="white-text">
+                Cena: {activeProgram.price}
+                <br />
+                Czas wypożyczenia: {activeProgram.duration}
+              </h3>
+            ) : (
+              <img src={activeProgram.icon} alt="Channel Logo" />
+            )}
           </div>
         </div>
         <div className="background-left-bottom program-shadow">

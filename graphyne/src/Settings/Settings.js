@@ -26,12 +26,14 @@ class Settings extends Component {
   };
 
   componentDidMount() {
-    fetch(`/settingsMenu/settings${this.props.data}.json`)
+    const type = this.props.data ? this.props.data : this.props.match.params.type
+    fetch(`/settingsMenu/settings_${type}.json`)
       .then(response => response.json())
       .then(data => {
         this.setState({
           slides: data,
-          activeSlideIndex: data.length - 1
+          activeSlideIndex: data.length - 1,
+          type
         });
       });
 
@@ -51,6 +53,8 @@ class Settings extends Component {
   }
 
   render() {
+    const type = this.state.type
+    console.log(this.state, this.props)
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -62,7 +66,7 @@ class Settings extends Component {
           <div className="element-container">
             <h1 className="graphyne-font header1">ustawienia</h1>
             <div className="element-container">
-              <h2 className="graphyne-font header2">{this.props.subtitle}</h2>
+              <h2 className="graphyne-font header2">{type === "Menu" ? "" : `/ ${type}`}</h2>
               <ul>
                 {this.state.slides.map(option => (
                   <li
@@ -74,7 +78,7 @@ class Settings extends Component {
                     }
                     key={option}
                   >
-                    <Link to={`/ustawienia/${option}`}>{option}</Link>
+                    <Link to={`/ustawienia/${type === "Menu" ? option : `${type}/>${option}`}`}>{option}</Link>
                   </li>
                 ))}
               </ul>

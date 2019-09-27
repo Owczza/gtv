@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 
-class Television extends Component {
+class Search extends Component {
   state = {
     input: "",
     alphabet: []
@@ -20,9 +20,9 @@ class Television extends Component {
 
   render() {
     return (
-        <span> { this .state.alphabet.map( element => element)}</span>
+        <span> { this.state.alphabet.map( element => element)}</span>
     );
   }
 }
 
-export default Television;
+export default Search;
