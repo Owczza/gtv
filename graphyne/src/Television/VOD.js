@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, television } from "../Components/Components.js";
 
-class Television extends Component {
+class VOD extends Component {
   state = {
     programs: [{}, {}, {}, {}, {}],
     list: [],
@@ -12,7 +12,7 @@ class Television extends Component {
     activeListIndex: null,
     vertical: false
   };
-  
+
   nextSlide = event => {
     if (
       event.isComposing ||
@@ -38,7 +38,7 @@ class Television extends Component {
       this.setState({
         activeSlideIndex: this.state.activeSlideIndex - 1
       });
-    } 
+    }
   };
 
   goUp = event => {
@@ -85,7 +85,7 @@ class Television extends Component {
     this.setState({
       activeSlideIndex: index
     });
-  }
+  };
 
   componentDidMount() {
     fetch(`/vodMenu/vodMenu.json`)
@@ -98,21 +98,21 @@ class Television extends Component {
         });
       });
 
-      document.addEventListener("keydown", event => {
-        this.nextSlide(event);
-      });
-  
-      document.addEventListener("keydown", event => {
-        this.prevSlide(event);
-      });
-  
-      document.addEventListener("keydown", event => {
-        this.goDown(event);
-      });
-  
-      document.removeEventListener("keydown", event => {
-        this.goUp(event);
-      });
+    document.addEventListener("keydown", event => {
+      this.nextSlide(event);
+    });
+
+    document.addEventListener("keydown", event => {
+      this.prevSlide(event);
+    });
+
+    document.addEventListener("keydown", event => {
+      this.goDown(event);
+    });
+
+    document.removeEventListener("keydown", event => {
+      this.goUp(event);
+    });
   }
 
   componentWillUnmount() {
@@ -172,16 +172,16 @@ class Television extends Component {
           <img
             className="margin10-sides"
             src={
-              activeSlideIndex > 0 ? programs[activeSlideIndex - 1].image : ""
+              activeSlideIndex > 0
+                ? programs[activeSlideIndex - 1].image
+                : "/vod-images/empty.png"
             }
             alt={programs[activeSlideIndex - 1]}
             onClick={() => this.centerSlide(activeSlideIndex - 1)}
           />
         </div>
         <div className="nav-selected flex-center auto-height">
-          <Link
-            to={`vod/${programs[activeSlideIndex].channelNumber}`}
-          >
+          <Link to={`vod/${programs[activeSlideIndex].channelNumber}`}>
             <img
               className="margin20-sides active-channel"
               src={programs[activeSlideIndex].image}
@@ -193,7 +193,7 @@ class Television extends Component {
             src={
               activeSlideIndex + 1 < programs.length
                 ? programs[activeSlideIndex + 1].image
-                : ""
+                : "/vod-images/empty.png"
             }
             alt={programs[activeSlideIndex + 1]}
             onClick={() => this.centerSlide(activeSlideIndex + 1)}
@@ -205,7 +205,7 @@ class Television extends Component {
             src={
               activeSlideIndex + 2 < programs.length
                 ? programs[activeSlideIndex + 2].image
-                : ""
+                : "/vod-images/empty.png"
             }
             alt={programs[activeSlideIndex + 2]}
             onClick={() => this.centerSlide(activeSlideIndex + 2)}
@@ -215,7 +215,7 @@ class Television extends Component {
             src={
               activeSlideIndex + 3 < programs.length
                 ? programs[activeSlideIndex + 3].image
-                : ""
+                : "/vod-images/empty.png"
             }
             alt={programs[activeSlideIndex + 3]}
             onClick={() => this.centerSlide(activeSlideIndex + 3)}
@@ -250,4 +250,4 @@ class Television extends Component {
   }
 }
 
-export default Television;
+export default VOD;
