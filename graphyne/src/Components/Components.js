@@ -29,7 +29,7 @@ export const settings = {
     "background-left-top nav-selected background-right-top"
     "background-left-top nav-selected background-right-top"`,
     rows: `106px 1fr auto 142px`,
-    columns: `270px 1fr 1fr`,
+    columns: `270px 3fr 2fr`,
 }
 
 export const television = {

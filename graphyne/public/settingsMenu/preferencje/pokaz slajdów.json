@@ -1,0 +1,107 @@
+[
+  {
+    "name": "opcje językowe",
+    "nested": [
+      {
+        "name": "język główny",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "język aplikacji",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "napisy",
+        "chosen": "wyłączone",
+        "choices": ["hoh", "włączone", "wyłączone"]
+      },
+      {
+        "name": "drugi język",
+        "chosen": "angielski",
+        "choices": ["polski", "angielski"]
+      }
+    ]
+  },
+  {
+    "name": "pokaz slajdów",
+    "chosen": "3 sek",
+    "choices": ["5 sek", "1 sek", "2 sek", "3 sek"]
+  },
+  {
+    "name": "wyświetlanie banera",
+    "chosen": "domyślny",
+    "choices": ["5 sek", "1 sek", "2 sek", "domyślny"]
+  },
+  {
+    "name": "przezroczystość tła",
+    "chosen": "średnia",
+    "choices": ["16 sek", "12 sek", "8 sek", "6 sek", "4 sek", "2 sek", "wyłączony", "średnia"]
+  },
+  {
+    "name": "wyświetlacz (wyłączony)",
+    "chosen": "wysoka",
+    "choices": ["średnia", "niska", "wysoka"]
+  },
+  {
+    "name": "bufor nagrania",
+    "nested": [
+      {
+        "name": "po nagraniu",
+        "chosen": "5 min",
+        "choices": ["3 min", "1 min", "brak bufora", "15 min", "5 min"]
+      },
+      {
+        "name": "przed nagraniem",
+        "chosen": "5 min",
+        "choices": ["3 min", "1 min", "brak bufora", "15 min", "5 min"]
+      }
+    ]
+  },
+  {
+    "name": "sterowanie hdmi cec",
+    "chosen": "włączone",
+    "choices": ["wyłączone", "włączone"]
+  },
+  {
+    "name": "ustawienia audio-video",
+    "nested": [
+      {
+        "name": "rozdzielczość",
+        "chosen": "1080i",
+        "choices": ["720p", "576p", "576i", "2160p50", "1080p", "1080i"]
+      },
+      {
+        "name": "tryb audio",
+        "chosen": "stereo",
+        "choices": ["przestrzenny", "stereo"]
+      },
+      {
+        "name": "format obrazu",
+        "chosen": "bez zmiany",
+        "choices": ["rozciągnięcie", "powiększenie", "bez zmiany"]
+      },
+      {
+        "name": "ekran tv",
+        "chosen": "panoramiczny (16:9)",
+        "choices": ["standardowy (4:3)", "panoramiczny (16:9)"]
+      }
+    ]
+  },
+  {
+    "name": "oszczędzanie energii",
+    "nested": [
+      {
+        "name": "tryb oszczędzania energii",
+        "chosen": "standardowy",
+        "choices": ["maksymalny", "standardowy"]
+      },
+      {
+        "name": "automatyczne wyłączenie",
+        "chosen": "nigdy",
+        "choices": ["6 godz", "3 godz", "nigdy"]
+      }
+    ]
+  }
+]

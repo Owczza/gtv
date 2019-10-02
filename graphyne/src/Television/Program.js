@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "../App.css";
 import { Container, program } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
@@ -49,7 +49,7 @@ class Program extends Component {
             }`}
           >
             {data === "recordings" || data === "vod" ? (
-              <img src={activeProgram.image} className="width200" />
+              <img src={activeProgram.image} className="width200" alt={activeProgram.title}/>
             ) : data === "television" ? (
               <h1 className="graphyne-font program-channel-number">
                 {activeProgram.channelNumber}

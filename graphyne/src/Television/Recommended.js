@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, television } from "../Components/Components.js";
 
@@ -125,10 +124,12 @@ class Recommended extends Component {
             <img
               className="margin20-sides"
               src="/recommended-logos/TVN_Turbo_HD_Logo.jpg"
+              alt="TVN Turbo Logo"
             />
             <img
               className="margin20-sides"
               src="/recommended-logos/TVP_3_Logo.jpg"
+              alt="TVP 3 Logo"
             />
           </div>
           <h2 className="graphyne-font program-time-and-type align-self-start margin30-sides">
