@@ -1,0 +1,78 @@
+[
+    [
+        {
+            "channelNumber": 134,
+            "channelTitle": "TVP KULTURA",
+            "title": "Informacje Kulturalne",
+            "time": "20:00-20:30 / ",
+            "type": "Informacje",
+            "image": "/television-logos/TVP_Kultura_Logo.png",
+            "icon": "/television-logos/TVP_Kultura_Icon.png",
+            "description": "Przegląd najważniejszych, bieżących wydarzeń kulturalnych",
+            "genre": "Wiadomości",
+            "production": "Polska, 2019",
+            "orgTitle": "Informacje kulturalne"
+        },
+        {
+            "channelNumber": 136,
+            "channelTitle": "TVN 24 HD",
+            "title": "Kropka nad i",
+            "time": "20:00-20:35 / ",
+            "type": "Informacje",
+            "image": "/television-logos/TVN_24_HD_Logo.png",
+            "icon": "/television-logos/TVN_24_HD_Icon.png",
+            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "genre": "Program publicystyczny",
+            "production": "Polska",
+            "orgTitle": "Kropka nad i"
+        },
+        {
+            "channelNumber": 137,
+            "channelTitle": "TVN 24 BiS",
+            "title": "Fakty o świecie",
+            "time": "20:20-21:30 / ",
+            "type": "Informacje",
+            "image": "/television-logos/TVN_24_BiS_Logo.png",
+            "icon": "/television-logos/TVN_24_BiS_Icon.png",
+            "description": "Program prezentuje najważniejsze informacje ze świata, opinie i analizy reporterów oraz relacje z miejsc najciekawszych wydarzeń.",
+            "genre": "Wiadomości",
+            "production": "Polska",
+            "orgTitle": "Fakty o świecie"
+        },
+        {
+            "channelNumber": 138,
+            "channelTitle": "TVP 3",
+            "title": "Korona królów",
+            "time": "20:00-20:30 / ",
+            "type": "Film / 12+",
+            "image": "/television-logos/TVP3_Logo.png",
+            "icon": "/television-logos/TVP3_Icon.png",
+            "description": "Rok 1377. Jadwiga ma 4 lata. Jedzie do Wiednia, na dwór narzeczonego - księcia Wilhelma Hapsburga. Dziewczynka poznaje przyszłych teściów - księcia Leopolda i księżnę Viridis. Początki są trudne.",
+            "genre": "Serial historyczny, Odcinek 250",
+            "production": "Polska, 2019",
+            "actors": "Katarzyna Czapla, Wasyl Wasyłyk, Dorota Naruszewicz, Natalia"
+        }
+    ],
+    [
+        
+        "wszystkie",
+        "ostatnie",
+        "częste",
+        "ogólne",
+        "soprt",
+        "film",
+        "dzieci",
+        "edukacja",
+        "muzyka",
+        "lifestyle",
+        "informacja",
+        "erotyka",
+        "ulubione"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]

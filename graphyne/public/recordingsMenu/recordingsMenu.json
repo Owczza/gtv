@@ -1,0 +1,63 @@
+[
+    [
+        {
+            "channelNumber": 1,
+            "channelTitle": "Paramount Channel",
+            "title": "Doktor Hollywood",
+            "time": "PIĄ, 18 STY / 11:50 / 150 min / ",
+            "type": "Nieobejrzane",
+            "image": "/recordings-logos/Paramount.jpg",
+            "icon": "/recordings-logos/Paramount.png",
+            "description": "Film fabularny, Komedia romantyczna. Ben Stone dostał wymarzoną posadę chirurga plastycznego w Beverly Hills. Podczas podróży samochodem do los Agneles dochodzi do wypadku. W małym miasteczku Ben uderza w ogrodzenie posesji miejscowego sędziego. Nieostrożny kierowca zostaje skazany na 32 godziny prac w lokalnym szpitalu.",
+            "genre": "Romansidło"
+        },
+        {
+            "channelNumber": 2,
+            "channelTitle": "HBO",
+            "title": "Czarna Pantera",
+            "time": "ŚRO, 2 STY / 14:50 / 1 min / ",
+            "type": "Nieobejrzane",
+            "isRecorded": "NAGRANY W 0% (ZATRZYMANY PRZEZ UŻYTKOWNIKA)",
+            "image": "/recordings-logos/HBO.jpg",
+            "icon": "/recordings-logos/HBO.png",
+            "description": "Książę T'Challa przywdziewa kostium Czarnej Pantery po tym, jak jego ojciec - król Wakandy - zostaje podstępnie zamordowany.",
+            "genre": "Film"
+        },
+        {
+            "channelNumber": 3,
+            "channelTitle": "VH1",
+            "title": "Best of Britney Spears",
+            "time": "PON 11 MAR / 12:20 / ",
+            "type": "Muzyka",
+            "image": "/recordings-logos/VH1.jpg",
+            "icon": "/recordings-logos/VH1.png",
+            "genre": "Muzyka"
+        },
+        {
+            "channelNumber": 4,
+            "channelTitle": "FilmBox Action",
+            "title": "Syn Smoka",
+            "time": "NIE, 10 LUT / 17:05 / 85 min / ",
+            "type": "Film",
+            "isRecorded":"NAGRANY W 50% (BRAK PRĄDU)",
+            "image": "/recordings-logos/FilmBox.jpg",
+            "icon": "/recordings-logos/FilmBox.png",
+            "description": "Film fabularny, Film fantastyczny. D.B. jest młodym i bardzo sprytnym złodziejem. Nikt tak jak on nie potrafi w tak cichy sposób przemieszczać się i wślizgiwać do zamkniętych pomieszczeń. Jednak nie należy on do zwykłych złodziejaszków, co ukradnie rozdaje biednym ludziom. Pomimo, że dotąd wszystko uchodziło mu płazem, jego kolejny pomysł wydaje się być karkołomny. Chce ukraść kosztowności z pałacu króla.",
+            "genre": "Science Fiction"
+        }
+    ],
+    [
+        
+        "wszystkie",
+        "ostatnie",
+        "częste",
+        "nieobejrzane",
+        "nieudane"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]
