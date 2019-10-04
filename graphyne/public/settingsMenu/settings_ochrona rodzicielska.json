@@ -1,4 +1,11 @@
 [
-    "zmiana pin",
-    "status ochrony"
+  {
+    "name": "test połączenia",
+    "nested": true
+  },
+  {
+    "name": "status ochrony",
+    "chosen": "brak ochrony",
+    "choices": ["18", "16", "12", "7", "brak ochrony"]
+  }
 ]

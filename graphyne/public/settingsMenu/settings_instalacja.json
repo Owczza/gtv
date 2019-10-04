@@ -1,8 +1,72 @@
 [
-    "pobierz ustawienia vod",
-    "konfiguracja sieci",
-    "wyszukiwanie kanałów",
-    "przywróć domyślny pin",
-    "ustawienia domyślne",
-    "aktualizacja oprogramowania"
+  {
+    "name": "pobierz ustawienia vod",
+    "nested": [
+      {
+        "name": "język główny",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "język aplikacji",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "napisy",
+        "chosen": "wyłączone",
+        "choices": ["hoh", "włączone", "wyłączone"]
+      },
+      {
+        "name": "drugi język",
+        "chosen": "angielski",
+        "choices": ["polski", "angielski"]
+      }
+    ]
+  },
+  {
+    "name": "konfiguracja sieci",
+    "description": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony"
+  },
+  {
+    "name": "wyszukiwanie kanałów",
+    "chosen": "klient",
+    "choices": ["serwer", "multiroom wyłączony", "klient"]
+  },
+  {
+    "name": "przywróć domyślny pin",
+    "chosen": "ZC4110OVE",
+    "choices": ["salon", "kuchnia", "ZC4110OVE"]
+  },
+  {
+    "name": "ustawienia domyślne",
+    "chosen": "klient",
+    "choices": ["serwer", "multiroom wyłączony", "klient"]
+  },
+  {
+    "name": "aktualizacja oprogramowania",
+    "description": "wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
+    "nested": [
+      {
+        "name": "język główny",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "język aplikacji",
+        "chosen": "polski",
+        "choices": ["angielski", "polski"]
+      },
+      {
+        "name": "napisy",
+        "chosen": "wyłączone",
+        "choices": ["hoh", "włączone", "wyłączone"]
+      },
+      {
+        "name": "drugi język",
+        "chosen": "angielski",
+        "choices": ["polski", "angielski"]
+      }
+    ]
+  }
 ]
