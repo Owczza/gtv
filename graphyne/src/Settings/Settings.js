@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
@@ -29,7 +29,7 @@ class Settings extends Component {
     const type = this.props.data
       ? this.props.data
       : this.props.match.params.type;
-    const url = this.props.match.url ? this.props.match.url : "";
+    const pathname = this.props.match.url ? this.props.match.url : "";
     fetch(`/settingsMenu/settings_${type}.json`)
       .then(response => response.json())
       .then(data => {
@@ -37,7 +37,7 @@ class Settings extends Component {
           slides: data,
           activeSlideIndex: data.length - 1,
           type,
-          url
+          url: pathname
         });
       });
 

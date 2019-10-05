@@ -32,7 +32,7 @@ class App extends Component {
           <Route exact path="/moje_pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
           <Route exact path="/wiadomosci" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
           <Route exact path="/szukaj" render={ () => <Search />} />
-          <Route exact path="/ustawienia" component={ () => <Settings data="Menu" /> } />
+          <Route exact path="/ustawienia" component={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" component={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" component={ (props) => <SettingsNested {...this.props} {...props} /> } />
         <Navigation />
