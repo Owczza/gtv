@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
 
-class Settings extends Component {
+class SettingsNested extends Component {
   state = {
-    data: [],
-    activeSlideIndex: null
+    data: { nested: [], choices: [] },
+    activeSlideIndex: null,
+    choosing: null
   };
 
   nextSlide = () => {
@@ -24,20 +25,37 @@ class Settings extends Component {
     }
   };
 
-  componentDidMount() {
-    const type = this.props.match.params.type
-    const subtype = this.props.match.params.subtype.substr(1)
-    fetch(`/settingsMenu/${type}/${subtype}.json`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          data,
-          activeSlideIndex: data.length - 1,
-          subtype
-        });
-      })
-      ;
+  pickChoice = choice => {
+    this.setState({
+      ...this.state,
+      data: {...this.state.data, chosen: choice},
+      choosing: false,
+      activeSlideIndex: true
+    });
+  };
 
+  startChoosing = () => {
+    this.setState({
+      ...this.state,
+      choosing: true,
+      activeSlideIndex: false
+    });
+  };
+
+  uploadToState = () => {
+    const choosing = this.props.location.option.nested ? 0 : false;
+    const activeSlideIndex = this.props.location.option.nested
+      ? this.props.location.option.nested.length - 1
+      : true;
+    this.setState({
+      data: this.props.location.option,
+      activeSlideIndex,
+      choosing
+    });
+  };
+
+  componentDidMount() {
+    this.uploadToState();
     document.addEventListener("keydown", event => {
       if (event.isComposing || event.key === "ArrowUp") {
         return;
@@ -54,8 +72,7 @@ class Settings extends Component {
   }
 
   render() {
-    const { subtype, data } = this.state
-    
+    const data = this.state.data;
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -67,21 +84,65 @@ class Settings extends Component {
           <div className="element-container">
             <h1 className="graphyne-font header1">ustawienia</h1>
             <div className="element-container">
-              <h2 className="graphyne-font header2">.../ {subtype}</h2>
-              <ul>
-                {data.map(option => (
-                  <li
-                    className={
-                      data.indexOf(option) ===
-                      this.state.activeSlideIndex
-                        ? "graphyne-font blue program-channel-number"
-                        : "graphyne-font"
-                    }
-                    key={option}
-                  ><span>{option.name}</span><span>{option.chosen}</span>
-                  </li>
-                ))}
-              </ul>
+              <h2 className="graphyne-font header2">.../ {data.name}</h2>
+              <div className="graphyne-font font20">
+                {this.props.location.option.nested ? (
+                  data.nested.map(option => (
+                    <div
+                      className="flex align-center justify-between"
+                      key={option.name}
+                    >
+                      <span
+                        className={
+                          data.nested.indexOf(option) ===
+                          this.state.activeSlideIndex
+                            ? "blue font21 font-weight800"
+                            : ""
+                        }
+                      >
+                        {option.name}
+                      </span>
+                      <span className="font16">
+                        {option.chosen ? option.chosen : ""}
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="flex align-bottom justify-between">
+                    <span
+                      className={
+                        this.state.activeSlideIndex
+                          ? "blue font21 font-weight800"
+                          : ""
+                      }
+                    >
+                      {data.name}
+                    </span>
+
+                    {this.state.choosing === false ? (
+                      <span
+                        className="font16"
+                        onClick={() => this.startChoosing()}
+                      >
+                        {data.chosen}
+                      </span>
+                    ) : (
+                      <div className="flex-column flex">{data.choices.map(choice => (
+                        <span
+                          className={
+                            this.state.data.chosen === choice
+                              ? "blue font16 font-weight800"
+                              : "font16"
+                          }
+                          onClick={() => this.pickChoice(choice)}
+                        >
+                          {choice}
+                        </span>
+                      ))}</div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -91,4 +152,4 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+export default SettingsNested;

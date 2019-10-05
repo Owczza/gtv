@@ -11,7 +11,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/vod.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
@@ -26,7 +26,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/piekna.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
@@ -71,7 +71,7 @@
             "duration": "48 h",
             "length": "107 min",
             "image": "/vod-images/303.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "David Blair",
             "actors": "Iwan Rheon, Milo Gibson, Stefanie Martini"
         },
@@ -86,7 +86,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/ant-man.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
@@ -101,7 +101,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/azjaci.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
@@ -116,7 +116,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/iniemamocni.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
@@ -131,13 +131,13 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/drapacz.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         },
         {
             "channelNumber": 10,
-            "title": "Jestem taka piękna",
+            "title": "Jestem taki piękna",
             "type": "komedia",
             "country": "US",
             "year": "2018",
@@ -146,7 +146,7 @@
             "duration": "48 h",
             "length": "106 min",
             "image": "/vod-images/wojna.jpg",
-            "description": "Monika Olejnik prowadzi rozmowy z najważniejszymi postaciami polskiej sceny politycznej na temat bieżących wydażeń w kraju.",
+            "description": "",
             "director": "Abby Kohn",
             "actors": "Amy Schumer, Michelle Williams, Emily Ratajkowski"
         }
