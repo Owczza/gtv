@@ -31,6 +31,12 @@ class Television extends Component {
     }
   };
 
+  centerSlide = index => {
+    this.setState({
+      activeSlideIndex: index
+    });
+  };
+
   prevSlide = event => {
     if (
       event.isComposing ||
@@ -183,11 +189,20 @@ class Television extends Component {
               ].image
             }
             alt="program1"
+            onClick={() =>
+              this.centerSlide(
+                activeSlideIndex > 0
+                  ? activeSlideIndex - 1
+                  : programs.length - 1
+              )
+            }
           />
         </div>
         <div className="nav-selected flex-center auto-height">
           {this.props.data !== "radio" ? (
-            <Link to={`${this.props.title}/${programs[activeSlideIndex].channelNumber}`}>
+            <Link
+              to={`${this.props.title}/${programs[activeSlideIndex].channelNumber}`}
+            >
               <img
                 className="margin20-sides active-channel"
                 src={programs[activeSlideIndex].image}
@@ -213,6 +228,13 @@ class Television extends Component {
               ].image
             }
             alt="program3"
+            onClick={() =>
+              this.centerSlide(
+                activeSlideIndex + 1 < programs.length
+                  ? activeSlideIndex + 1
+                  : 0
+              )
+            }
           />
           <img
             className="margin10-sides"
@@ -226,6 +248,15 @@ class Television extends Component {
               ].image
             }
             alt="program4"
+            onClick={() =>
+              this.centerSlide(
+                activeSlideIndex + 2 < programs.length
+                  ? activeSlideIndex + 2
+                  : activeSlideIndex === programs.length - 1
+                  ? 1
+                  : 0
+              )
+            }
           />
         </div>
         <div className="background-left-bottom align-top flex-end">

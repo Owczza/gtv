@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Route } from 'react-router-dom'
 import Navigation from "./Components/Navigation"
 import Menu from "./Menu/Menu"
-import MyFiles from "./Menu/Menu"
+import MyFiles from "./Menu/MyFiles"
 import Search from "./Menu/Search"
 import Settings from "./Settings/Settings"
 import SettingsNested from "./Settings/SettingsNested"

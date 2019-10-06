@@ -135,6 +135,7 @@ class SettingsNested extends Component {
                               : "font16"
                           }
                           onClick={() => this.pickChoice(choice)}
+                          key={choice}
                         >
                           {choice}
                         </span>

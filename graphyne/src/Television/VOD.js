@@ -82,9 +82,10 @@ class VOD extends Component {
   };
 
   centerSlide = index => {
+    
     this.setState({
-      activeSlideIndex: index
-    });
+      activeSlideIndex: index >= 0 && index <= this.state.programs.length -1 ? index : this.state.activeSlideIndex
+    }) 
   };
 
   componentDidMount() {
