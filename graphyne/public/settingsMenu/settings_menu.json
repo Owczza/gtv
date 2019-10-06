@@ -1,8 +1,8 @@
 [
-    "preferencje",
-    "ochrona rodzicielska",
-    "diagnostyka",
-    "pomoc",
-    "multiroom",
-    "instalacja"
+  { "name": "preferencje" },
+  { "name": "ochrona rodzicielska" },
+  { "name": "diagnostyka" },
+  { "name": "pomoc" },
+  { "name": "multiroom" },
+  { "name": "instalacja" }
 ]

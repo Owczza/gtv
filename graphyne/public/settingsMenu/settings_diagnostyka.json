@@ -1,7 +1,140 @@
 [
-    "dysk",
-    "informacje o odbiorniku",
-    "parametry sieci",
-    "miernik sygnału",
-    "dostęp warunkowy"
+  {
+    "name": "dysk",
+    "nested": [
+      { "name": "model dysku", "chosen": "WDC WD5000LUCT-63RC2Y0" },
+      { "name": "pojemność dysku (gb)", "chosen": "454" },
+      { "name": "dostępna ilość wolnego miejsca", "chosen": "95%" }
+    ]
+  },
+
+  
+  {
+    "name": "modem",
+    "nested": [
+      { "name": "stan modemu", "chosen": "sieć działająca" },
+      { "name": "hfc mac adres", "chosen": "68:63:59:F3:F1:1E" },
+      { "name": "częstotliwość ds (mhz)", "chosen": "778000000" },
+      { "name": "poziom sygnału ds (dbmv)", "chosen": "8.8" },
+      { "name": "modulacja", "chosen": "QAM-256" },
+      { "name": "częstotliwość us (mhz)", "chosen": "38000000" },
+      { "name": "poziom sygnału us (dbmv)", "chosen": "41.2" },
+      { "name": "symbol rate (ks/s)", "chosen": "55616000" }
+    ]
+  },
+
+
+  {
+    "name": "informacje o odbiorniku",
+    "nested": [
+      {
+        "name": "grupy",
+        "nested": [
+          {
+            "name": "500",
+            "nested": true
+          }
+        ]
+      },
+      {
+        "name": "loader",
+        "nested": [
+          { "name": "informacja o oprogramowaniu", "chosen": "0X73A4 0C60" },
+          { "name": "wersja sprzętu", "chosen": "0X167" },
+          { "name": "wersja sterowników", "chosen": "1.3.1D0056-73A4" },
+          {
+            "name": "data pobrania oprogramowania",
+            "chosen": "09.10.19 21:25:58"
+          },
+          { "name": "numer seryjny odbiornika", "chosen": "FBBBB5D749570037" }
+        ]
+      },
+      {
+        "name": "system",
+        "nested": [
+          { "name": "typ odbiornika", "chosen": "ZC4110" },
+          { "name": "tryb aplikacji", "chosen": "87:-1:-1:1030:1030" },
+          { "name": "ustawienia vod", "chosen": "FF06:01730669894::0.0" },
+          { "name": "wersja oprogramowania", "chosen": "1.2.10" },
+          { "name": "wersja aplikacji", "chosen": "V18.6.11" },
+          { "name": "numer conax", "chosen": "677323604" }
+        ]
+      }
+    ]
+  },
+
+
+  { "name": "parametry sieci", "nested": true },
+
+
+  {
+    "name": "miernik sygnału",
+    "nested": [
+      {
+        "name": "tuner 1",
+        "nested": [
+          { "name": "siła", "chosen": "57%" },
+          { "name": "jakość", "chosen": "83%" },
+          { "name": "ber", "chosen": "0.00E+00" },
+          { "name": "s/n (db)", "chosen": "35.8" },
+          { "name": "modulacja", "chosen": "QAM-256" },
+          { "name": "symbol rate (ks/s)", "chosen": "6875" },
+          { "name": "częstotliwość (mhz)", "chosen": "570" }
+        ]
+      }
+    ]
+  },
+
+
+  {
+    "name": "dostęp warunkowy",
+    "nested": [
+      {
+        "name": "skrzynka odbiorcza conax",
+        "nested": [
+          {
+            "image": "/menu-icons/brak_wiadomosci.png"
+          }
+        ]
+      },
+      {
+        "name": "ochrona rodzicielska",
+        "nested": [
+          {
+            "name": "ochrona rodzicielska",
+            "chosen": "g - bez ograniczeń",
+            "choices": [
+              "x - erotyczne",
+              "a - powyżej 18",
+              "pg - za zgodą rodziców",
+              "g - bez ograniczeń"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "zmień ca pin", "nested": true 
+      },
+      {
+        "name": "stan żetonów", "nested": true 
+      },
+      {
+        "name": "stan programu", "nested": true 
+      },
+      {
+        "name": "stan subskrypcji", "nested": true 
+      },
+      {
+        "name": "o conax ca",
+        "nested": [
+          { "name": "chip id:", "chosen": "006 7732 3604" },
+          { "name": "ca_sys_id:", "chosen": "0X0B00" },
+          { "name": "język:", "chosen": "48" },
+          { "name": "liczba sesji:", "chosen": "5" },
+          { "name": "numer karty:", "chosen": "017 3066 9894 - 9" },
+          { "name": "wersja interfejsu:", "chosen": "0X40" }
+        ]
+      }
+    ]
+  }
 ]

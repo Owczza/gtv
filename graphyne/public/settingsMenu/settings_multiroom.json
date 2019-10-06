@@ -1,8 +1,28 @@
 [
-    "usuwanie urządzeń",
-    "lista priorytetów urządzeń",    
-    "rola urządzenia",
-    "nazwa urządenia",
-    "test połączenia",
-    "status multiroom"
+  {
+    "name": "test połączenia",
+    "description": "nie znaleziono serwera multiroom"
+  },
+  {
+    "name": "status multiroom",
+    "description": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony"
+  },
+  {
+    "name": "rola urządzenia",
+    "chosen": "klient",
+    "choices": [
+      "serwer",
+      "multiroom wyłączony",
+      "klient"
+    ]
+  },
+  {
+    "name": "nazwa urządzenia",
+    "chosen": "ZC4110OVE",
+    "choices": [
+      "salon",
+      "kuchnia",
+      "ZC4110OVE"
+    ]
+  }
 ]
