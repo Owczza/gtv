@@ -9,22 +9,6 @@ class Settings extends Component {
     activeSlideIndex: null
   };
 
-  nextSlide = () => {
-    if (this.state.activeSlideIndex + 1 < this.state.slides.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    }
-  };
-
-  prevSlide = () => {
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    }
-  };
-
   componentDidMount() {
     const type = this.props.data
       ? this.props.data
@@ -40,20 +24,6 @@ class Settings extends Component {
           url: pathname
         });
       });
-
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || event.key === "ArrowUp") {
-        return;
-      }
-      this.nextSlide();
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || event.key === "ArrowDown") {
-        return;
-      }
-      this.prevSlide();
-    });
   }
 
   render() {
@@ -79,12 +49,7 @@ class Settings extends Component {
                     key={option.name}
                   >
                     <span
-                      className={
-                        this.state.slides.indexOf(option) ===
-                        this.state.activeSlideIndex
-                          ? "blue font21 font-weight800"
-                          : ""
-                      }
+                      className="list-hover"
                     >
                       <Link to={{
                         pathname: this.state.url + "/" + option.name,

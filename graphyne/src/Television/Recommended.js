@@ -5,42 +5,13 @@ import { Container, television } from "../Components/Components.js";
 class Recommended extends Component {
   state = {
     programs: [{}, {}, {}, {}, {}],
-    activeSlideIndex: 0,
-    star: ""
-  };
-
-  nextSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowLeft" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex + 1 < this.state.programs.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    }
-  };
-
-  prevSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowRight" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    }
+    activeSlideIndex: 0
   };
 
   centerSlide = index => {
     this.setState({
-      activeSlideIndex: index
-    });
+      activeSlideIndex: index >= 0 && index <= this.state.programs.length -1 ? index : this.state.activeSlideIndex
+    }) 
   };
 
   componentDidMount() {
@@ -51,31 +22,9 @@ class Recommended extends Component {
           programs: data
         });
       });
-
-    document.addEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.addEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
-  }
-
-  componentWillUnmount() {
-    const controller = new AbortController();
-    controller.abort();
-
-    document.removeEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
   }
 
   render() {
-    console.log(this.state.programs);
     const { programs, activeSlideIndex } = this.state;
     return (
       <Container theme={television}>
@@ -137,7 +86,7 @@ class Recommended extends Component {
           </h2>
           <div className="flex-center align-bottom">
             <img
-              className="margin20-sides active-channel margin3-bottom"
+              className="margin20-sides active-channel margin7-bottom"
               src={programs[activeSlideIndex].image}
               alt={programs[activeSlideIndex]}
             />

@@ -13,86 +13,10 @@ class Television extends Component {
     vertical: false
   };
 
-  nextSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowLeft" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex + 1 < this.state.programs.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    } else {
-      this.setState({
-        activeSlideIndex: 0
-      });
-    }
-  };
-
   centerSlide = index => {
     this.setState({
       activeSlideIndex: index
     });
-  };
-
-  prevSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowRight" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    } else {
-      this.setState({
-        activeSlideIndex: this.state.programs.length - 1
-      });
-    }
-  };
-
-  goUp = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowDown" && this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeListIndex > 0) {
-      this.setState({
-        activeListIndex: this.state.activeListIndex - 1
-      });
-    } else {
-      this.setState({
-        activeListIndex: this.state.list.length - 1
-      });
-    }
-  };
-
-  goDown = event => {
-    if (event.isComposing || event.key === "ArrowUp") {
-      this.setState({
-        vertical: true
-      });
-    }
-    if (this.state.activeListIndex === null) {
-      this.setState({
-        activeListIndex: 0
-      });
-    }
-    if (this.state.activeListIndex + 1 < this.state.list.length) {
-      this.setState({
-        activeListIndex: this.state.activeListIndex + 1
-      });
-    } else {
-      this.setState({
-        activeListIndex: 0
-      });
-    }
   };
 
   componentDidMount() {
@@ -104,45 +28,7 @@ class Television extends Component {
           list: data[1],
           options: data[2]
         });
-      });
-
-    document.addEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.addEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
-
-    document.addEventListener("keydown", event => {
-      this.goDown(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.goUp(event);
-    });
-  }
-
-  componentWillUnmount() {
-    const controller = new AbortController();
-    controller.abort();
-
-    document.removeEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.goDown(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.goUp(event);
-    });
-  }
+      });}
 
   render() {
     const { programs, list, activeSlideIndex, activeListIndex } = this.state;
@@ -267,14 +153,10 @@ class Television extends Component {
           </div>
         </div>
         <div className="nav-selected-bottom">
-          <ul className="margin20-sides">
+          <ul className="margin20-sides program-list-overflow">
             {list.map(type => (
               <li
-                className={
-                  type === list[activeListIndex]
-                    ? "graphyne-font program-channel-number blue"
-                    : "graphyne-font"
-                }
+                className="graphyne-font list-hover"
                 key={type}
               >
                 {type}

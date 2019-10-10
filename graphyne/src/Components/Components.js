@@ -19,7 +19,7 @@ export const menu = {
     "background-left-top nav-selected background-right-top"
     "nav-left nav-selected nav-right"
     "background-left-bottom nav-selected background-right-bottom"`,
-    rows: `106px 1fr auto 142px`,
+    rows: `106px 1fr 87px 142px`,
     columns: `270px auto 1fr`,
 }
 

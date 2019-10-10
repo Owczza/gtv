@@ -9,26 +9,10 @@ class Menu extends Component {
     activeSlideIndex: 1
   };
 
-  nextSlide = () => {
-    if (this.state.activeSlideIndex + 1 < this.state.slides.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    }
-  };
-
   centerSlide = index => {
     this.setState({
       activeSlideIndex: index >= 0 && index <= this.state.slides.length -1 ? index : this.state.activeSlideIndex
     });
-  };
-
-  prevSlide = () => {
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    }
   };
 
   componentDidMount() {
@@ -40,21 +24,6 @@ class Menu extends Component {
           slides: data
         });
       });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "ArrowLeft") {
-        return;
-      }
-      this.nextSlide();
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "ArrowRight") {
-        return;
-      }
-      this.prevSlide();
-    });
-    
   }
 
   render() {
@@ -68,6 +37,7 @@ class Menu extends Component {
         <div className="clock flex-center"></div>
         <div className="nav-left flex-end">
           <img
+            className="margin30-sides margin10-top"
             src={
               activeSlideIndex > 0
                 ? `/${photos}/${slides[activeSlideIndex - 1]}.png`
@@ -80,7 +50,6 @@ class Menu extends Component {
         <div className="nav-selected flex-center auto-height">
           <Link to={`/${this.props.address}${slides[activeSlideIndex]}`}>
             <img
-              className="auto-height"
               src={`/${photos}/menu_${slides[activeSlideIndex]}.jpg`}
               alt={slides[activeSlideIndex]}
             />
@@ -88,7 +57,7 @@ class Menu extends Component {
         </div>
         <div className="nav-right flex-center">
           <img
-            className="auto-height"
+            className="margin30-sides margin10-top"
             src={
               activeSlideIndex + 1 < slides.length
                 ? `/${photos}/${slides[activeSlideIndex + 1]}.png`
@@ -99,7 +68,7 @@ class Menu extends Component {
           />
           {slides[activeSlideIndex] ? (
             <img
-              className="auto-height"
+              className="margin30-sides margin10-top"
               src={
                 activeSlideIndex + 2 < slides.length
                   ? `/${photos}/${slides[activeSlideIndex + 2]}.png`

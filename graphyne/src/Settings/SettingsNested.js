@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
 
@@ -6,29 +7,14 @@ class SettingsNested extends Component {
   state = {
     data: { nested: [], choices: [] },
     activeSlideIndex: null,
-    choosing: null
-  };
-
-  nextSlide = () => {
-    if (this.state.activeSlideIndex + 1 < this.state.slides.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    }
-  };
-
-  prevSlide = () => {
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    }
+    choosing: null,
+    url: ""
   };
 
   pickChoice = choice => {
     this.setState({
       ...this.state,
-      data: {...this.state.data, chosen: choice},
+      data: { ...this.state.data, chosen: choice },
       choosing: false,
       activeSlideIndex: true
     });
@@ -47,28 +33,17 @@ class SettingsNested extends Component {
     const activeSlideIndex = this.props.location.option.nested
       ? this.props.location.option.nested.length - 1
       : true;
+    const pathname = this.props.match.url ? this.props.match.url : "";
     this.setState({
       data: this.props.location.option,
       activeSlideIndex,
-      choosing
+      choosing,
+      url: pathname
     });
   };
 
   componentDidMount() {
     this.uploadToState();
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || event.key === "ArrowUp") {
-        return;
-      }
-      this.nextSlide();
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || event.key === "ArrowDown") {
-        return;
-      }
-      this.prevSlide();
-    });
   }
 
   render() {
@@ -92,15 +67,15 @@ class SettingsNested extends Component {
                       className="flex align-center justify-between"
                       key={option.name}
                     >
-                      <span
-                        className={
-                          data.nested.indexOf(option) ===
-                          this.state.activeSlideIndex
-                            ? "blue font21 font-weight800"
-                            : ""
-                        }
-                      >
-                        {option.name}
+                      <span className="list-hover">
+                        <Link
+                          to={{
+                            pathname: this.state.url + "/" + option.name,
+                            option
+                          }}
+                        >
+                          {option.name}
+                        </Link>
                       </span>
                       <span className="font16">
                         {option.chosen ? option.chosen : ""}
@@ -109,14 +84,16 @@ class SettingsNested extends Component {
                   ))
                 ) : (
                   <div className="flex align-bottom justify-between">
-                    <span
-                      className={
-                        this.state.activeSlideIndex
-                          ? "blue font21 font-weight800"
-                          : ""
-                      }
-                    >
+                    <span className="blue font-weight800 font21">
                       {data.name}
+                    </span><br />
+                    <span className="list-hover">
+                      {data.continue ?
+                        "Kontynuuj" :
+                        data.name === "ustawienia domyślne" && data.chosen === "tak" ?
+                          <Link to="/domyslne">"Kontynuuj"</Link>
+                          : ""
+                          }
                     </span>
 
                     {this.state.choosing === false ? (
@@ -127,19 +104,17 @@ class SettingsNested extends Component {
                         {data.chosen}
                       </span>
                     ) : (
-                      <div className="flex-column flex">{data.choices.map(choice => (
-                        <span
-                          className={
-                            this.state.data.chosen === choice
-                              ? "blue font16 font-weight800"
-                              : "font16"
-                          }
-                          onClick={() => this.pickChoice(choice)}
-                          key={choice}
-                        >
-                          {choice}
-                        </span>
-                      ))}</div>
+                      <div className="flex-column flex">
+                        {data.choices.map(choice => (
+                          <span
+                            className="list-hover"
+                            onClick={() => this.pickChoice(choice)}
+                            key={choice}
+                          >
+                            {choice}
+                          </span>
+                        ))}
+                      </div>
                     )}
                   </div>
                 )}

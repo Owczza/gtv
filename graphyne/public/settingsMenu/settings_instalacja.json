@@ -40,8 +40,9 @@
   },
   {
     "name": "ustawienia domyślne",
-    "chosen": "klient",
-    "choices": ["serwer", "multiroom wyłączony", "klient"]
+    "chosen": "nie",
+    "choices": ["tak", "nie"],
+    "continue": true
   },
   {
     "name": "aktualizacja oprogramowania",

@@ -71,7 +71,7 @@ class Program extends Component {
         <div className="background-left-bottom program-shadow">
           <div className="nav-selected-padding padding145-top no-padding-bottom white-text">
             <h1 className="font-weight400">{activeProgram.title}</h1>
-            {data !== "recordings" ? (
+            {data === "television" ? (
               <div className="separator"></div>
             ) : (
               <h3 className="font-weight400">{activeProgram.genre}</h3>
@@ -79,6 +79,7 @@ class Program extends Component {
             <span className="font20">
               {activeProgram.time}
               {activeProgram.type}
+              {}
             </span>
             <br />
             <br />
@@ -91,11 +92,11 @@ class Program extends Component {
             )}
           </div>
         </div>
-        <div className="background-right-top flex-center">
-          <div className="nav-selected-padding no-padding-bottom">
+        <div className="background-right-top flex justify-start align-center padding20-left">
+          <div className="padding145-top padding20-left">
             <ul>
               {list.map(option => (
-                <li className="list-line-height header1 gray-text" key={option}>
+                <li className="list-line-height header1 gray-text program-list-hover" key={option}>
                   {option}
                 </li>
               ))}

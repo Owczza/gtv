@@ -35,6 +35,7 @@ class App extends Component {
           <Route exact path="/ustawienia" component={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" component={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" component={ (props) => <SettingsNested {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/:type/:subtype/:specific" component={ (props) => <SettingsNested {...this.props} {...props} /> } />
         <Navigation />
       </div>
     );
