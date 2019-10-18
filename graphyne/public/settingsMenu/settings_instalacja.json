@@ -40,8 +40,18 @@
   },
   {
     "name": "ustawienia domyślne",
-    "chosen": "nie",
-    "choices": ["tak", "nie"],
+    "nested": [
+      {
+        "name": "przywróć ustawienia domyślne",
+        "chosen": "nie",
+        "choices": ["tak", "nie"]
+      },
+      { 
+        "name": "usuń nagrania",
+        "chosen": "nie",
+        "choices": ["tak", "nie"] 
+      }
+    ],
     "continue": true
   },
   {

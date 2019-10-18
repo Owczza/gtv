@@ -389,3 +389,7 @@ p {
 .option-mute {
   color: #989fa973
 }
+
+#option-display {
+  display: none;
+}

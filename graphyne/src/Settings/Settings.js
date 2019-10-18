@@ -6,8 +6,39 @@ import { Container, settings } from "../Components/Components.js";
 class Settings extends Component {
   state = {
     slides: [],
-    activeSlideIndex: null
+    activeSlideIndex: null,
+    setting: {
+      name: "",
+      chosen: "",
+      choices: []
+    }
   };
+
+  startChoosing = option => {
+    this.setState({
+      ...this.state,
+      setting: option
+    });
+    document.getElementById("options-list").style.display = "none";
+    document.getElementById("option-display").style.display = "flex";
+  };
+
+  pickChoice = choice => {
+
+    const newSlides = this.state.slides.forEach((element, index) => {
+      if (element.name === this.state.setting.name) {
+        element = this.state.setting
+      };})
+
+      console.log(newSlides)
+
+    this.setState({
+      ...this.state,
+    });
+    document.getElementById("options-list").style.display = "block";
+    document.getElementById("option-display").style.display = "none";
+  };
+
 
   componentDidMount() {
     const type = this.props.data
@@ -28,6 +59,7 @@ class Settings extends Component {
 
   render() {
     const type = this.state.type;
+    console.log(this.state);
     return (
       <Container theme={settings}>
         <div className="vectra flex align-center justify-around">
@@ -42,26 +74,53 @@ class Settings extends Component {
               <h2 className="graphyne-font header2">
                 {type === "Menu" ? "" : `/ ${type}`}
               </h2>
-              <div className="graphyne-font font20">
+              <div className="graphyne-font font20" id="options-list">
                 {this.state.slides.map(option => (
                   <div
                     className="flex align-center justify-between"
                     key={option.name}
                   >
-                    <span
-                      className="list-hover"
-                    >
-                      <Link to={{
-                        pathname: this.state.url + "/" + option.name,
-                        option}}>
-                        {option.name}
-                      </Link>
+                    <span className="list-hover">
+                      {option.nested ? (
+                        <Link
+                          to={{
+                            pathname: this.state.url + "/" + option.name,
+                            option
+                          }}
+                        >
+                          {option.name}
+                        </Link>
+                      ) : (
+                        <span onClick={() => this.startChoosing(option)}>
+                          {option.name}
+                        </span>
+                      )}
                     </span>
                     <span className="font16">
                       {option.chosen ? option.chosen : ""}
                     </span>
                   </div>
                 ))}
+              </div>
+              <div
+                className="graphyne-font font20 flex align-bottom justify-between"
+                id="option-display"
+              >
+                <span className="blue font-weight800 font21">
+                  {this.state.setting.name}
+                </span>
+                <br />
+                <div className="flex-column flex">
+                  {this.state.setting.choices.map(choice => (
+                    <span
+                      className="list-hover"
+                      onClick={() => this.pickChoice(choice)}
+                      key={choice}
+                    >
+                      {choice}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

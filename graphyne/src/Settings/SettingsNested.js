@@ -69,6 +69,7 @@ class SettingsNested extends Component {
                       key={option.name}
                     >
                       <span className="list-hover">
+                        {option.nested ? 
                         <Link
                           to={{
                             pathname: this.state.url + "/" + option.name,
@@ -76,7 +77,8 @@ class SettingsNested extends Component {
                           }}
                         >
                           {option.name}
-                        </Link>
+                        </Link> :
+                      option.name}
                       </span>
                       <span className="font16">
                         {option.chosen ? option.chosen : ""}
@@ -111,17 +113,6 @@ class SettingsNested extends Component {
                         </div>
                       )}
                     </div>
-                    <br />
-                    <span className="list-hover">
-                      {data.continue ? (
-                        "Kontynuuj"
-                      ) : data.name === "ustawienia domyślne" &&
-                        data.chosen === "tak" ? (
-                        <Link to="/domyslne">"Kontynuuj"</Link>
-                      ) : (
-                        ""
-                      )}
-                    </span>
                   </Fragment>
                 )}
               </div>

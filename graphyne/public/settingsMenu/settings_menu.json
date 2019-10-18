@@ -1,8 +1,8 @@
 [
-  { "name": "preferencje" },
-  { "name": "ochrona rodzicielska" },
-  { "name": "diagnostyka" },
-  { "name": "pomoc" },
-  { "name": "multiroom" },
-  { "name": "instalacja" }
+  { "name": "preferencje", "nested": true },
+  { "name": "ochrona rodzicielska", "nested": true },
+  { "name": "diagnostyka", "nested": true },
+  { "name": "pomoc", "nested": true },
+  { "name": "multiroom", "nested": true },
+  { "name": "instalacja", "nested": true }
 ]
