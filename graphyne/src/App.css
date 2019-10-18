@@ -385,3 +385,7 @@ p {
   max-height: 80%;
   overflow: auto;
 }
+
+.option-mute {
+  color: #989fa973
+}

@@ -32,7 +32,7 @@ class VOD extends Component {
   }
 
   render() {
-    const { programs, list, activeSlideIndex, activeListIndex } = this.state;
+    const { programs, list, activeSlideIndex } = this.state;
     return (
       <Container theme={television}>
         <div className="vectra flex-center">
@@ -52,12 +52,12 @@ class VOD extends Component {
               {programs[activeSlideIndex].title}
             </h2>
             <h3 className="program-time-and-type">
-              {programs[activeSlideIndex].time} /
-              {programs[activeSlideIndex].country} /
-              {programs[activeSlideIndex].time} /{programs[activeSlideIndex].PG}
+              {programs[activeSlideIndex].type + " / " + 
+              programs[activeSlideIndex].country + " / " + 
+              programs[activeSlideIndex].year + " / " +
+              programs[activeSlideIndex].PG}
               <br />
-              Cena: {programs[activeSlideIndex].price} /
-              {programs[activeSlideIndex].duration}
+              Cena: {programs[activeSlideIndex].price + " / " + programs[activeSlideIndex].duration}
             </h3>
           </div>
         </div>

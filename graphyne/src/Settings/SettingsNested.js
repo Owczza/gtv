@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
@@ -48,6 +48,7 @@ class SettingsNested extends Component {
 
   render() {
     const data = this.state.data;
+    console.log(data);
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -83,40 +84,45 @@ class SettingsNested extends Component {
                     </div>
                   ))
                 ) : (
-                  <div className="flex align-bottom justify-between">
-                    <span className="blue font-weight800 font21">
-                      {data.name}
-                    </span><br />
-                    <span className="list-hover">
-                      {data.continue ?
-                        "Kontynuuj" :
-                        data.name === "ustawienia domyślne" && data.chosen === "tak" ?
-                          <Link to="/domyslne">"Kontynuuj"</Link>
-                          : ""
-                          }
-                    </span>
-
-                    {this.state.choosing === false ? (
-                      <span
-                        className="font16"
-                        onClick={() => this.startChoosing()}
-                      >
-                        {data.chosen}
+                  <Fragment>
+                    <div className="flex align-bottom justify-between">
+                      <span className="blue font-weight800 font21">
+                        {data.name}
                       </span>
-                    ) : (
-                      <div className="flex-column flex">
-                        {data.choices.map(choice => (
-                          <span
-                            className="list-hover"
-                            onClick={() => this.pickChoice(choice)}
-                            key={choice}
-                          >
-                            {choice}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                      <br />
+                      {this.state.choosing === false ? (
+                        <span
+                          className="font16"
+                          onClick={() => this.startChoosing()}
+                        >
+                          {data.chosen}
+                        </span>
+                      ) : (
+                        <div className="flex-column flex">
+                          {data.choices.map(choice => (
+                            <span
+                              className="list-hover"
+                              onClick={() => this.pickChoice(choice)}
+                              key={choice}
+                            >
+                              {choice}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <br />
+                    <span className="list-hover">
+                      {data.continue ? (
+                        "Kontynuuj"
+                      ) : data.name === "ustawienia domyślne" &&
+                        data.chosen === "tak" ? (
+                        <Link to="/domyslne">"Kontynuuj"</Link>
+                      ) : (
+                        ""
+                      )}
+                    </span>
+                  </Fragment>
                 )}
               </div>
             </div>

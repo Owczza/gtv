@@ -5,10 +5,12 @@ import Menu from "./Menu/Menu"
 import MyFiles from "./Menu/MyFiles"
 import Search from "./Menu/Search"
 import Settings from "./Settings/Settings"
+import SettingsDefault from "./Settings/SettingsDefault"
 import SettingsNested from "./Settings/SettingsNested"
 import Television from "./Television/Television"
 import VOD from "./Television/VOD"
 import Program from "./Television/Program"
+import VODProgram from "./Television/VODProgram"
 import Recommended from "./Television/Recommended"
 
 class App extends Component {
@@ -20,7 +22,7 @@ class App extends Component {
           <Route exact path="/telewizja" component={ () => <Television data="television" title="telewizja"/> } />
           <Route exact path="/telewizja/:channelNumber" render={ (props) => <Program data="television" {...this.props} {...props} /> } />
           <Route exact path="/vod" component={ () => <VOD /> } />
-          <Route exact path="/vod/:channelNumber" render={ (props) => <Program data="vod" {...this.props} {...props} /> } />
+          <Route exact path="/vod/:channelNumber" render={ (props) => <VODProgram {...this.props} {...props} /> } />
           <Route exact path="/radio" component={ () => <Television data="radio" title="radio"/> } />
           <Route exact path="/nagrania" component={ () => <Television data="recordings" title="nagrania"/> } />
           <Route exact path="/nagrania/:channelNumber" render={ (props) => <Program data="recordings" {...this.props} {...props} /> } />
