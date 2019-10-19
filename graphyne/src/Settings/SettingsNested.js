@@ -7,25 +7,37 @@ class SettingsNested extends Component {
   state = {
     data: { nested: [], choices: [] },
     activeSlideIndex: null,
-    choosing: null,
+    setting: {
+      name: "",
+      chosen: "",
+      choices: []
+    },
     url: ""
   };
 
-  pickChoice = choice => {
+  startChoosing = option => {
     this.setState({
       ...this.state,
-      data: { ...this.state.data, chosen: choice },
-      choosing: false,
-      activeSlideIndex: true
+      setting: option
     });
+    document.getElementById("options-list").style.display = "none";
+    document.getElementById("option-display").style.display = "flex";
   };
 
-  startChoosing = () => {
+  pickChoice = choice => {
+
+    const newSlides = this.state.data.nested.forEach((element, index) => {
+      if (element.name === this.state.setting.name) {
+        this.state.data.nested[index].chosen = choice
+      };})
+
+      console.log(newSlides)
+
     this.setState({
       ...this.state,
-      choosing: true,
-      activeSlideIndex: false
     });
+    document.getElementById("options-list").style.display = "block";
+    document.getElementById("option-display").style.display = "none";
   };
 
   uploadToState = () => {
@@ -62,14 +74,14 @@ class SettingsNested extends Component {
             <div className="element-container">
               <h2 className="graphyne-font header2">.../ {data.name}</h2>
               <div className="graphyne-font font20">
-                {this.props.location.option.nested ? (
-                  data.nested.map(option => (
-                    <div
-                      className="flex align-center justify-between"
-                      key={option.name}
-                    >
-                      <span className="list-hover">
-                        {option.nested ? 
+                <div className="graphyne-font font20" id="options-list">
+                {this.state.data.nested.map(option => (
+                  <div
+                    className="flex align-center justify-between"
+                    key={option.name}
+                  >
+                    <span className="list-hover">
+                      {option.nested ? (
                         <Link
                           to={{
                             pathname: this.state.url + "/" + option.name,
@@ -77,44 +89,40 @@ class SettingsNested extends Component {
                           }}
                         >
                           {option.name}
-                        </Link> :
-                      option.name}
-                      </span>
-                      <span className="font16">
-                        {option.chosen ? option.chosen : ""}
-                      </span>
-                    </div>
-                  ))
-                ) : (
-                  <Fragment>
-                    <div className="flex align-bottom justify-between">
-                      <span className="blue font-weight800 font21">
-                        {data.name}
-                      </span>
-                      <br />
-                      {this.state.choosing === false ? (
-                        <span
-                          className="font16"
-                          onClick={() => this.startChoosing()}
-                        >
-                          {data.chosen}
-                        </span>
+                        </Link>
                       ) : (
-                        <div className="flex-column flex">
-                          {data.choices.map(choice => (
-                            <span
-                              className="list-hover"
-                              onClick={() => this.pickChoice(choice)}
-                              key={choice}
-                            >
-                              {choice}
-                            </span>
-                          ))}
-                        </div>
+                        <span onClick={() => this.startChoosing(option)}>
+                          {option.name}
+                        </span>
                       )}
-                    </div>
-                  </Fragment>
-                )}
+                    </span>
+                    <span className="font16">
+                      {option.chosen ? option.chosen : ""}
+                    </span>
+                  </div>
+                ))}
+                {this.state.data.continue? <span className={this.state.data.nested.includes((element, index) => element[index].name === "ustawienia domyślne" && element[index].chosen === "tak") ? }></span>
+              </div>
+              <div
+                className="graphyne-font font20 flex align-bottom justify-between"
+                id="option-display"
+              >
+                <span className="blue font-weight800 font21">
+                  {this.state.setting.name}
+                </span>
+                <br />
+                <div className="flex-column flex">
+                  {this.state.setting.choices.map(choice => (
+                    <span
+                      className="list-hover"
+                      onClick={() => this.pickChoice(choice)}
+                      key={choice}
+                    >
+                      {choice}
+                    </span>
+                  ))}
+                </div>
+              </div>
               </div>
             </div>
           </div>

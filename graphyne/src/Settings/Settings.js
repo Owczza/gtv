@@ -27,7 +27,7 @@ class Settings extends Component {
 
     const newSlides = this.state.slides.forEach((element, index) => {
       if (element.name === this.state.setting.name) {
-        element = this.state.setting
+        this.state.slides[index].chosen = choice
       };})
 
       console.log(newSlides)
