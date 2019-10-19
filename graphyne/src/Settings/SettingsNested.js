@@ -101,7 +101,7 @@ class SettingsNested extends Component {
                     </span>
                   </div>
                 ))}
-                {this.state.data.continue? <span className={this.state.data.nested.includes((element, index) => element[index].name === "ustawienia domyślne" && element[index].chosen === "tak") ? }></span>
+                {this.state.data.continue? <span className={this.state.data.nested.includes((element, index) => element[index].name === "ustawienia domyślne" && element[index].chosen === "tak") ? "" : ""}></span> : ""}
               </div>
               <div
                 className="graphyne-font font20 flex align-bottom justify-between"
