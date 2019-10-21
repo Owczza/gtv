@@ -56,8 +56,10 @@ export const Red = styled.div`
     display: flex;
     height: 720px;
     width: 1280px;
-    background-color: #e80b0b;
+    background-color: #690707;
     margin: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
 `

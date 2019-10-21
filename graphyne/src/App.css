@@ -327,6 +327,10 @@ p {
   font-size: 21px;
 }
 
+.font30 {
+  font-size: 30px
+}
+
 .font65 {
   font-size: 65px;
 }
@@ -371,7 +375,6 @@ p {
 
 .list-hover:hover {
   color: #008fd1;
-  font-size: 21px;
   font-weight: 800;
 }
 
@@ -392,4 +395,8 @@ p {
 
 #option-display {
   display: none;
+}
+
+.width600 {
+  width: 600px;
 }
