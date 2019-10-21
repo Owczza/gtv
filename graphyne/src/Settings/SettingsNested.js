@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
@@ -60,7 +60,8 @@ class SettingsNested extends Component {
 
   render() {
     const data = this.state.data;
-    console.log(data);
+    const activeContinue = this.state.data.nested.find(element => element.chosen === "tak")
+    console.log(this.state.data.nested.find(element => element.chosen === "tak"));
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -101,7 +102,14 @@ class SettingsNested extends Component {
                     </span>
                   </div>
                 ))}
-                {this.state.data.continue? <span className={this.state.data.nested.includes((element, index) => element[index].name === "ustawienia domyślne" && element[index].chosen === "tak") ? "" : ""}></span> : ""}
+                {this.state.data.continue ?
+                  <span className={
+                    activeContinue ?
+                        "list-hover" : "option-display"}
+                  >
+                    {activeContinue && activeContinue.name === "przywróć ustawienia domyślne" ?
+                        <Link to={`${this.state.url}/puf`}>Kontynuuj</Link> : "Kontynuuj"}
+                        </span> : ""}
               </div>
               <div
                 className="graphyne-font font20 flex align-bottom justify-between"

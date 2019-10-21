@@ -49,3 +49,15 @@ export const program = {
     rows: `106px 1fr auto 142px`,
     columns: `2fr 3fr 3fr`,
 }
+
+export const Red = styled.div`
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 720px;
+    width: 1280px;
+    background-color: #e80b0b;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+`
