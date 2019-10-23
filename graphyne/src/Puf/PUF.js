@@ -12,64 +12,18 @@ class PUF extends Component {
       chosen: "",
       choices: []
     }
-  };
-
-  startChoosing = option => {
-    this.setState({
-      ...this.state,
-      setting: option
-    });
-    document.getElementById("options-list").style.display = "none";
-    document.getElementById("option-display").style.display = "flex";
-  };
-
-  pickChoice = choice => {
-
-    const newSlides = this.state.slides.forEach((element, index) => {
-      if (element.name === this.state.setting.name) {
-        this.state.slides[index].chosen = choice
-      };})
-
-      console.log(newSlides)
-
-    this.setState({
-      ...this.state,
-    });
-    document.getElementById("options-list").style.display = "block";
-    document.getElementById("option-display").style.display = "none";
-  };
-
-
-  componentDidMount() {
-    const type = this.props.data
-      ? this.props.data
-      : this.props.match.params.type;
-    const pathname = this.props.match.url ? this.props.match.url : "";
-    fetch(`/settingsMenu/settings_${type}.json`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          slides: data,
-          activeSlideIndex: data.length - 1,
-          type,
-          url: pathname
-        });
-      });
   }
 
-  render() {
+  render () {
     const type = this.state.type;
-    console.log(this.state);
     return (
       <Container theme={settings}>
-        <div className="vectra flex align-center justify-around">
-          <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
-        </div>
+        <div className="vectra flex align-center justify-around"></div>
         <div className="clock flex align-center justify-end"></div>
         <div className="background-left-top flex align-center justify-around"></div>
         <div className="nav-selected auto-height nav-selected-padding">
           <div className="element-container">
-            <h1 className="graphyne-font header1">ustawienia</h1>
+            <h1 className="graphyne-font header1">pierwsza instalacja</h1>
             <div className="element-container">
               <h2 className="graphyne-font header2">
                 {type === "Menu" ? "" : `/ ${type}`}
@@ -127,7 +81,7 @@ class PUF extends Component {
         </div>
         <div className="background-right-top"></div>
       </Container>
-    );
+    )
   }
 }
 

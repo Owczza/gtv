@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "opcje językowe",
+        "nested": ["angielski", "polski"]
+    },
+    {
+        "id": 2,
+        "name": "konfiguracja sieci",
+        "description": "Jeśli chcesz korzystać z usługi MULTIROOM, wybierz rodzaj konfiguracji sieci 'AUTOMATYCZNA' lub 'RĘCZNA'",
+        "nested": ["ręczna", "automatyczna", "pomiń ten krok"]
+    },
+    {
+        "id": 3,
+        "name": "aktualizacja oprogramowania",
+        "title": "zainstalowane oprogramowanie jest aktualne",
+        "description": "Dekoder sprawdza dostępność nowego oprogramowania po wejściu w tryb czuwania.",
+        "nested": ["kontynuuj"]
+    },
+    {
+        "id": 4,
+        "name": "ustawienia oszczędzania energii",
+        "title": "zainstalowane oprogramowanie jest aktualne",
+        "description": "Jeśli chcesz korzystać z Multiroom, w opcji OSZCZĘDZANIE ENERGII musi być ustawiona wartość 'STANDARDOWE'. Jeśli ustawisz 'MAKSYMALNE', Multiroom nie będzie działał.",
+        "nested": ["automatyczne wyłączenie", "oszczędzanie energii", "kontynuuj"]
+    },
+    {
+        "id": 5,
+        "name": "wyszukiwanie kanałów",
+        "nested": ["pomiń wyszukiwanie kanałów", "ręczne", "automatyczne"]
+    },
+]
