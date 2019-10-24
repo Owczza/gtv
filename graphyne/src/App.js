@@ -49,7 +49,7 @@ class App extends Component {
           <Route exact path="/ustawienia/:type/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} setUrl={pathname => this.setUrl(pathname)} /> } />
           <Route exact path="/ustawienia/:type/:subtype/puf" render={ (props) => <RedScreen {...this.props} {...props} setUrl={pathname => this.setUrl(pathname)} /> } />
           <Route exact path="/puf" render={ () => <Link to="/puf/1"><img src="/vectra-puf.jpg" alt="b1" setUrl={pathname => this.setUrl(pathname)} /></Link>} />
-          <Route exact path="/puf1" render={ (props) => <PUF {...this.props} {...props} setUrl={pathname => this.setUrl(pathname)} /> } />
+          <Route exact path="/puf/:id" render={ (props) => <PUF {...this.props} {...props} setUrl={pathname => this.setUrl(pathname)} /> } />
         <Link to={this.state.url}>Powrót</Link>
       </div>
     );

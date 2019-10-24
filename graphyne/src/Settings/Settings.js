@@ -80,7 +80,7 @@ class Settings extends Component {
                     className="flex align-center justify-between"
                     key={option.name}
                   >
-                    <span className="list-hover">
+                    <span className="list-hover graphyne-font">
                       {option.nested ? (
                         <Link
                           to={{

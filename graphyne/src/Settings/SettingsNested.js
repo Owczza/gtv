@@ -25,16 +25,16 @@ class SettingsNested extends Component {
   };
 
   pickChoice = choice => {
-
     const newSlides = this.state.data.nested.forEach((element, index) => {
       if (element.name === this.state.setting.name) {
-        this.state.data.nested[index].chosen = choice
-      };})
+        this.state.data.nested[index].chosen = choice;
+      }
+    });
 
-      console.log(newSlides)
+    console.log(newSlides);
 
     this.setState({
-      ...this.state,
+      ...this.state
     });
     document.getElementById("options-list").style.display = "block";
     document.getElementById("option-display").style.display = "none";
@@ -60,8 +60,12 @@ class SettingsNested extends Component {
 
   render() {
     const data = this.state.data;
-    const activeContinue = this.state.data.nested.find(element => element.chosen === "tak")
-    console.log(this.state.data.nested.find(element => element.chosen === "tak"));
+    const activeContinue = this.state.data.nested.find(
+      element => element.chosen === "tak"
+    );
+    console.log(
+      this.state.data.nested.find(element => element.chosen === "tak")
+    );
     return (
       <Container theme={settings}>
         <div className="vectra flex-center">
@@ -76,61 +80,67 @@ class SettingsNested extends Component {
               <h2 className="graphyne-font header2">.../ {data.name}</h2>
               <div className="graphyne-font font20">
                 <div className="graphyne-font font20" id="options-list">
-                {this.state.data.nested.map(option => (
-                  <div
-                    className="flex align-center justify-between"
-                    key={option.name}
-                  >
-                    <span className="list-hover">
-                      {option.nested ? (
-                        <Link
-                          to={{
-                            pathname: this.state.url + "/" + option.name,
-                            option
-                          }}
-                        >
-                          {option.name}
-                        </Link>
+                  {this.state.data.nested.map(option => (
+                    <div
+                      className="flex align-center justify-between"
+                      key={option.name}
+                    >
+                      <span className="list-hover">
+                        {option.nested ? (
+                          <Link
+                            to={{
+                              pathname: this.state.url + "/" + option.name,
+                              option
+                            }}
+                          >
+                            {option.name}
+                          </Link>
+                        ) : (
+                          <span onClick={() => this.startChoosing(option)}>
+                            {option.name}
+                          </span>
+                        )}
+                      </span>
+                      <span className="font16">
+                        {option.chosen ? option.chosen : ""}
+                      </span>
+                    </div>
+                  ))}
+                  {this.state.data.continue ? (
+                    <span
+                      className={activeContinue ? "list-hover" : "option-mute"}
+                    >
+                      {activeContinue &&
+                      activeContinue.name === "przywróć ustawienia domyślne" ? (
+                        <Link to={`${this.state.url}/puf`}>Kontynuuj</Link>
                       ) : (
-                        <span onClick={() => this.startChoosing(option)}>
-                          {option.name}
-                        </span>
+                        "Kontynuuj"
                       )}
                     </span>
-                    <span className="font16">
-                      {option.chosen ? option.chosen : ""}
-                    </span>
-                  </div>
-                ))}
-                {this.state.data.continue ?
-                  <span className={
-                    activeContinue ?
-                        "list-hover" : "option-display"}
-                  >
-                    {activeContinue && activeContinue.name === "przywróć ustawienia domyślne" ?
-                        <Link to={`${this.state.url}/puf`}>Kontynuuj</Link> : "Kontynuuj"}
-                        </span> : ""}
-              </div>
-              <div
-                className="graphyne-font font20 flex align-bottom justify-between"
-                id="option-display"
-              >
-                <span className="blue font-weight800 font21">
-                  {this.state.setting.name}
-                </span>
-                <br />
-                <div className="flex-column flex">
-                  {this.state.setting.choices.map(choice => (
-                    <span
-                      className="list-hover"
-                      onClick={() => this.pickChoice(choice)}
-                      key={choice}
-                    >
-                      {choice}
-                    </span>
-                  ))}
+                  ) : (
+                    ""
+                  )}
                 </div>
-              </div>
+                <div
+                  className="graphyne-font font20 flex align-bottom justify-between"
+                  id="option-display"
+                >
+                  <span className="blue font-weight800 font21">
+                    {this.state.setting.name}
+                  </span>
+                  <br />
+                  <div className="flex-column flex">
+                    {this.state.setting.choices.map(choice => (
+                      <span
+                        className="list-hover"
+                        onClick={() => this.pickChoice(choice)}
+                        key={choice}
+                      >
+                        {choice}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
