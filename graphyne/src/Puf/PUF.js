@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, television } from "../Components/Components.js";
+import { Container, settings } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -16,22 +16,32 @@ class PUF extends Component {
     test: {}
   };
 
-  componentDidMount() {
+  loadData = () => {
     const id = this.props.match.params.id;
     fetch(`/pufMenu/pufMenu.json`)
       .then(response => response.json())
       .then(data => {
         this.setState({
           slides: data,
-          activeSlideIndex: id,
-          setting: {...this.state.setting, choices: [1, 2, 3]}
+          activeSlideIndex: parseInt(id, 10),
+          setting: data
+            .filter(setting => setting.id === id)
+            .reduce((object, item) => {
+              return object + item;
+            })
         });
       });
+  };
+
+  componentDidMount() {
+    this.loadData();
   }
 
   render() {
+    const { setting, activeSlideIndex } = this.state;
+    console.log(this.state.setting);
     return (
-      <Container theme={television}>
+      <Container theme={settings}>
         <div className="vectra flex align-center justify-around"></div>
         <div className="clock flex align-center justify-end"></div>
         <div className="background-left-top flex align-center justify-around"></div>
@@ -40,16 +50,24 @@ class PUF extends Component {
             <h1 className="graphyne-font header1">pierwsza instalacja</h1>
             <div className="element-container">
               <h2 className="graphyne-font header2">{`/ ${setting.name}`}</h2>
+                <h2 className="graphyne-font header2">{setting.description}</h2>
+                <h2 className="graphyne-font header2 green weight800">{setting.title}</h2>
               <div className="graphyne-font font20" id="options-list">
                 {setting.choices.map(option => (
                   <div
                     className="flex align-center justify-between"
                     key={option.name}
                   >
-                    {setting.choices.indexOf(option) === setting.choices.length - 1 ? (
-                      <span className="list-hover graphyne-font">
-                        {option.name}
-                      </span>
+                    {setting.choices.indexOf(option) ===
+                    setting.choices.length - 1 ? (
+                      <Link to={`/puf/${activeSlideIndex + 1}`}
+                          onClick={this.loadData()}>
+                        <span
+                          className="list-hover graphyne-font"
+                        >
+                          {option.name}
+                        </span>
+                      </Link>
                     ) : (
                       <span className="graphyne-font">{option.name}</span>
                     )}
