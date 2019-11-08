@@ -1,0 +1,6 @@
+[
+    {"name": "kanały tv", "chosen": "-"},
+    {"name": "kanały radiowe", "chosen": "-"},
+    {"name": "częstotliwość (khz)", "chosen": "266"},
+    {"name": "jakość sygnału", "chosen": "100%", "image": "/quality.png"}
+]

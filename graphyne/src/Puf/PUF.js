@@ -12,8 +12,7 @@ class PUF extends Component {
       title: "",
       description: "",
       choices: []
-    },
-    test: {}
+    }
   };
 
   loadData = () => {
@@ -50,8 +49,8 @@ class PUF extends Component {
             <h1 className="graphyne-font header1">pierwsza instalacja</h1>
             <div className="element-container">
               <h2 className="graphyne-font header2">{`/ ${setting.name}`}</h2>
-                <h2 className="graphyne-font header2">{setting.description}</h2>
-                <h2 className="graphyne-font header2 green weight800">{setting.title}</h2>
+                <h2 className="graphyne-font header2">{setting.title}</h2>
+                <h2 className="graphyne-font header2 green weight800">{setting.description}</h2>
               <div className="graphyne-font font20" id="options-list">
                 {setting.choices.map(option => (
                   <div
@@ -60,10 +59,10 @@ class PUF extends Component {
                   >
                     {setting.choices.indexOf(option) ===
                     setting.choices.length - 1 ? (
-                      <Link to={`/puf/${activeSlideIndex + 1}`}
+                      <Link to={ `/puf/${activeSlideIndex < 5 ? activeSlideIndex + 1 : "6/szukanie"}`}
                           onClick={this.loadData()}>
                         <span
-                          className="list-hover graphyne-font"
+                          className="graphyne-font list-hover"
                         >
                           {option.name}
                         </span>
