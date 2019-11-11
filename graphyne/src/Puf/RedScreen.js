@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Red } from "../Components/Components.js";
+import { Popup, red } from "../Components/Components.js";
 
 const RedScreen = props => {
   console.log(props)
   return (
-    <Red className="graphyne-font">
-      <img src="/puf.png" />
+    <Popup theme={red} className="graphyne-font flex">
+      <img src="/denied.png" alt="denied symbol" />
       <p>Wszystkie ustawienia STB zostaną zmienione na domyślne.<br />
       Dane użytkownika i kanały zostaną skasowane.<br />
       <br />
@@ -16,7 +16,7 @@ const RedScreen = props => {
         <Link to="/puf"><span className="list-hover">Potwierdź</span></Link>
         <Link to={props.match.url}><span className="list-hover">Powrót</span></Link>
       </div>
-    </Red>
+    </Popup>
   )
 }
 

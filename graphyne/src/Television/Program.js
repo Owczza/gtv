@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, program } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
@@ -30,10 +31,10 @@ class Program extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { list, activeProgram } = this.state;
     const { data } = this.props;
     return (
+      <Fragment>
       <Container theme={program}>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
@@ -104,6 +105,8 @@ class Program extends Component {
           </div>
         </div>
       </Container>
+      <Link to={this.props.match.url.replace(`/${this.props.match.params.channelNumber}`, "")}>Powrót</Link>
+    </Fragment>
     );
   }
 }

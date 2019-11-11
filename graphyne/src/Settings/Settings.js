@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, settings } from "../Components/Components.js";
@@ -11,7 +11,8 @@ class Settings extends Component {
       name: "",
       chosen: "",
       choices: []
-    }
+    },
+    url: ""
   };
 
   startChoosing = option => {
@@ -61,6 +62,7 @@ class Settings extends Component {
     const type = this.state.type;
     console.log(this.state);
     return (
+      <Fragment>
       <Container theme={settings}>
         <div className="vectra flex align-center justify-around">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
@@ -83,10 +85,7 @@ class Settings extends Component {
                     <span className="list-hover graphyne-font">
                       {option.nested ? (
                         <Link
-                          to={{
-                            pathname: this.state.url + "/" + option.name,
-                            option
-                          }}
+                          to={this.state.url + "/" + option.name}
                         >
                           {option.name}
                         </Link>
@@ -127,6 +126,12 @@ class Settings extends Component {
         </div>
         <div className="background-right-top"></div>
       </Container>
+      <Link
+          to={this.state.url.replace(`/${type}`, "")}
+        >
+          Powrót
+        </Link>
+      </Fragment>
     );
   }
 }

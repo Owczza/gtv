@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, television } from "../Components/Components.js";
 
@@ -7,34 +8,6 @@ class Recommended extends Component {
     programs: [{}, {}, {}, {}, {}],
     activeSlideIndex: 0,
     input: "hello"
-  };
-
-  nextSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowLeft" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex + 1 < this.state.programs.length) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex + 1
-      });
-    }
-  };
-
-  prevSlide = event => {
-    if (
-      event.isComposing ||
-      (event.key === "ArrowRight" && !this.state.vertical)
-    ) {
-      return;
-    }
-    if (this.state.activeSlideIndex > 0) {
-      this.setState({
-        activeSlideIndex: this.state.activeSlideIndex - 1
-      });
-    }
   };
 
   centerSlide = index => {
@@ -51,31 +24,11 @@ class Recommended extends Component {
           programs: data
         });
       });
-
-    document.addEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.addEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
-  }
-
-  componentWillUnmount() {
-    const controller = new AbortController();
-    controller.abort();
-
-    document.removeEventListener("keydown", event => {
-      this.nextSlide(event);
-    });
-
-    document.removeEventListener("keydown", event => {
-      this.prevSlide(event);
-    });
   }
 
   render() {
     return (
+      <Fragment>
       <Container theme={television}>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
@@ -100,6 +53,12 @@ class Recommended extends Component {
         <div className="nav-selected-bottom"></div>
         <div className="background-right-bottom flex-center"></div>
       </Container>
+      <Link
+          to={this.props.match.url.replace(`/szukaj`, "")}
+        >
+          Powrót
+        </Link>
+      </Fragment>
     );
   }
 }

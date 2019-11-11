@@ -27,7 +27,6 @@
   {
     "id": "4",
     "name": "ustawienia oszczędzania energii",
-    "title": "zainstalowane oprogramowanie jest aktualne",
     "description": "Jeśli chcesz korzystać z Multiroom, w opcji OSZCZĘDZANIE ENERGII musi być ustawiona wartość 'STANDARDOWE'. Jeśli ustawisz 'MAKSYMALNE', Multiroom nie będzie działał.",
     "choices": [
       { "name": "automatyczne wyłączenie", "chosen": "3 h" },
@@ -42,6 +41,14 @@
       { "name": "pomiń wyszukiwanie kanałów" },
       { "name": "ręczne" },
       { "name": "automatyczne" }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "ustawienia vod",
+    "vod": "Pobieranie ustawień VOD zakończone sukcesem",
+    "choices": [
+      { "name": "kontynuuj" }
     ]
   }
 ]

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, program } from "../Components/Components.js";
-import { ProgramDescription } from "./ProgramDescription";
 
 class VODProgram extends Component {
   state = {
@@ -32,8 +32,8 @@ class VODProgram extends Component {
   render() {
     console.log(this.props);
     const { list, activeProgram } = this.state;
-    const { data } = this.props;
     return (
+      <Fragment>
       <Container theme={program}>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
@@ -90,6 +90,8 @@ class VODProgram extends Component {
           </div>
         </div>
       </Container>
+      <Link to={this.props.match.url.replace(`/${this.props.match.params.channelNumber}`, "")}>Powrót</Link>
+    </Fragment>
     );
   }
 }

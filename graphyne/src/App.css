@@ -11,6 +11,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #989fa9;
+  -webkit-transform: scale(1, 1.1);
+  -moz-transform: scale(1, 1.1);
+  -ms-transform: scale(1, 1.1);
+  -o-transform: scale(1, 1.1);
+  transform: scale(1, 1.1);
 }
 
 .App-link {
@@ -221,6 +226,10 @@ a {
   margin-top: 10px;
 }
 
+.margin30-vertical {
+  margin: 30px 0
+}
+
 .padding455-left {
   padding: 0 0 0 455px;
 }
@@ -272,6 +281,10 @@ a {
 
 .white-text {
   color: #ffffff;
+}
+
+.green-text {
+  color: #206f3a;
 }
 
 .program-shadow {
@@ -399,14 +412,4 @@ p {
 
 .width600 {
   width: 600px;
-}
-
-
-.overlay-background {
-  height: 100%;
-  width: 100%;
-  z-index: 5;
-  position: absolute;
-  background-color: #989fa973;
-  display: none;
 }

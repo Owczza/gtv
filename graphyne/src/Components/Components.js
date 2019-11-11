@@ -50,16 +50,27 @@ export const program = {
     columns: `2fr 3fr 3fr`,
 }
 
-export const Red = styled.div`
+export const Popup = styled.div`
     position: relative;
-    z-index: 2;
-    display: flex;
-    height: 720px;
+    z-index: 4;
+    display: none;
+    height: 685px;
     width: 1280px;
-    background-color: #690707;
+    background-color: ${props => props.theme.backgroundColor};
     margin: 0;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
     text-align: center;
 `
+export const red = {
+    backgroundColor: `#690707`
+}
+
+export const green = {
+    backgroundColor: `#024a1a`
+}
+
+export const blue = {
+    backgroundColor: `#097382`
+}

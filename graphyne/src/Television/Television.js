@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import { Container, television } from "../Components/Components.js";
@@ -8,9 +8,7 @@ class Television extends Component {
     programs: [{}, {}, {}, {}],
     list: [],
     options: [],
-    activeSlideIndex: 1,
-    activeListIndex: null,
-    vertical: false
+    activeSlideIndex: 1
   };
 
   centerSlide = index => {
@@ -31,8 +29,9 @@ class Television extends Component {
       });}
 
   render() {
-    const { programs, list, activeSlideIndex, activeListIndex } = this.state;
+    const { programs, list, activeSlideIndex } = this.state;
     return (
+      <Fragment>
       <Container theme={television}>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
@@ -166,6 +165,8 @@ class Television extends Component {
         </div>
         <div className="background-right-bottom flex-center"></div>
       </Container>
+      <Link to="">Powrót</Link>
+    </Fragment>
     );
   }
 }
