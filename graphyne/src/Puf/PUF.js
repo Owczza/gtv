@@ -54,7 +54,7 @@ class PUF extends Component {
               <h1 className="graphyne-font header1">pierwsza instalacja</h1>
               <div className="element-container">
                 <div>
-                  <h2 className="graphyne-font header2">{`/ ${setting.name}`}</h2>
+                  <h2 className="graphyne-font header2">{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</h2>
                   {setting.title ? (
                     <h2 className="graphyne-font header2 font-weight800 margin30-vertical white-text">
                       {setting.title}
@@ -66,7 +66,7 @@ class PUF extends Component {
                   ) : (
                     ""
                   )}
-                  <p className="gray-text font16">{setting.description}</p>
+                  <p className="gray-text font16">{this.props.from === "ustawienia" ? "" : setting.description}</p>
                 </div>
                 <div className="graphyne-font font20" id="options-list">
                   {setting.choices.map(option => (
@@ -77,7 +77,8 @@ class PUF extends Component {
                       {setting.choices.indexOf(option) ===
                       setting.choices.length - 1 ? (
                         <Link
-                          to={activeSlideIndex === 7 ? `/` : `/puf/${
+                          to={this.props.from === "ustawienia" ? "/ustawienia/instalacja" :
+                            activeSlideIndex === 7 ? `/` : `/puf/${
                             activeSlideIndex < 5 ?
                             activeSlideIndex + 1
                             : "6/szukanie"
@@ -85,7 +86,7 @@ class PUF extends Component {
                           onClick={this.loadData()}
                         >
                           <span className="graphyne-font list-hover">
-                            {option.name}
+                            {this.props.from === "ustawienia" ? "zamknij" : option.name}
                           </span>
                         </Link>
                       ) : (
@@ -103,7 +104,7 @@ class PUF extends Component {
           <div className="background-right-top"></div>
         </Container>
         {activeSlideIndex > 1 && activeSlideIndex < 7 ? <Link
-          to={`/puf/${
+          to={this.props.from === "ustawienia" ? "/ustawienia/instalacja" : `/puf/${
             activeSlideIndex -1
           }`}
         >

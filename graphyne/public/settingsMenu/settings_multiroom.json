@@ -1,11 +1,13 @@
 [
   {
     "name": "test połączenia",
-    "description": "nie znaleziono serwera multiroom"
+    "title": "nie znaleziono serwera multiroom",
+    "nested": [{}]
   },
   {
     "name": "status multiroom",
-    "description": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony"
+    "title": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony",
+    "nested": [{}]
   },
   {
     "name": "rola urządzenia",

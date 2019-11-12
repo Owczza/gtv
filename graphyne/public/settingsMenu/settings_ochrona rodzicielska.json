@@ -1,7 +1,8 @@
 [
   {
-    "name": "test połączenia",
-    "nested": true
+    "name": "zmiana pin",
+    "nested": [{}]
+    "disabled": true
   },
   {
     "name": "status ochrony",

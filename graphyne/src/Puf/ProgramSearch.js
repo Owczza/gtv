@@ -20,6 +20,12 @@ class PUF extends Component {
     document.getElementById("search").style.display = "none";
   };
 
+  resumeSearch = () => {
+    this.setTimer()
+    document.getElementById("pause").style.display = "none";
+    document.getElementById("search").style.display = "grid";
+  };
+
   completeSearch = () => {
     document.getElementById("info").style.display = "flex";
     document.getElementById("search").style.display = "none";
@@ -52,7 +58,7 @@ class PUF extends Component {
     this.timerHandle = setTimeout(() => {
       this.completeSearch();
       this.timerHandle = 0;
-    }, 4000);
+    }, 3000);
   };
 
   clearTimer = () => {
@@ -76,14 +82,19 @@ class PUF extends Component {
             TV / 230 <br />
             Radio / 16 <br />
           </p>
-          <div className="flex align-center justify-around width600 font30">
+          {this.props.from === "puf" ? <div className="flex align-center justify-around width600 font30">
             <Link to="/puf/5">
               <span className="list-hover">Powrót</span>
             </Link>
             <Link to="/puf/7">
               <span className="list-hover">Dalej</span>
             </Link>
-          </div>
+          </div> :
+          <div className="flex align-center justify-around width600 font30">
+          <Link to="/ustawienia/instalacja/wyszukiwanie kanałów">
+            <span className="list-hover">Zamknij</span>
+          </Link>
+        </div>}
         </Popup>
         <Popup theme={green} className="graphyne-font" id="pause">
           <img src="/info.png" alt="info symbol" />
@@ -94,10 +105,10 @@ class PUF extends Component {
             Czy potwierdzasz?
           </p>
           <div className="flex align-center justify-around width600 font30">
-            <Link to="/puf/5">
+            <Link to={this.props.from === "puf" ? "/puf/5" : "/ustawienia/instalacja/wyszukiwanie kanałów"}>
               <span className="list-hover">Tak</span>
             </Link>
-            <Link onClick={() => this.setTimer()}>
+            <Link onClick={() => this.resumeSearch()}>
               <span className="list-hover">Nie</span>
             </Link>
           </div>
@@ -108,7 +119,7 @@ class PUF extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">pierwsza instalacja</h1>
+              <h1 className="graphyne-font header1">{this.props.from === "puf" ? "pierwsza instalacja" : "ustawienia"}</h1>
               <div className="element-container">
                 <h2 className="graphyne-font header2">
                   wyszukiwanie kanałów / automatyczne

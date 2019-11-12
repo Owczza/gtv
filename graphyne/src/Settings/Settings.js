@@ -5,7 +5,7 @@ import { Container, settings } from "../Components/Components.js";
 
 class Settings extends Component {
   state = {
-    slides: [],
+    data: [],
     activeSlideIndex: null,
     setting: {
       name: "",
@@ -25,21 +25,25 @@ class Settings extends Component {
   };
 
   pickChoice = choice => {
-
-    const newSlides = this.state.slides.forEach((element, index) => {
+    const newSlides = this.state.data.forEach((element, index) => {
       if (element.name === this.state.setting.name) {
-        this.state.slides[index].chosen = choice
-      };})
+        this.state.data[index].chosen = choice;
+      }
+    });
 
-      console.log(newSlides)
+    console.log(newSlides);
 
     this.setState({
       ...this.state,
+      setting: {
+        name: "",
+        chosen: "",
+        choices: []
+      }
     });
     document.getElementById("options-list").style.display = "block";
     document.getElementById("option-display").style.display = "none";
   };
-
 
   componentDidMount() {
     const type = this.props.data
@@ -50,7 +54,7 @@ class Settings extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          slides: data,
+          data: data,
           activeSlideIndex: data.length - 1,
           type,
           url: pathname
@@ -59,78 +63,92 @@ class Settings extends Component {
   }
 
   render() {
-    const type = this.state.type;
+    const { type, data } = this.state;
     console.log(this.state);
     return (
       <Fragment>
-      <Container theme={settings}>
-        <div className="vectra flex align-center justify-around">
-          <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
-        </div>
-        <div className="clock flex align-center justify-end"></div>
-        <div className="background-left-top flex align-center justify-around"></div>
-        <div className="nav-selected auto-height nav-selected-padding">
-          <div className="element-container">
-            <h1 className="graphyne-font header1">ustawienia</h1>
+        <Container theme={settings}>
+          <div className="vectra flex align-center justify-around">
+            <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
+          </div>
+          <div className="clock flex align-center justify-end"></div>
+          <div className="background-left-top flex align-center justify-around"></div>
+          <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h2 className="graphyne-font header2">
-                {type === "Menu" ? "" : `/ ${type}`}
-              </h2>
-              <div className="graphyne-font font20" id="options-list">
-                {this.state.slides.map(option => (
-                  <div
-                    className="flex align-center justify-between"
-                    key={option.name}
-                  >
-                    <span className="list-hover graphyne-font">
-                      {option.nested ? (
-                        <Link
-                          to={this.state.url + "/" + option.name}
-                        >
-                          {option.name}
-                        </Link>
-                      ) : (
-                        <span onClick={() => this.startChoosing(option)}>
-                          {option.name}
-                        </span>
-                      )}
-                    </span>
-                    <span className="font16">
-                      {option.chosen ? option.chosen : ""}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div
-                className="graphyne-font font20 flex align-bottom justify-between"
-                id="option-display"
-              >
-                <span className="blue font-weight800 font21">
-                  {this.state.setting.name}
-                </span>
-                <br />
-                <div className="flex-column flex">
-                  {this.state.setting.choices.map(choice => (
-                    <span
-                      className="list-hover"
-                      onClick={() => this.pickChoice(choice)}
-                      key={choice}
+              <h1 className="graphyne-font header1">ustawienia</h1>
+              <div className="element-container">
+                <div>
+                  <h2 className="graphyne-font header2">
+                    {type === "Menu" ? "" : `/ ${type}`}
+                  </h2>
+                  {data.title ? (
+                    <h2 className="graphyne-font header2 font-weight800 margin30-vertical white-text">
+                      {data.title}
+                    </h2>
+                  ) : data.vod ? (
+                    <h2 className="graphyne-font header2 font-weight800 green-text margin30-vertical">
+                      {data.vod}
+                    </h2>
+                  ) : (
+                    ""
+                  )}
+                  <p className="gray-text font16">{data.description}</p>
+                </div>
+                <div className="graphyne-font font20" id="options-list">
+                  {data.map(option => (
+                    <div
+                      className="flex align-center justify-between"
+                      key={option.name}
                     >
-                      {choice}
-                    </span>
+                      <div className="list-hover graphyne-font">
+                        {option.nested ? (
+                          <Link to={this.state.url + "/" + option.name}>
+                            {option.name}
+                          </Link>
+                        ) : option.disabled ? (
+                          <div className="gray-text">{option.name}</div>
+                        ) : (
+                          <div onClick={() => this.startChoosing(option)}>
+                            {option.name}
+                          </div>
+                        )}
+                      </div>
+                      <div className="font16">
+                        {option.chosen ? option.chosen : ""}
+                      </div>
+                    </div>
                   ))}
+                </div>
+                <div
+                  className="graphyne-font font20 flex align-bottom justify-between"
+                  id="option-display"
+                >
+                  <div className="blue font-weight800 font21">
+                    {this.state.setting.name}
+                  </div>
+                  <br />
+                  <div className="flex-column flex">
+                    {this.state.setting.choices.map(choice => (
+                      <div
+                        className="list-hover"
+                        onClick={() => this.pickChoice(choice)}
+                        key={choice}
+                      >
+                        {choice}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="background-right-top"></div>
-      </Container>
-      <Link
-          to={this.state.url.replace(`/${type}`, "")}
-        >
-          Powrót
-        </Link>
+          <div className="background-right-top"></div>
+        </Container>
+        {!this.state.setting.name ? (
+          <Link to={this.state.url.replace(`/${type === "Menu" ? "ustawienia" : type}`, "")}>Powrót</Link>
+        ) : (
+          ""
+        )}
       </Fragment>
     );
   }

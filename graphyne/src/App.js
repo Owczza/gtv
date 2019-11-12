@@ -39,10 +39,13 @@ class App extends Component {
           <Route exact path="/ustawienia" render={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" render={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
-          <Route exact path="/ustawienia/:type/:subtype/szukanie" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
-          <Route exact path="/ustawienia/:type/:subtype/puf" render={ (props) => <RedScreen {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/instalacja/wyszukiwanie kanałów/automatyczne/szukanie" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/:type/konfiguracja sieci/ethernet/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/:type/:category/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/instalacja/ustawienia domyślne/puf/start" render={ (props) => <RedScreen {...this.props} {...props} /> } />
           <Route exact path="/puf" render={ () => <Link to="/puf/1"><img src="/vectra-puf.jpg" alt="b1" /></Link>} />
           <Route exact path="/puf/:id" render={ (props) => <PUF {...this.props} {...props} /> } />
+          <Route exact path="/aktualne oprogramowanie/:id" render={ (props) => <PUF from="ustawienia" {...this.props} {...props} /> } />
           <Route exact path="/puf/6/szukanie" render={ (props) => <ProgramSearch from="puf" {...this.props} {...props} /> } />
       </div>
     );

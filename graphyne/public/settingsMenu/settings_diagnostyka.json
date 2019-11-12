@@ -2,27 +2,49 @@
   {
     "name": "dysk",
     "nested": [
-      { "name": "model dysku", "chosen": "WDC WD5000LUCT-63RC2Y0" },
-      { "name": "pojemność dysku (gb)", "chosen": "454" },
-      { "name": "dostępna ilość wolnego miejsca", "chosen": "95%" }
+      {
+        "name": "model dysku",
+        "chosen": "WDC WD5000LUCT-63RC2Y0",
+        "disabled": true
+      },
+      { "name": "pojemność dysku (gb)", "chosen": "454", "disabled": true },
+      {
+        "name": "dostępna ilość wolnego miejsca",
+        "chosen": "95%",
+        "disabled": true
+      }
     ]
   },
 
-  
   {
     "name": "modem",
     "nested": [
-      { "name": "stan modemu", "chosen": "sieć działająca" },
-      { "name": "hfc mac adres", "chosen": "68:63:59:F3:F1:1E" },
-      { "name": "częstotliwość ds (mhz)", "chosen": "778000000" },
-      { "name": "poziom sygnału ds (dbmv)", "chosen": "8.8" },
-      { "name": "modulacja", "chosen": "QAM-256" },
-      { "name": "częstotliwość us (mhz)", "chosen": "38000000" },
-      { "name": "poziom sygnału us (dbmv)", "chosen": "41.2" },
-      { "name": "symbol rate (ks/s)", "chosen": "55616000" }
+      { "name": "stan modemu", "chosen": "sieć działająca", "disabled": true },
+      {
+        "name": "hfc mac adres",
+        "chosen": "68:63:59:F3:F1:1E",
+        "disabled": true
+      },
+      {
+        "name": "częstotliwość ds (mhz)",
+        "chosen": "778000000",
+        "disabled": true
+      },
+      { "name": "poziom sygnału ds (dbmv)", "chosen": "8.8", "disabled": true },
+      { "name": "modulacja", "chosen": "QAM-256", "disabled": true },
+      {
+        "name": "częstotliwość us (mhz)",
+        "chosen": "38000000",
+        "disabled": true
+      },
+      {
+        "name": "poziom sygnału us (dbmv)",
+        "chosen": "41.2",
+        "disabled": true
+      },
+      { "name": "symbol rate (ks/s)", "chosen": "55616000", "disabled": true }
     ]
   },
-
 
   {
     "name": "informacje o odbiorniku",
@@ -32,40 +54,68 @@
         "nested": [
           {
             "name": "500",
-            "nested": true
+            "disabled": true,
+            "nested": [{}]
           }
         ]
       },
       {
         "name": "loader",
         "nested": [
-          { "name": "informacja o oprogramowaniu", "chosen": "0X73A4 0C60" },
-          { "name": "wersja sprzętu", "chosen": "0X167" },
-          { "name": "wersja sterowników", "chosen": "1.3.1D0056-73A4" },
+          {
+            "name": "informacja o oprogramowaniu",
+            "chosen": "0X73A4 0C60",
+            "disabled": true
+          },
+          { "name": "wersja sprzętu", "chosen": "0X167", "disabled": true },
+          {
+            "name": "wersja sterowników",
+            "chosen": "1.3.1D0056-73A4",
+            "disabled": true
+          },
           {
             "name": "data pobrania oprogramowania",
-            "chosen": "09.10.19 21:25:58"
+            "chosen": "09.10.19 21:25:58",
+            "disabled": true
           },
-          { "name": "numer seryjny odbiornika", "chosen": "FBBBB5D749570037" }
+          {
+            "name": "numer seryjny odbiornika",
+            "chosen": "FBBBB5D749570037",
+            "disabled": true
+          }
         ]
       },
       {
         "name": "system",
         "nested": [
-          { "name": "typ odbiornika", "chosen": "ZC4110" },
-          { "name": "tryb aplikacji", "chosen": "87:-1:-1:1030:1030" },
-          { "name": "ustawienia vod", "chosen": "FF06:01730669894::0.0" },
-          { "name": "wersja oprogramowania", "chosen": "1.2.10" },
-          { "name": "wersja aplikacji", "chosen": "V18.6.11" },
-          { "name": "numer conax", "chosen": "677323604" }
+          { "name": "typ odbiornika", "chosen": "ZC4110", "disabled": true },
+          {
+            "name": "tryb aplikacji",
+            "chosen": "87:-1:-1:1030:1030",
+            "disabled": true
+          },
+          {
+            "name": "ustawienia vod",
+            "chosen": "FF06:01730669894::0.0",
+            "disabled": true
+          },
+          {
+            "name": "wersja oprogramowania",
+            "chosen": "1.2.10",
+            "disabled": true
+          },
+          {
+            "name": "wersja aplikacji",
+            "chosen": "V18.6.11",
+            "disabled": true
+          },
+          { "name": "numer conax", "chosen": "677323604", "disabled": true }
         ]
       }
     ]
   },
 
-
-  { "name": "parametry sieci", "nested": true },
-
+  { "name": "parametry sieci", "nested": [{}] },
 
   {
     "name": "miernik sygnału",
@@ -73,18 +123,17 @@
       {
         "name": "tuner 1",
         "nested": [
-          { "name": "siła", "chosen": "57%" },
-          { "name": "jakość", "chosen": "83%" },
-          { "name": "ber", "chosen": "0.00E+00" },
-          { "name": "s/n (db)", "chosen": "35.8" },
-          { "name": "modulacja", "chosen": "QAM-256" },
-          { "name": "symbol rate (ks/s)", "chosen": "6875" },
-          { "name": "częstotliwość (mhz)", "chosen": "570" }
+          { "name": "siła", "chosen": "57%", "disabled": true },
+          { "name": "jakość", "chosen": "83%", "disabled": true },
+          { "name": "ber", "chosen": "0.00E+00", "disabled": true },
+          { "name": "s/n (db)", "chosen": "35.8", "disabled": true },
+          { "name": "modulacja", "chosen": "QAM-256", "disabled": true },
+          { "name": "symbol rate (ks/s)", "chosen": "6875", "disabled": true },
+          { "name": "częstotliwość (mhz)", "chosen": "570", "disabled": true }
         ]
       }
     ]
   },
-
 
   {
     "name": "dostęp warunkowy",
@@ -113,26 +162,34 @@
         ]
       },
       {
-        "name": "zmień ca pin", "nested": true 
+        "name": "zmień ca pin",
+        "nested": [{}]
       },
       {
-        "name": "stan żetonów", "nested": true 
+        "name": "stan żetonów",
+        "nested": [{}]
       },
       {
-        "name": "stan programu", "nested": true 
+        "name": "stan programu",
+        "nested": [{}]
       },
       {
-        "name": "stan subskrypcji", "nested": true 
+        "name": "stan subskrypcji",
+        "nested": [{}]
       },
       {
         "name": "o conax ca",
         "nested": [
-          { "name": "chip id:", "chosen": "006 7732 3604" },
-          { "name": "ca_sys_id:", "chosen": "0X0B00" },
-          { "name": "język:", "chosen": "48" },
-          { "name": "liczba sesji:", "chosen": "5" },
-          { "name": "numer karty:", "chosen": "017 3066 9894 - 9" },
-          { "name": "wersja interfejsu:", "chosen": "0X40" }
+          { "name": "chip id:", "chosen": "006 7732 3604", "disabled": true },
+          { "name": "ca_sys_id:", "chosen": "0X0B00", "disabled": true },
+          { "name": "język:", "chosen": "48", "disabled": true },
+          { "name": "liczba sesji:", "chosen": "5", "disabled": true },
+          {
+            "name": "numer karty:",
+            "chosen": "017 3066 9894 - 9",
+            "disabled": true
+          },
+          { "name": "wersja interfejsu:", "chosen": "0X40", "disabled": true }
         ]
       }
     ]

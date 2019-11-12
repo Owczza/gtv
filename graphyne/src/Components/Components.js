@@ -53,7 +53,7 @@ export const program = {
 export const Popup = styled.div`
     position: relative;
     z-index: 4;
-    display: none;
+    display: ${props => props.display ? props.display.display : "none"};
     height: 685px;
     width: 1280px;
     background-color: ${props => props.theme.backgroundColor};
@@ -73,4 +73,8 @@ export const green = {
 
 export const blue = {
     backgroundColor: `#097382`
+}
+
+export const flex = {
+    display: `flex`
 }

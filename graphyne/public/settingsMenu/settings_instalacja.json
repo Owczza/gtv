@@ -1,42 +1,74 @@
 [
   {
     "name": "pobierz ustawienia vod",
+    "nested": [{}],
+    "vod": "Pobieranie ustawień VOD zakończone sukcesem",
+    "continue": true
+  },
+  {
+    "name": "konfiguracja sieci",
     "nested": [
       {
-        "name": "język główny",
-        "chosen": "polski",
-        "choices": ["angielski", "polski"]
+        "name": "bez sieci",
+        "disabled": true
       },
       {
-        "name": "język aplikacji",
-        "chosen": "polski",
-        "choices": ["angielski", "polski"]
+        "name": "sieć docsis",
+        "disabled": true
       },
       {
-        "name": "napisy",
-        "chosen": "wyłączone",
-        "choices": ["hoh", "włączone", "wyłączone"]
-      },
-      {
-        "name": "drugi język",
-        "chosen": "angielski",
-        "choices": ["polski", "angielski"]
+        "name": "ethernet",
+        "nested": [
+          {
+            "name": "ręczna",
+            "disabled": true
+          },
+          {
+            "name": "automatyczna",
+            "continue": true,
+            "vod": "Konfiguracja sieci przebiegła pomyślnie",
+            "nested": [
+              {
+                "name": "adres ip",
+                "chosen": "192.168.0.47",
+                "disabled": true
+              },
+              {
+                "name": "maska podsieci",
+                "chosen": "255.255.255.0",
+                "disabled": true
+              },
+              {
+                "name": "brama",
+                "chosen": "192.168.0.1",
+                "disabled": true
+              },
+              {
+                "name": "dns serwery",
+                "chosen": "37.8.214.2 31.11.202.254",
+                "disabled": true
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "name": "konfiguracja sieci",
-    "description": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony"
-  },
-  {
     "name": "wyszukiwanie kanałów",
-    "chosen": "klient",
-    "choices": ["serwer", "multiroom wyłączony", "klient"]
+    "nested": [
+      {
+        "name": "ręczne",
+        "disabled": true
+      },
+      {
+        "name": "automatyczne"
+      }
+    ]
   },
   {
     "name": "przywróć domyślny pin",
-    "chosen": "ZC4110OVE",
-    "choices": ["salon", "kuchnia", "ZC4110OVE"]
+    "disabled": true
   },
   {
     "name": "ustawienia domyślne",
@@ -46,38 +78,18 @@
         "chosen": "nie",
         "choices": ["tak", "nie"]
       },
-      { 
+      {
         "name": "usuń nagrania",
         "chosen": "nie",
-        "choices": ["tak", "nie"] 
+        "choices": ["tak", "nie"]
       }
     ],
     "continue": true
   },
   {
     "name": "aktualizacja oprogramowania",
-    "description": "wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
-    "nested": [
-      {
-        "name": "język główny",
-        "chosen": "polski",
-        "choices": ["angielski", "polski"]
-      },
-      {
-        "name": "język aplikacji",
-        "chosen": "polski",
-        "choices": ["angielski", "polski"]
-      },
-      {
-        "name": "napisy",
-        "chosen": "wyłączone",
-        "choices": ["hoh", "włączone", "wyłączone"]
-      },
-      {
-        "name": "drugi język",
-        "chosen": "angielski",
-        "choices": ["polski", "angielski"]
-      }
-    ]
+    "title": "Wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
+    "nested": [{}],
+    "continue": true
   }
 ]
