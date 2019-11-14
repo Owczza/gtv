@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, settings } from "../Components/Components.js";
+import { Container } from "../Components/Components.js";
 
 class SettingsNested extends Component {
   state = {
@@ -91,7 +91,7 @@ class SettingsNested extends Component {
     console.log(this.state.data);
     return (
       <Fragment>
-        <Container theme={settings}>
+        <Container settings>
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>

@@ -6,7 +6,7 @@ import { Popup, red, flex } from "../Components/Components.js";
 const RedScreen = props => {
   console.log(props)
   return (
-    <Popup theme={red} display={flex} className="graphyne-font">
+    <Popup red className="graphyne-font">
       <img src="/denied.png" alt="denied symbol" />
       <p>Wszystkie ustawienia STB zostaną zmienione na domyślne.<br />
       Dane użytkownika i kanały zostaną skasowane.<br />
