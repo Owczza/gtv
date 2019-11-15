@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, settings } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class Settings extends Component {
   state = {
@@ -12,13 +12,15 @@ class Settings extends Component {
       chosen: "",
       choices: []
     },
-    url: ""
+    url: "",
+    isChoosing: false
   };
 
   startChoosing = option => {
     this.setState({
       ...this.state,
-      setting: option
+      setting: option,
+      isChoosing: true
     });
     document.getElementById("options-list").style.display = "none";
     document.getElementById("option-display").style.display = "flex";
@@ -31,15 +33,28 @@ class Settings extends Component {
       }
     });
 
-    console.log(newSlides);
-
     this.setState({
       ...this.state,
       setting: {
         name: "",
         chosen: "",
         choices: []
-      }
+      },
+      isChoosing: false
+    });
+    document.getElementById("options-list").style.display = "block";
+    document.getElementById("option-display").style.display = "none";
+  };
+
+  noChoice = () => {
+    this.setState({
+      ...this.state,
+      setting: {
+        name: "",
+        chosen: "",
+        choices: []
+      },
+      isChoosing: false
     });
     document.getElementById("options-list").style.display = "block";
     document.getElementById("option-display").style.display = "none";
@@ -53,6 +68,7 @@ class Settings extends Component {
     fetch(`/settingsMenu/settings_${type}.json`)
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         this.setState({
           data: data,
           activeSlideIndex: data.length - 1,
@@ -65,9 +81,10 @@ class Settings extends Component {
   render() {
     const { type, data } = this.state;
     console.log(this.state);
+    console.log(this.props)
     return (
       <Fragment>
-        <Container theme={settings}>
+        <Container settings>
           <div className="vectra flex align-center justify-around">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
@@ -145,9 +162,9 @@ class Settings extends Component {
           <div className="background-right-top"></div>
         </Container>
         {!this.state.setting.name ? (
-          <Link to={this.state.url.replace(`/${type === "Menu" ? "ustawienia" : type}`, "")}>Powrót</Link>
+          <Link to={this.state.url.replace(`/${type === "Menu" ? "ustawienia" : type}`, "")}><Button /></Link>
         ) : (
-          ""
+          <Button onClick={() => this.noChoice()}/>
         )}
       </Fragment>
     );

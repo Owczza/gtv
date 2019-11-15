@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, settings } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -45,13 +45,15 @@ class PUF extends Component {
     const { setting, activeSlideIndex } = this.state;
     return (
       <Fragment>
-        <Container theme={settings}>
-          <div className="vectra flex align-center justify-around"></div>
+        <Container settings>
+          <div className="vectra flex align-center justify-around">
+          {this.props.from === "ustawienia" ? <img src="/menu-icons/vectra.png" alt="Vectra Logo" /> : ""}
+          </div>
           <div className="clock flex align-center justify-end"></div>
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">pierwsza instalacja</h1>
+              <h1 className="graphyne-font header1">{this.props.from === "ustawienia" ? "ustawienia" : "pierwsza instalacja"}</h1>
               <div className="element-container">
                 <div>
                   <h2 className="graphyne-font header2">{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</h2>
@@ -108,7 +110,7 @@ class PUF extends Component {
             activeSlideIndex -1
           }`}
         >
-          Powrót
+          <Button />
         </Link> : ""}
       </Fragment>
     );

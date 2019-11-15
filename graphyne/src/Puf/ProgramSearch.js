@@ -1,13 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import {
-  Container,
-  settings,
-  Popup,
-  green,
-  blue
-} from "../Components/Components.js";
+import { Container, Popup } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -15,13 +9,13 @@ class PUF extends Component {
   };
 
   pauseSearch = () => {
-    this.clearTimer()
+    this.clearTimer();
     document.getElementById("pause").style.display = "flex";
     document.getElementById("search").style.display = "none";
   };
 
   resumeSearch = () => {
-    this.setTimer()
+    this.setTimer();
     document.getElementById("pause").style.display = "none";
     document.getElementById("search").style.display = "grid";
   };
@@ -63,8 +57,8 @@ class PUF extends Component {
 
   clearTimer = () => {
     if (this.timerHandle) {
-        clearTimeout(this.timerHandle);
-        this.timerHandle = 0;
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
     }
   };
 
@@ -73,7 +67,7 @@ class PUF extends Component {
 
     return (
       <Fragment>
-        <Popup theme={blue} className="graphyne-font" id="info">
+        <Popup blue className="graphyne-font" id="info">
           <img src="/info.png" alt="info symbol" />
           <p>
             Znaleziono kanały
@@ -82,21 +76,24 @@ class PUF extends Component {
             TV / 230 <br />
             Radio / 16 <br />
           </p>
-          {this.props.from === "puf" ? <div className="flex align-center justify-around width600 font30">
-            <Link to="/puf/5">
-              <span className="list-hover">Powrót</span>
-            </Link>
-            <Link to="/puf/7">
-              <span className="list-hover">Dalej</span>
-            </Link>
-          </div> :
-          <div className="flex align-center justify-around width600 font30">
-          <Link to="/ustawienia/instalacja/wyszukiwanie kanałów">
-            <span className="list-hover">Zamknij</span>
-          </Link>
-        </div>}
+          {this.props.from === "puf" ? (
+            <div className="flex align-center justify-around width600 font30">
+              <Link to="/puf/5">
+                <span className="list-hover">Powrót</span>
+              </Link>
+              <Link to="/puf/7">
+                <span className="list-hover">Dalej</span>
+              </Link>
+            </div>
+          ) : (
+            <div className="flex align-center justify-around width600 font30">
+              <Link to="/ustawienia/instalacja/wyszukiwanie kanałów">
+                <span className="list-hover">Zamknij</span>
+              </Link>
+            </div>
+          )}
         </Popup>
-        <Popup theme={green} className="graphyne-font" id="pause">
+        <Popup green className="graphyne-font" id="pause">
           <img src="/info.png" alt="info symbol" />
           <p>
             Zatrzymanie wyszukiwania
@@ -105,7 +102,13 @@ class PUF extends Component {
             Czy potwierdzasz?
           </p>
           <div className="flex align-center justify-around width600 font30">
-            <Link to={this.props.from === "puf" ? "/puf/5" : "/ustawienia/instalacja/wyszukiwanie kanałów"}>
+            <Link
+              to={
+                this.props.from === "puf"
+                  ? "/puf/5"
+                  : "/ustawienia/instalacja/wyszukiwanie kanałów"
+              }
+            >
               <span className="list-hover">Tak</span>
             </Link>
             <Link onClick={() => this.resumeSearch()}>
@@ -113,13 +116,17 @@ class PUF extends Component {
             </Link>
           </div>
         </Popup>
-        <Container theme={settings} id="search">
+        <Container settings id="search">
           <div className="vectra flex align-center justify-around"></div>
           <div className="clock flex align-center justify-end"></div>
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">{this.props.from === "puf" ? "pierwsza instalacja" : "ustawienia"}</h1>
+              <h1 className="graphyne-font header1">
+                {this.props.from === "puf"
+                  ? "pierwsza instalacja"
+                  : "ustawienia"}
+              </h1>
               <div className="element-container">
                 <h2 className="graphyne-font header2">
                   wyszukiwanie kanałów / automatyczne
@@ -132,7 +139,11 @@ class PUF extends Component {
                     >
                       <span className="graphyne-font">{option.name}</span>
                       <span className="font16">
-                        {option.image ? <img src={option.image} alt="icon"/> : ""}{" "}
+                        {option.image ? (
+                          <img src={option.image} alt="icon" />
+                        ) : (
+                          ""
+                        )}{" "}
                         {option.chosen}
                       </span>
                     </div>

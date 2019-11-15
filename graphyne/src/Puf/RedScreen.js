@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Popup, red, flex } from "../Components/Components.js";
+import { Popup } from "../Components/Components.js";
 
 const RedScreen = props => {
   console.log(props)
   return (
-    <Popup red className="graphyne-font">
+    <Popup red flex className="graphyne-font">
       <img src="/denied.png" alt="denied symbol" />
       <p>Wszystkie ustawienia STB zostaną zmienione na domyślne.<br />
       Dane użytkownika i kanały zostaną skasowane.<br />

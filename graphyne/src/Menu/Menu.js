@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../App.css";
-import { menu, Container } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class Menu extends Component {
   state = {
@@ -33,7 +33,7 @@ class Menu extends Component {
     const { photos } = this.props;
     return (
       <Fragment>
-        <Container theme={menu}>
+        <Container menu>
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
@@ -93,7 +93,7 @@ class Menu extends Component {
           <Link
             to={this.props.match.url.replace(`/${this.props.address.replace("/", "")}`, "")}
           >
-            Powrót
+            <Button />
           </Link>
         ) : (
           ""

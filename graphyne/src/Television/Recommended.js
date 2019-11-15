@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, television } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -29,7 +29,7 @@ class Recommended extends Component {
     const { programs, activeSlideIndex } = this.state;
     return (
       <Fragment>
-      <Container theme={television}>
+      <Container television>
         <div className="vectra flex-center filler">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
@@ -140,7 +140,7 @@ class Recommended extends Component {
         <div className="nav-selected-bottom"></div>
         <div className="background-right-bottom flex-center"></div>
       </Container>
-      <Link to="">Powrót</Link>
+      <Link to=""><Button /></Link>
     </Fragment>
     );
   }

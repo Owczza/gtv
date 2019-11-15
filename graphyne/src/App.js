@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import Fullscreen from "./Components/Fullscreen"
 import Menu from "./Menu/Menu"
 import MyFiles from "./Menu/MyFiles"
+import Table from "./Menu/Table"
 import Search from "./Menu/Search"
 import Settings from "./Settings/Settings"
 import RedScreen from "./Puf/RedScreen"
@@ -29,18 +30,20 @@ class App extends Component {
           <Route exact path="/nagrania" render={ (props) => <Television data="recordings" title="nagrania" {...this.props} {...props} /> } />
           <Route exact path="/nagrania/:channelNumber" render={ (props) => <Program data="recordings" {...this.props} {...props} /> } />
           <Route exact path="/program_tv" render={ (props) => <Menu data="program-TV"  photos="program-TV" address="program_tv/" {...this.props} {...props} /> } />
-          <Route exact path="/program_tv/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
+          <Route exact path="/program_tv/widok_listy" render={ (props) => <MyFiles photos="program-TV/" {...this.props} {...props} />} />
+          <Route exact path="/program_tv/widok_tabeli" render={ (props) => <Table {...this.props} {...props} />} />
           <Route exact path="/program_tv/przypomnienia" render={ (props) => <Program data="recordings" {...this.props} {...props} />} />
           <Route exact path="/portal" render={ (props) => <Fullscreen alt="portal" {...this.props} {...props} />} />
           <Route exact path="/moje_pliki" render={ (props) => <Menu data="my-files"  photos="my-files-icons" address="moje_pliki/" {...this.props} {...props} /> } />
           <Route exact path="/moje_pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
           <Route exact path="/wiadomosci" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
           <Route exact path="/szukaj" render={ (props) => <Search {...this.props} {...props} />} />
+          
           <Route exact path="/ustawienia" render={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" render={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/instalacja/wyszukiwanie kanałów/automatyczne/szukanie" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
-          <Route exact path="/ustawienia/:type/konfiguracja sieci/ethernet/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/:type/:category/:nested/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:category/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/instalacja/ustawienia domyślne/puf/start" render={ (props) => <RedScreen {...this.props} {...props} /> } />
           <Route exact path="/puf" render={ () => <Link to="/puf/1"><img src="/vectra-puf.jpg" alt="b1" /></Link>} />

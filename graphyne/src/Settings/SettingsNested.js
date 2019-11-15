@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class SettingsNested extends Component {
   state = {
@@ -14,13 +14,15 @@ class SettingsNested extends Component {
     url: "",
     type: "",
     category: "",
-    subtype: ""
+    subtype: "",
+    isChoosing: false
   };
 
   startChoosing = option => {
     this.setState({
       ...this.state,
-      setting: option
+      setting: option,
+      isChoosing: true
     });
     document.getElementById("options-list").style.display = "none";
     document.getElementById("option-display").style.display = "flex";
@@ -33,15 +35,28 @@ class SettingsNested extends Component {
       }
     });
 
-    console.log(newSlides);
-
     this.setState({
       ...this.state,
       setting: {
         name: "",
         chosen: "",
         choices: []
-      }
+      },
+      isChoosing: false
+    });
+    document.getElementById("options-list").style.display = "block";
+    document.getElementById("option-display").style.display = "none";
+  };
+
+  noChoice = () => {
+    this.setState({
+      ...this.state,
+      setting: {
+        name: "",
+        chosen: "",
+        choices: []
+      },
+      isChoosing: false
     });
     document.getElementById("options-list").style.display = "block";
     document.getElementById("option-display").style.display = "none";
@@ -51,6 +66,7 @@ class SettingsNested extends Component {
     const type = this.props.match.params.type;
     const category = this.props.match.params.category;
     const subtype = this.props.match.params.subtype;
+    const nested = this.props.match.params.nested;
     const pathname = this.props.match.url ? this.props.match.url : "";
     fetch(`/settingsMenu/settings_${type}.json`)
       .then(response => response.json())
@@ -67,8 +83,8 @@ class SettingsNested extends Component {
                 .find(element => element.name === category)
                 .nested.find(element => element.name === subtype)
             : data
-                .find(element => element.name === "konfiguracja sieci")
-                .nested.find(element => element.name === "ethernet")
+                .find(element => element.name === category)
+                .nested.find(element => element.name === nested)
                 .nested.find(element => element.name === subtype),
           url: pathname,
           subtype: subtype,
@@ -79,7 +95,6 @@ class SettingsNested extends Component {
 
   componentDidMount() {
     this.uploadToState();
-    console.log(this.state.data);
   }
 
   render() {
@@ -87,8 +102,6 @@ class SettingsNested extends Component {
     const activeContinue = this.state.data.nested.find(
       element => element.chosen === "tak"
     );
-    console.log(this.props);
-    console.log(this.state.data);
     return (
       <Fragment>
         <Container settings>
@@ -144,13 +157,13 @@ class SettingsNested extends Component {
                         key={option.name}
                       >
                         <div className="list-hover">
-                          {option.nested ? (
+                          {option.disabled ? (
+                            <div className="gray-text">{option.name}</div>
+                          ) : option.nested ? (
                             <Link to={url + "/" + option.name}>
                               {option.name}
                             </Link>
-                          ) : option.disabled ? (
-                            <div className="gray-text">{option.name}</div>
-                          ) : option.name === "automatyczne" &&
+                          ) :  option.name === "automatyczne" &&
                             data.name === "wyszukiwanie kanałów" ? (
                             <Link to={url + "/" + option.name + "/szukanie"}>
                               {option.name}
@@ -162,6 +175,7 @@ class SettingsNested extends Component {
                           )}
                         </div>
                         <div className="font16">
+                          {option.image ? <img src={option.image} /> : ""}
                           {option.chosen ? option.chosen : ""}
                         </div>
                       </div>
@@ -200,10 +214,10 @@ class SettingsNested extends Component {
           </div>
           <div className="background-right-top flex-center"></div>
         </Container>
-        {!this.state.setting.name ? (
-          <Link to={this.state.url.replace(`/${subtype}`, "")}>Powrót</Link>
+        {!this.state.isChoosing ? (
+          <Link to={this.state.url.replace(`/${subtype}`, "")}><Button /></Link>
         ) : (
-          ""
+          <Button onClick={() => this.noChoice()}/>
         )}
       </Fragment>
     );

@@ -115,16 +115,97 @@
     ]
   },
 
-  { "name": "parametry sieci", "nested": [{}] },
+  {
+    "name": "parametry sieci",
+    "nested": [
+      {
+        "name": "bezprzewodowe",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
+        "name": "przewodowe",
+        "nested": [
+          { 
+            "name": "adres ip",
+            "chosen": "192.168.0.23",
+            "disabled": true 
+          },
+          {
+            "name": "router",
+            "chosen": "192.168.0.1",
+            "disabled": true
+          },
+          {
+            "name": "mac adres",
+            "chosen": "c4:77:af:11:7a:f8",
+            "disabled": true
+          },
+          {
+            "name": "dns",
+            "chosen": "37.8.214.2,31.11.202.254",
+            "disabled": true
+          },
+          {
+            "name": "maska podsieci",
+            "chosen": "255.255.255.0",
+            "disabled": true
+          }
+        ],
+        "disabled": true
+      }
+    ]
+  },
 
   {
     "name": "miernik sygnału",
     "nested": [
       {
+        "name": "tuner 6",
+        "image": "/no-quality.png",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
+        "name": "tuner 5",
+        "image": "/no-quality.png",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
+        "name": "tuner 4",
+        "image": "/no-quality.png",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
+        "name": "tuner 3",
+        "image": "/low-quality.png",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
+        "name": "tuner 2",
+        "image": "/low-quality.png",
+        "nested": [{}],
+        "disabled": true
+      },
+      {
         "name": "tuner 1",
+        "image": "/low-quality.png",
         "nested": [
-          { "name": "siła", "chosen": "57%", "disabled": true },
-          { "name": "jakość", "chosen": "83%", "disabled": true },
+          {
+            "name": "siła",
+            "chosen": "57%",
+            "disabled": true,
+            "image": "/half-quality.png"
+          },
+          {
+            "name": "jakość",
+            "chosen": "100%",
+            "disabled": true,
+            "image": "/quality.png"
+          },
           { "name": "ber", "chosen": "0.00E+00", "disabled": true },
           { "name": "s/n (db)", "chosen": "35.8", "disabled": true },
           { "name": "modulacja", "chosen": "QAM-256", "disabled": true },

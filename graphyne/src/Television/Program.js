@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, program } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
 
 class Program extends Component {
@@ -35,7 +35,7 @@ class Program extends Component {
     const { data } = this.props;
     return (
       <Fragment>
-      <Container theme={program}>
+      <Container program>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
@@ -105,7 +105,7 @@ class Program extends Component {
           </div>
         </div>
       </Container>
-      <Link to={this.props.match.url.replace(`/${this.props.match.params.channelNumber}`, "")}>Powrót</Link>
+      <Link to={this.props.match.url.replace(`/${this.props.match.params.channelNumber}`, "")}><Button /></Link>
     </Fragment>
     );
   }

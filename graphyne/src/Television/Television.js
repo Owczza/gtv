@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, television } from "../Components/Components.js";
+import { Container, Button } from "../Components/Components.js";
 
 class Television extends Component {
   state = {
@@ -32,7 +32,7 @@ class Television extends Component {
     const { programs, list, activeSlideIndex } = this.state;
     return (
       <Fragment>
-      <Container theme={television}>
+      <Container television>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
@@ -165,7 +165,7 @@ class Television extends Component {
         </div>
         <div className="background-right-bottom flex-center"></div>
       </Container>
-      <Link to="">Powrót</Link>
+      <Link to=""><Button /></Link>
     </Fragment>
     );
   }
