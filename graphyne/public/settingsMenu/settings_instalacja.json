@@ -14,7 +14,8 @@
       },
       {
         "name": "sieć docsis",
-        "disabled": true
+        "chosen": "wyłączona",
+        "choices": ["włączona", "wyłączona"]
       },
       {
         "name": "ethernet",

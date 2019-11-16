@@ -78,7 +78,14 @@ export const Button = styled.button`
     }
 
     :hover {
-        background-color: #008fd1;
+        background-color: #00aeffb3;
+        border: 1px solid #00aeffb3;
+        color: #ffffff;
+    }
+    
+    :active {
+        box-shadow: inset 0 2px 4px 2px #008fd1;
+        background-color: #00aeffb3;
         border: 1px solid #ffffff;
         color: #ffffff;
     }

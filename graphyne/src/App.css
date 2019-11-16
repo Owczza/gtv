@@ -417,3 +417,11 @@ p {
 .width600 {
   width: 600px;
 }
+
+#list-options {
+  display: none;
+}
+
+#close {
+  display: none;
+}

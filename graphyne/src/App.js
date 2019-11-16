@@ -32,7 +32,8 @@ class App extends Component {
           <Route exact path="/program_tv" render={ (props) => <Menu data="program-TV"  photos="program-TV" address="program_tv/" {...this.props} {...props} /> } />
           <Route exact path="/program_tv/widok_listy" render={ (props) => <MyFiles photos="program-TV/" {...this.props} {...props} />} />
           <Route exact path="/program_tv/widok_tabeli" render={ (props) => <Table {...this.props} {...props} />} />
-          <Route exact path="/program_tv/przypomnienia" render={ (props) => <Program data="recordings" {...this.props} {...props} />} />
+          <Route exact path="/program_tv/przypomnienia" render={ (props) => <Television data="reminders" title="przypomnienia" {...this.props} {...props} />} />
+          <Route exact path="/program_tv/przypomnienia/:channelNumber" render={ (props) => <Program data="reminders" {...this.props} {...props} />} />
           <Route exact path="/portal" render={ (props) => <Fullscreen alt="portal" {...this.props} {...props} />} />
           <Route exact path="/moje_pliki" render={ (props) => <Menu data="my-files"  photos="my-files-icons" address="moje_pliki/" {...this.props} {...props} /> } />
           <Route exact path="/moje_pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
@@ -46,7 +47,7 @@ class App extends Component {
           <Route exact path="/ustawienia/:type/:category/:nested/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:category/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/instalacja/ustawienia domyślne/puf/start" render={ (props) => <RedScreen {...this.props} {...props} /> } />
-          <Route exact path="/puf" render={ () => <Link to="/puf/1"><img src="/vectra-puf.jpg" alt="b1" /></Link>} />
+          <Route exact path="/puf" render={ (props) => <Fullscreen alt="puf" {...this.props} {...props} />} />
           <Route exact path="/puf/:id" render={ (props) => <PUF {...this.props} {...props} /> } />
           <Route exact path="/aktualne oprogramowanie/:id" render={ (props) => <PUF from="ustawienia" {...this.props} {...props} /> } />
           <Route exact path="/puf/6/szukanie" render={ (props) => <ProgramSearch from="puf" {...this.props} {...props} /> } />

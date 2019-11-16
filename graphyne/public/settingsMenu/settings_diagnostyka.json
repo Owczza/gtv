@@ -126,10 +126,10 @@
       {
         "name": "przewodowe",
         "nested": [
-          { 
+          {
             "name": "adres ip",
             "chosen": "192.168.0.23",
-            "disabled": true 
+            "disabled": true
           },
           {
             "name": "router",
@@ -244,7 +244,18 @@
       },
       {
         "name": "zmień ca pin",
-        "nested": [{}]
+        "nested": [
+          {
+            "name": "potwierdź nowy pin",
+            "chosen": "_ _ _ _",
+            "disabled": true
+          },
+          {
+            "name": "wprowadź nowy pin",
+            "chosen": "_ _ _ _",
+            "disabled": true
+          }
+        ]
       },
       {
         "name": "stan żetonów",

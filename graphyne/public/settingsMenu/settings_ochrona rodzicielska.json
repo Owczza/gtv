@@ -1,7 +1,18 @@
 [
   {
     "name": "zmiana pin",
-    "nested": [{}],
+    "nested": [
+      {
+        "name": "potwierdź nowy pin",
+        "chosen": "_ _ _ _",
+        "disabled": true
+      },
+      {
+        "name": "wprowadź nowy pin",
+        "chosen": "_ _ _ _",
+        "disabled": true
+      }
+    ],
     "disabled": true
   },
   {
