@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -53,24 +53,24 @@ class PUF extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">{this.props.from === "ustawienia" ? "ustawienia" : "pierwsza instalacja"}</h1>
+              <Text title>{this.props.from === "ustawienia" ? "ustawienia" : "pierwsza instalacja"}</Text>
               <div className="element-container">
                 <div>
-                  <h2 className="graphyne-font header2">{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</h2>
+                  <Text>{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</Text>
                   {setting.title ? (
-                    <h2 className="graphyne-font header2 font-weight800 margin30-vertical white-text">
+                    <Text paragraph white bold className="margin30-vertical">
                       {setting.title}
-                    </h2>
+                    </Text>
                   ) : setting.vod ? (
-                    <h2 className="graphyne-font header2 font-weight800 green-text margin30-vertical">
+                    <Text paragraph green bold className="margin30-vertical">
                       {setting.vod}
-                    </h2>
+                    </Text>
                   ) : (
                     ""
                   )}
-                  <p className="gray-text font16">{this.props.from === "ustawienia" ? "" : setting.description}</p>
+                  <Text paragraph>{this.props.from === "ustawienia" ? "" : setting.description}</Text>
                 </div>
-                <div className="graphyne-font font20" id="options-list">
+                <Text list id="options-list">
                   {setting.choices.map(option => (
                     <div
                       className="flex align-center justify-between"
@@ -87,19 +87,17 @@ class PUF extends Component {
                           }`}
                           onClick={this.loadData()}
                         >
-                          <span className="graphyne-font list-hover">
                             {this.props.from === "ustawienia" ? "zamknij" : option.name}
-                          </span>
                         </Link>
                       ) : (
                         <span className="graphyne-font">{option.name}</span>
                       )}
-                      <span className="font16">
+                      <Text small>
                         {option.chosen ? option.chosen : ""}
-                      </span>
+                      </Text>
                     </div>
                   ))}
-                </div>
+                </Text>
               </div>
             </div>
           </div>

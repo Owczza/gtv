@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class VOD extends Component {
   state = {
@@ -39,27 +39,27 @@ class VOD extends Component {
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
-        <div className="title graphyne-font header1 flex-start">
-          <span className="margin20-sides">VOD</span>
+        <div className="title flex-start">
+          <Text title className="margin20-sides">VOD</Text>
         </div>
         <div className="clock flex-center"></div>
         <div className="background-left-top flex-center"></div>
         <div className="nav-selected-top flex-start align-bottom">
           <div className="margin20-sides">
-            <h1 className="graphyne-font program-channel-number">
+            <Text extra>
               {programs[activeSlideIndex].channelNumber}
-            </h1>
-            <h2 className="program-title blue">
+            </Text>
+            <Text program>
               {programs[activeSlideIndex].title}
-            </h2>
-            <h3 className="program-time-and-type">
+            </Text>
+            <Text className="program-time-and-type">
               {programs[activeSlideIndex].type + " / " + 
               programs[activeSlideIndex].country + " / " + 
               programs[activeSlideIndex].year + " / " +
               programs[activeSlideIndex].PG}
               <br />
               Cena: {programs[activeSlideIndex].price + " / " + programs[activeSlideIndex].duration}
-            </h3>
+            </Text>
           </div>
         </div>
         <div className="background-right-top flex-center"></div>
@@ -117,21 +117,20 @@ class VOD extends Component {
           />
         </div>
         <div className="background-left-bottom align-top flex-end">
-          <div className="gray-text text-align-right margin20-sides">
+          <Text paragraph right className="margin20-sides">
             Wybierz <span className="opt">OPT</span> na pilocie
             <br />
             aby przejść do opcji
-          </div>
+          </Text>
         </div>
         <div className="nav-selected-bottom">
           <ul className="margin20-sides program-list-overflow">
             {list.map(type => (
-              <li
-                className="graphyne-font list-hover"
+              <Text list
                 key={type}
               >
                 {type}
-              </li>
+              </Text>
             ))}
           </ul>
         </div>

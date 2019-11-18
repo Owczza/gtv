@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -35,14 +35,14 @@ class Recommended extends Component {
         </div>
         <div className="title graphyne-font drop-shadow-hard flex-start align-bottom">
           <div className="margin30-sides">
-            <h1 className="graphyne-font program-channel-number">
+            <Text extra>
               {programs[activeSlideIndex].channelNumber + "  "}
               {programs[activeSlideIndex].channelTitle}
-            </h1>
-            <h2 className="program-title blue">
+            </Text>
+            <Text program>
               {programs[activeSlideIndex].title}
-            </h2>
-            <h3 className="program-time-and-type">
+            </Text>
+            <Text>
               {programs[activeSlideIndex].time} /{" "}
               {programs[activeSlideIndex].type}
               {programs[activeSlideIndex].PG
@@ -51,7 +51,7 @@ class Recommended extends Component {
               {programs[activeSlideIndex].rating
                 ? ` / ⭐${programs[activeSlideIndex].rating}`
                 : ""}
-            </h3>
+            </Text>
           </div>
         </div>
         <div className="clock flex-center filler"></div>
@@ -83,9 +83,9 @@ class Recommended extends Component {
               alt="TVP 3 Logo"
             />
           </div>
-          <h2 className="graphyne-font program-time-and-type align-self-start margin30-sides">
+          <Text className="align-self-start margin30-sides">
             Najczęściej oglądane kanały
-          </h2>
+          </Text>
           <div className="flex-center align-bottom">
             <img
               className="margin20-sides active-channel margin7-bottom"
@@ -131,9 +131,9 @@ class Recommended extends Component {
         </div>
         <div className="nav-left"></div>
         <div className="nav-selected">
-          <h1 className="graphyne-font margin30-sides font65 font-weight800">
+          <Text menu bold className="graphyne-font margin30-sides">
             polecane
-          </h1>
+          </Text>
         </div>
         <div className="nav-right flex-center"></div>
         <div className="background-left-bottom align-top flex-end"></div>

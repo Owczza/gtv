@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
 
 class Program extends Component {
@@ -57,9 +57,9 @@ class Program extends Component {
                   alt={activeProgram.title}
                 />
               ) : data === "television" ? (
-                <h1 className="graphyne-font program-channel-number">
+                <Text extra className="graphyne-font program-channel-number">
                   {activeProgram.channelNumber}
-                </h1>
+                </Text>
               ) : (
                 ""
               )}
@@ -70,21 +70,21 @@ class Program extends Component {
             {data === "reminders" ? (
               ""
             ) : (
-              <div className="nav-selected-padding padding145-top no-padding-bottom white-text">
-                <h1 className="font-weight400">{activeProgram.title}</h1>
+              <div className="nav-selected-padding padding145-top no-padding-bottom">
+                <Text program white>{activeProgram.title}</Text>
                 {data === "television" ? (
                   <div className="separator"></div>
                 ) : (
                   <h3 className="font-weight400">{activeProgram.genre}</h3>
                 )}
-                <span className="font20">
+                <Text white>
                   {activeProgram.time}
                   {activeProgram.type}
                   {}
-                </span>
+                </Text>
                 <br />
                 <br />
-                <p>{activeProgram.description}</p>
+                <Text medium white>{activeProgram.description}</Text>
                 <br />
                 {data !== "recordings" ? (
                   <ProgramDescription
@@ -98,16 +98,13 @@ class Program extends Component {
           </div>
           <div className="background-right-top flex justify-start align-center padding20-left">
             <div className="padding145-top padding20-left">
-              <ul>
                 {list.map(option => (
-                  <li
-                    className="list-line-height header1 gray-text program-list-hover"
+                  <Text programList
                     key={option}
                   >
                     {option}
-                  </li>
+                  </Text>
                 ))}
-              </ul>
             </div>
           </div>
         </Container>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class SettingsNested extends Component {
   state = {
@@ -37,6 +37,7 @@ class SettingsNested extends Component {
 
     this.setState({
       ...this.state,
+      data: { ...this.state.data, mute: choice === "tak" ? false : true },
       setting: {
         name: "",
         chosen: "",
@@ -71,8 +72,7 @@ class SettingsNested extends Component {
     fetch(`/settingsMenu/settings_${type}.json`)
       .then(response => response.json())
       .then(data => {
-        console.log(data
-          .find(element => element.name === subtype));
+        console.log(data.find(element => element.name === subtype));
         this.setState({
           data: data.find(element => element.name === subtype)
             ? data.find(element => element.name === subtype)
@@ -99,9 +99,7 @@ class SettingsNested extends Component {
 
   render() {
     const { data, subtype, url } = this.state;
-    const activeContinue = this.state.data.nested.find(
-      element => element.chosen === "tak"
-    );
+    console.log(this.state);
     return (
       <Fragment>
         <Container settings>
@@ -112,96 +110,101 @@ class SettingsNested extends Component {
           <div className="background-left-top flex-center"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">ustawienia</h1>
+              <Text title>ustawienia</Text>
               <div className="element-container">
                 <div>
-                  <h2 className="graphyne-font header2">.../ {data.name}</h2>
+                  <Text>.../ {data.name}</Text>
                   {data.title ? (
-                    <h2 className="graphyne-font header2 margin30-vertical white-text">
+                    <Text paragraph white bold className="margin30-vertical">
                       {data.title}
-                    </h2>
+                    </Text>
                   ) : data.vod ? (
-                    <h2 className="graphyne-font header2 font-weight800 green-text margin30-vertical">
+                    <Text paragraph green bold className="margin30-vertical">
                       {data.vod}
-                    </h2>
+                    </Text>
                   ) : (
                     ""
                   )}
-                  <p className="gray-text font16">{data.description}</p>
+                  <Text paragraph>{data.description}</Text>
                 </div>
-                <div className="graphyne-font font20">
+                <div>
                   <div
-                    className="graphyne-font font20 flex align-bottom justify-between"
+                    className="flex align-bottom justify-between"
                     id="option-display"
                   >
-                    <div className="blue font-weight800 font21">
+                    <Text list blue bold>
                       {this.state.setting.name}
-                    </div>
+                    </Text>
                     <br />
                     <div className="flex-column flex">
                       {this.state.setting.choices.map(choice => (
-                        <div
-                          className="list-hover"
+                        <Text
+                          list
                           onClick={() => this.pickChoice(choice)}
                           key={choice}
                         >
                           {choice}
-                        </div>
+                        </Text>
                       ))}
                     </div>
                   </div>
-                  <div className="graphyne-font font20" id="options-list">
+                  <div id="options-list">
                     {data.nested.map(option => (
-                      <div
+                      <Text
+                        list
                         className="flex align-center justify-between"
                         key={option.name}
                       >
-                        <div className="list-hover">
-                          {option.disabled ? (
-                            <div className="gray-text">{option.name}</div>
-                          ) : option.nested ? (
-                            <Link to={url + "/" + option.name}>
-                              {option.name}
-                            </Link>
-                          ) :  option.name === "automatyczne" &&
-                            data.name === "wyszukiwanie kanałów" ? (
-                            <Link to={url + "/" + option.name + "/szukanie"}>
-                              {option.name}
-                            </Link>
-                          ) : (
-                            <div onClick={() => this.startChoosing(option)}>
-                              {option.name}
-                            </div>
-                          )}
-                        </div>
-                        <div className="font16">
-                          {option.image ? <img src={option.image} /> : ""}
-                          {option.chosen ? option.chosen : ""}
-                        </div>
-                      </div>
-                    ))}
-                    {this.state.data.continue ? (
-                      <div
-                        className={
-                          activeContinue ||
-                          data.vod ||
-                          data.name === "aktualizacja oprogramowania"
-                            ? "list-hover"
-                            : "option-mute"
-                        }
-                      >
-                        {activeContinue &&
-                        activeContinue.name ===
-                          "przywróć ustawienia domyślne" ? (
-                          <Link to={`${url}/puf/start`}>Kontynuuj</Link>
-                        ) : data.vod ? (
-                          <Link to={`/ustawienia/instalacja`}>Kontynuuj</Link>
-                        ) : data.name === "aktualizacja oprogramowania" ? (
-                          <Link to={`/aktualne oprogramowanie/3`}>
-                            Kontynuuj
+                        {option.disabled ? (
+                          <Text list disabled>
+                            {option.name}
+                          </Text>
+                        ) : option.nested ? (
+                          <Link to={url + "/" + option.name}>
+                            {option.name}
+                          </Link>
+                        ) : option.name === "automatyczne" &&
+                          data.name === "wyszukiwanie kanałów" ? (
+                          <Link
+                            to={url + "/" + option.name + "/szukanie/start"}
+                          >
+                            {option.name}
                           </Link>
                         ) : (
-                          "Kontynuuj"
+                          <div onClick={() => this.startChoosing(option)}>
+                            {option.name}
+                          </div>
+                        )}
+                        <Text small>
+                          {option.image ? <img src={option.image} /> : ""}
+                          {option.chosen ? option.chosen : ""}
+                        </Text>
+                      </Text>
+                    ))}
+                    {data.continue ? (
+                      <div>
+                        {data.mute ? (
+                          <Text list mute>
+                            Kontynuuj
+                          </Text>
+                        ) : data.name === "przywróć ustawienia domyślne" ? (
+                          <Text list>
+                            <Link to={`${url}/puf/start/popup`}>Kontynuuj</Link>
+                          </Text>
+                        ) : data.vod ? (
+                          <Text list>
+                            <Link to={`/ustawienia/instalacja`}>Kontynuuj</Link>
+                          </Text>
+                        ) : data.name === "aktualizacja oprogramowania" ? (
+                          <Text list>
+                            <Link to={`/aktualne oprogramowanie/3`}>
+                              Kontynuuj
+                            </Link>
+                          </Text>
+                        ) : (
+                          <Text list>
+                            <Link to={`${url}/puf/start/popup`}>Kontynuuj</Link>
+                          </Text>
                         )}
                       </div>
                     ) : (
@@ -215,9 +218,11 @@ class SettingsNested extends Component {
           <div className="background-right-top flex-center"></div>
         </Container>
         {!this.state.isChoosing ? (
-          <Link to={this.state.url.replace(`/${subtype}`, "")}><Button /></Link>
+          <Link to={this.state.url.replace(`/${subtype}`, "")}>
+            <Button />
+          </Link>
         ) : (
-          <Button onClick={() => this.noChoice()}/>
+          <Button onClick={() => this.noChoice()} />
         )}
       </Fragment>
     );

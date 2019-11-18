@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class Settings extends Component {
   state = {
@@ -92,24 +92,24 @@ class Settings extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">ustawienia</h1>
+              <Text title>ustawienia</Text>
               <div className="element-container">
                 <div>
-                  <h2 className="graphyne-font header2">
+                  <Text>
                     {type === "Menu" ? "" : `/ ${type}`}
-                  </h2>
+                  </Text>
                   {data.title ? (
-                    <h2 className="graphyne-font header2 font-weight800 margin30-vertical white-text">
+                    <Text paragraph white bold className="margin30-vertical">
                       {data.title}
-                    </h2>
+                    </Text>
                   ) : data.vod ? (
-                    <h2 className="graphyne-font header2 font-weight800 green-text margin30-vertical">
+                    <Text paragraph green bold className="margin30-vertical">
                       {data.vod}
-                    </h2>
+                    </Text>
                   ) : (
                     ""
                   )}
-                  <p className="gray-text font16">{data.description}</p>
+                  <Text paragraph>{data.description}</Text>
                 </div>
                 <div className="graphyne-font font20" id="options-list">
                   {data.map(option => (
@@ -117,42 +117,40 @@ class Settings extends Component {
                       className="flex align-center justify-between"
                       key={option.name}
                     >
-                      <div className="list-hover graphyne-font">
                         {option.nested ? (
-                          <Link to={this.state.url + "/" + option.name}>
+                          <Text list><Link to={this.state.url + "/" + option.name}>
                             {option.name}
-                          </Link>
+                          </Link></Text>
                         ) : option.disabled ? (
-                          <div className="gray-text">{option.name}</div>
+                          <Text list disabled>{option.name}</Text>
                         ) : (
-                          <div onClick={() => this.startChoosing(option)}>
+                          <Text list onClick={() => this.startChoosing(option)}>
                             {option.name}
-                          </div>
+                          </Text>
                         )}
-                      </div>
-                      <div className="font16">
+                      <Text small>
                         {option.chosen ? option.chosen : ""}
-                      </div>
+                      </Text>
                     </div>
                   ))}
                 </div>
                 <div
-                  className="graphyne-font font20 flex align-bottom justify-between"
+                  className="flex align-bottom justify-between"
                   id="option-display"
                 >
-                  <div className="blue font-weight800 font21">
+                  <Text list blue bold>
                     {this.state.setting.name}
-                  </div>
+                  </Text>
                   <br />
                   <div className="flex-column flex">
                     {this.state.setting.choices.map(choice => (
-                      <div
+                      <Text list
                         className="list-hover"
                         onClick={() => this.pickChoice(choice)}
                         key={choice}
                       >
                         {choice}
-                      </div>
+                      </Text>
                     ))}
                   </div>
                 </div>

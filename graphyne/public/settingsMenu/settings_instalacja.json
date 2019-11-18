@@ -85,7 +85,8 @@
         "choices": ["tak", "nie"]
       }
     ],
-    "continue": true
+    "continue": true,
+    "mute": true
   },
   {
     "name": "aktualizacja oprogramowania",

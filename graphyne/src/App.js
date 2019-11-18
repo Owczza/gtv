@@ -43,10 +43,10 @@ class App extends Component {
           <Route exact path="/ustawienia" render={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" render={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
-          <Route exact path="/ustawienia/instalacja/wyszukiwanie kanałów/automatyczne/szukanie" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/instalacja/wyszukiwanie kanałów/automatyczne/szukanie/start" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:category/:nested/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:category/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
-          <Route exact path="/ustawienia/instalacja/ustawienia domyślne/puf/start" render={ (props) => <RedScreen {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia/instalacja/ustawienia domyślne/puf/start/popup" render={ (props) => <RedScreen {...this.props} {...props} /> } />
           <Route exact path="/puf" render={ (props) => <Fullscreen alt="puf" {...this.props} {...props} />} />
           <Route exact path="/puf/:id" render={ (props) => <PUF {...this.props} {...props} /> } />
           <Route exact path="/aktualne oprogramowanie/:id" render={ (props) => <PUF from="ustawienia" {...this.props} {...props} /> } />

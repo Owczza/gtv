@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class VODProgram extends Component {
   state = {
@@ -30,7 +30,6 @@ class VODProgram extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { list, activeProgram } = this.state;
     return (
       <Fragment>
@@ -47,16 +46,16 @@ class VODProgram extends Component {
               className="width200"
               alt={activeProgram.title}
             />
-            <h3 className="white-text font-weight400">
-              <span className="font21">Cena: {activeProgram.price}</span><br />
+            <Text paragraph white>
+              Cena: {activeProgram.price}<br />
               Czas wypożyczenia: {activeProgram.duration}
-            </h3>
+            </Text>
           </div>
         </div>
         <div className="background-left-bottom program-shadow">
-          <div className="nav-selected-padding padding145-top no-padding-bottom white-text">
-            <h1 className="font-weight400">{activeProgram.title}</h1>
-            <h3 className="font-weight400">
+          <div className="nav-selected-padding padding145-top no-padding-bottom">
+            <Text program white>{activeProgram.title}</Text>
+            <Text className="font-weight400">
               {activeProgram.type +
                 " / " +
                 activeProgram.country +
@@ -64,29 +63,26 @@ class VODProgram extends Component {
                 activeProgram.year +
                 " / " +
                 activeProgram.PG}
-            </h3>
+            </Text>
             <br />
             <br />
-            <p>
+            <Text medium white>
               Reżyseria: {activeProgram.director} <br />
               Występują: {activeProgram.actors} <br />
-            </p>
+            </Text>
             <br />
-            <p>{activeProgram.description}</p>
+            <Text medium white>{activeProgram.description}</Text>
           </div>
         </div>
         <div className="background-right-top flex justify-start align-center padding20-left">
           <div className="padding145-top padding20-left">
-            <ul>
               {list.map(option => (
-                <li
-                  className="list-line-height header1 gray-text program-list-hover"
+                <Text programList
                   key={option}
                 >
                   {option}
-                </li>
+                </Text>
               ))}
-            </ul>
           </div>
         </div>
       </Container>

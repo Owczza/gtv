@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button } from "../Components/Components.js";
+import { Container, Button, Text } from "../Components/Components.js";
 
 class Television extends Component {
   state = {
@@ -35,14 +35,14 @@ class Television extends Component {
     document.getElementById("left-program").style.display = "none";
     document.getElementById("opt").style.display = "none";
     document.getElementById("close").style.display = "block";
-  }
+  };
 
   hideListOptions = () => {
     document.getElementById("list-options").style.display = "none";
     document.getElementById("left-program").style.display = "block";
     document.getElementById("opt").style.display = "block";
     document.getElementById("close").style.display = "none";
-  }
+  };
 
   render() {
     const { programs, list, activeSlideIndex, options } = this.state;
@@ -53,36 +53,33 @@ class Television extends Component {
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
-          <div className="title graphyne-font header1 flex-start">
-            <span className="margin20-sides">{this.props.title}</span>
+          <div className="title flex-start">
+            <Text title className="margin20-sides">{this.props.title}</Text>
           </div>
           <div className="clock flex-center"></div>
           <div className="background-left-top flex-center"></div>
           <div className="nav-selected-top flex-start align-bottom">
             <div className="margin20-sides">
-              <h1 className="graphyne-font program-channel-number">
-                {programs[activeSlideIndex].channelNumber}{" "}
-                <span className="program-channel-title blue">
-                  {programs[activeSlideIndex].channelTitle}
-                </span>
-              </h1>
-              <h2 className="program-title blue">
-                {programs[activeSlideIndex].title}
-              </h2>
-              <h3 className="program-time-and-type">
+              <Text extra>{programs[activeSlideIndex].channelNumber} </Text>
+              <Text subtitle>{programs[activeSlideIndex].channelTitle}</Text>
+              <Text program>{programs[activeSlideIndex].title}</Text>
+              <Text>
                 {programs[activeSlideIndex].time}
                 {programs[activeSlideIndex].type}
                 <br />
                 {programs[activeSlideIndex].isRecorded
                   ? programs[activeSlideIndex].isRecorded
                   : ""}
-              </h3>
+              </Text>
             </div>
           </div>
           <div className="background-right-top flex-center"></div>
           <div className="nav-left flex-end auto-height">
-            <div id="list-options" className="graphyne-font flex-column">
-              {options.map(element => <div className="list-hover">{element}</div>)}<br />
+            <div id="list-options" className="flex-column">
+              {options.map(element => (
+                <Text list>{element}</Text>
+              ))}
+              <br />
             </div>
             <img
               className="margin10-sides"
@@ -166,20 +163,29 @@ class Television extends Component {
             />
           </div>
           <div className="background-left-bottom align-top flex-end">
-            <div className="gray-text text-align-right margin20-sides" id="opt">
-              Wybierz <span className="opt" onClick={() => this.displayListOptions()}>OPT</span> na pilocie
+            <Text paragraph right className="margin20-sides" id="opt">
+              Wybierz{" "}
+              <span className="opt" onClick={() => this.displayListOptions()}>
+                OPT
+              </span>{" "}
+              na pilocie
               <br />
               aby przejść do opcji
-            </div>
-            
-            <span onClick={() => this.hideListOptions()} id="close" className="graphyne-font list-hover">Zamknij</span>
+            </Text>
+
+            <Text list
+              onClick={() => this.hideListOptions()}
+              id="close"
+            >
+              Zamknij
+            </Text>
           </div>
           <div className="nav-selected-bottom">
-            <ul className="margin20-sides program-list-overflow">
+            <ul className="margin20-sides program-list-overflow flex-column">
               {list.map(type => (
-                <li className="graphyne-font list-hover" key={type}>
+                <Text list key={type}>
                   {type}
-                </li>
+                </Text>
               ))}
             </ul>
           </div>

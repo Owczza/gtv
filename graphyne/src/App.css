@@ -160,10 +160,6 @@ a {
   align-self: flex-start;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 .flex-column {
   flex-direction: column;
 }
