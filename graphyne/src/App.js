@@ -29,14 +29,14 @@ class App extends Component {
           <Route exact path="/radio" render={ (props) => <Television data="radio" title="radio" {...this.props} {...props} /> } />
           <Route exact path="/nagrania" render={ (props) => <Television data="recordings" title="nagrania" {...this.props} {...props} /> } />
           <Route exact path="/nagrania/:channelNumber" render={ (props) => <Program data="recordings" {...this.props} {...props} /> } />
-          <Route exact path="/program_tv" render={ (props) => <Menu data="program-TV"  photos="program-TV" address="program_tv/" {...this.props} {...props} /> } />
-          <Route exact path="/program_tv/widok_listy" render={ (props) => <MyFiles photos="program-TV/" {...this.props} {...props} />} />
-          <Route exact path="/program_tv/widok_tabeli" render={ (props) => <Table {...this.props} {...props} />} />
-          <Route exact path="/program_tv/przypomnienia" render={ (props) => <Television data="reminders" title="przypomnienia" {...this.props} {...props} />} />
-          <Route exact path="/program_tv/przypomnienia/:channelNumber" render={ (props) => <Program data="reminders" {...this.props} {...props} />} />
+          <Route exact path="/program tv" render={ (props) => <Menu data="program-TV"  photos="program-TV" address="program tv/" {...this.props} {...props} /> } />
+          <Route exact path="/program tv/widok_listy" render={ (props) => <MyFiles photos="program-TV/" {...this.props} {...props} />} />
+          <Route exact path="/program tv/widok_tabeli" render={ (props) => <Table {...this.props} {...props} />} />
+          <Route exact path="/program tv/przypomnienia" render={ (props) => <Television data="reminders" title="przypomnienia" {...this.props} {...props} />} />
+          <Route exact path="/program tv/przypomnienia/:channelNumber" render={ (props) => <Program data="reminders" {...this.props} {...props} />} />
           <Route exact path="/portal" render={ (props) => <Fullscreen alt="portal" {...this.props} {...props} />} />
-          <Route exact path="/moje_pliki" render={ (props) => <Menu data="my-files"  photos="my-files-icons" address="moje_pliki/" {...this.props} {...props} /> } />
-          <Route exact path="/moje_pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
+          <Route exact path="/moje pliki" render={ (props) => <Menu data="my-files"  photos="my-files-icons" address="moje pliki/" {...this.props} {...props} /> } />
+          <Route exact path="/moje pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
           <Route exact path="/wiadomosci" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
           <Route exact path="/szukaj" render={ (props) => <Search {...this.props} {...props} />} />
           

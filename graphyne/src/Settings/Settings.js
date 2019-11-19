@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text } from "../Components/Components.js";
 
 class Settings extends Component {
   state = {
@@ -84,7 +84,7 @@ class Settings extends Component {
     console.log(this.props)
     return (
       <Fragment>
-        <Container settings>
+        <Main settings>
           <div className="vectra flex align-center justify-around">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
@@ -99,11 +99,11 @@ class Settings extends Component {
                     {type === "Menu" ? "" : `/ ${type}`}
                   </Text>
                   {data.title ? (
-                    <Text paragraph white bold className="margin30-vertical">
+                    <Text small white bold className="margin30-vertical">
                       {data.title}
                     </Text>
                   ) : data.vod ? (
-                    <Text paragraph green bold className="margin30-vertical">
+                    <Text small green bold className="margin30-vertical">
                       {data.vod}
                     </Text>
                   ) : (
@@ -158,7 +158,7 @@ class Settings extends Component {
             </div>
           </div>
           <div className="background-right-top"></div>
-        </Container>
+        </Main>
         {!this.state.setting.name ? (
           <Link to={this.state.url.replace(`/${type === "Menu" ? "ustawienia" : type}`, "")}><Button /></Link>
         ) : (

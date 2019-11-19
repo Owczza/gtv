@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container } from "../Components/Components.js";
+import { Container, Main } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -29,7 +29,7 @@ class Recommended extends Component {
   render() {
     return (
       <Fragment>
-      <Container television>
+      <Main television>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
@@ -52,7 +52,7 @@ class Recommended extends Component {
         <div className="background-left-bottom align-top flex-end"></div>
         <div className="nav-selected-bottom"></div>
         <div className="background-right-bottom flex-center"></div>
-      </Container>
+      </Main>
       <Link
           to={this.props.match.url.replace(`/szukaj`, "")}
         >

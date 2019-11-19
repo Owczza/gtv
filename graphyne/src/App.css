@@ -41,7 +41,6 @@
   background: #080808; 
 }
 
-
 ul {
   position: relative;
 }
@@ -175,33 +174,6 @@ a {
   height: 100%;
 }
 
-.graphyne-font {
-  font-family: "Nunito Sans", sans-serif;
-  text-transform: uppercase;
-  color: #989fa9;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  -webkit-transform: scale(1, 1.1);
-  -moz-transform: scale(1, 1.1);
-  -ms-transform: scale(1, 1.1);
-  -o-transform: scale(1, 1.1);
-  transform: scale(1, 1.1);
-}
-
-.header1 {
-  font-size: 43px;
-  font-weight: 200;
-}
-
-.header2 {
-  font-size: 15px;
-  letter-spacing: 0;
-}
-
-.blue {
-  color: #008fd1;
-}
-
 .margin20-sides {
   margin: 10px 20px;
 }
@@ -230,25 +202,6 @@ a {
   padding: 0 0 0 455px;
 }
 
-.program-channel-number {
-  font-weight: 800;
-  font-size: 21px;
-}
-
-.program-channel-title {
-  font-size: 30px;
-}
-
-.program-title {
-  font-weight: 400;
-}
-
-.program-time-and-type {
-  font-size: 15px;
-  font-weight: 400;
-  color: #989fa9;
-}
-
 .width200 {
   width: 200px;
 }
@@ -267,26 +220,6 @@ a {
   padding: 0 5px;
 }
 
-.text-align-right {
-  text-align: right;
-}
-
-.gray-text {
-  color: #989fa9;
-}
-
-.gray-text:hover {
-  font-weight: 400;
-}
-
-.white-text {
-  color: #ffffff;
-}
-
-.green-text {
-  color: #206f3a;
-}
-
 .program-shadow {
   box-shadow: -137px 313px 161px 90px #000000;
 }
@@ -297,14 +230,6 @@ a {
   height: 100%;
   position: relative;
   z-index: 1;
-}
-
-.list-line-height {
-  line-height: 48px;
-}
-
-.line-height25 {
-  line-height: 25px;
 }
 
 .padding145-top {
@@ -321,49 +246,6 @@ a {
 
 .padding20-left {
   padding-left: 20px;
-}
-
-p {
-  font-size: 23px;
-  font-weight: 400;
-}
-
-.font16 {
-  font-size: 13px;
-}
-
-.font20 {
-  font-size: 17px;
-}
-
-.font21 {
-  font-size: 18px;
-}
-
-.font30 {
-  font-size: 30px
-}
-
-.font65 {
-  font-size: 65px;
-}
-
-.font-weight500 {
-  font-weight: 500;
-}
-
-.font-weight400 {
-  font-weight: 400;
-}
-
-.font-weight800 {
-  font-weight: 800;
-}
-
-.separator {
-  background-color: #989fa9;
-  padding: 2px;
-  margin: 5px 100px 5px 0px;
 }
 
 .twofifths-width {
@@ -386,24 +268,9 @@ p {
   border-bottom: 1px solid #989fa9;
 }
 
-.list-hover:hover {
-  color: #008fd1;
-  font-weight: 800;
-}
-
-.program-list-hover:hover {
-  color: #008fd1;
-  font-size: 44px;
-  font-weight: 600;
-}
-
 .program-list-overflow {
   max-height: 80%;
   overflow: auto;
-}
-
-.option-mute {
-  color: #989fa973
 }
 
 #option-display {

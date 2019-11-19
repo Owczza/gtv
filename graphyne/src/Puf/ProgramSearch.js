@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Popup } from "../Components/Components.js";
+import { Main, Container, Popup, Text } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -67,41 +67,41 @@ class PUF extends Component {
 
     return (
       <Fragment>
-        <Popup blue className="graphyne-font" id="info">
+        <Popup blue id="info">
           <img src="/info.png" alt="info symbol" />
-          <p>
+          <Text large center>
             Znaleziono kanały
             <br />
             <br />
             TV / 230 <br />
             Radio / 16 <br />
-          </p>
+          </Text>
           {this.props.from === "puf" ? (
-            <div className="flex align-center justify-around width600 font30">
+            <div className="flex align-center justify-around width600">
               <Link to="/puf/5">
-                <span className="list-hover">Powrót</span>
+                <Text list large bold>Powrót</Text>
               </Link>
               <Link to="/puf/7">
-                <span className="list-hover">Dalej</span>
+                <Text list large bold>Dalej</Text>
               </Link>
             </div>
           ) : (
-            <div className="flex align-center justify-around width600 font30">
+            <div className="flex align-center justify-around width600">
               <Link to="/ustawienia/instalacja/wyszukiwanie kanałów">
-                <span className="list-hover">Zamknij</span>
+                <Text list large bold>Zamknij</Text>
               </Link>
             </div>
           )}
         </Popup>
-        <Popup green className="graphyne-font" id="pause">
+        <Popup green id="pause">
           <img src="/info.png" alt="info symbol" />
-          <p>
+          <Text large center>
             Zatrzymanie wyszukiwania
             <br />
             <br />
             Czy potwierdzasz?
-          </p>
-          <div className="flex align-center justify-around width600 font30">
+          </Text>
+          <div className="flex align-center justify-around width600">
             <Link
               to={
                 this.props.from === "puf"
@@ -109,49 +109,49 @@ class PUF extends Component {
                   : "/ustawienia/instalacja/wyszukiwanie kanałów"
               }
             >
-              <span className="list-hover">Tak</span>
+              <Text list large bold>Tak</Text>
             </Link>
             <Link onClick={() => this.resumeSearch()}>
-              <span className="list-hover">Nie</span>
+              <Text list large bold>Nie</Text>
             </Link>
           </div>
         </Popup>
-        <Container settings id="search">
+        <Main settings id="search">
           <div className="vectra flex align-center justify-around"></div>
           <div className="clock flex align-center justify-end"></div>
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <h1 className="graphyne-font header1">
+              <Text title>
                 {this.props.from === "puf"
                   ? "pierwsza instalacja"
                   : "ustawienia"}
-              </h1>
+              </Text>
               <div className="element-container">
-                <h2 className="graphyne-font header2">
+                <Text>
                   wyszukiwanie kanałów / automatyczne
-                </h2>
-                <div className="graphyne-font font20" id="options-list">
+                </Text>
+                <div id="options-list">
                   {list.map(option => (
                     <div
                       className="flex align-center justify-between"
                       key={option.name}
                     >
-                      <span className="graphyne-font">{option.name}</span>
-                      <span className="font16">
+                      <Text>{option.name}</Text>
+                      <Text small>
                         {option.image ? (
                           <img src={option.image} alt="icon" />
                         ) : (
                           ""
                         )}{" "}
                         {option.chosen}
-                      </span>
+                      </Text>
                     </div>
                   ))}
                 </div>
-                <h2 className="graphyne-font header2">
+                <Text>
                   Trwa wyszukiwanie kanałów, proszę czekać...
-                </h2>
+                </Text>
                 <div
                   className="graphyne-font font20 list-hover"
                   onClick={() => this.pauseSearch()}
@@ -162,7 +162,7 @@ class PUF extends Component {
             </div>
           </div>
           <div className="background-right-top"></div>
-        </Container>
+        </Main>
       </Fragment>
     );
   }

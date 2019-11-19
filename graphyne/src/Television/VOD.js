@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text } from "../Components/Components.js";
 
 class VOD extends Component {
   state = {
@@ -35,7 +35,7 @@ class VOD extends Component {
     const { programs, list, activeSlideIndex } = this.state;
     return (
       <Fragment>
-      <Container television>
+      <Main television>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
@@ -46,7 +46,7 @@ class VOD extends Component {
         <div className="background-left-top flex-center"></div>
         <div className="nav-selected-top flex-start align-bottom">
           <div className="margin20-sides">
-            <Text extra>
+            <Text large bold>
               {programs[activeSlideIndex].channelNumber}
             </Text>
             <Text program>
@@ -135,7 +135,7 @@ class VOD extends Component {
           </ul>
         </div>
         <div className="background-right-bottom flex-center"></div>
-      </Container>
+      </Main>
       <Link to=""><Button /></Link>
     </Fragment>
     );

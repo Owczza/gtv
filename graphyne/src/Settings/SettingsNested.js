@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text } from "../Components/Components.js";
 
 class SettingsNested extends Component {
   state = {
@@ -102,7 +102,7 @@ class SettingsNested extends Component {
     console.log(this.state);
     return (
       <Fragment>
-        <Container settings>
+        <Main settings>
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
@@ -115,11 +115,11 @@ class SettingsNested extends Component {
                 <div>
                   <Text>.../ {data.name}</Text>
                   {data.title ? (
-                    <Text paragraph white bold className="margin30-vertical">
+                    <Text small white bold className="margin30-vertical">
                       {data.title}
                     </Text>
                   ) : data.vod ? (
-                    <Text paragraph green bold className="margin30-vertical">
+                    <Text small green bold className="margin30-vertical">
                       {data.vod}
                     </Text>
                   ) : (
@@ -216,7 +216,7 @@ class SettingsNested extends Component {
             </div>
           </div>
           <div className="background-right-top flex-center"></div>
-        </Container>
+        </Main>
         {!this.state.isChoosing ? (
           <Link to={this.state.url.replace(`/${subtype}`, "")}>
             <Button />

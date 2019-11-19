@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Separator } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
 
 class Program extends Component {
@@ -36,7 +36,7 @@ class Program extends Component {
     console.log(activeProgram.icon);
     return (
       <Fragment>
-        <Container program>
+        <Main program>
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
@@ -57,7 +57,7 @@ class Program extends Component {
                   alt={activeProgram.title}
                 />
               ) : data === "television" ? (
-                <Text extra className="graphyne-font program-channel-number">
+                <Text large bold className="program-channel-number">
                   {activeProgram.channelNumber}
                 </Text>
               ) : (
@@ -73,7 +73,7 @@ class Program extends Component {
               <div className="nav-selected-padding padding145-top no-padding-bottom">
                 <Text program white>{activeProgram.title}</Text>
                 {data === "television" ? (
-                  <div className="separator"></div>
+                  <Separator />
                 ) : (
                   <h3 className="font-weight400">{activeProgram.genre}</h3>
                 )}
@@ -107,7 +107,7 @@ class Program extends Component {
                 ))}
             </div>
           </div>
-        </Container>
+        </Main>
         <Link
           to={this.props.match.url.replace(
             `/${this.props.match.params.channelNumber}`,

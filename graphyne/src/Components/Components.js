@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Main = styled.div`
     position: relative;
     z-index: 2;
     display: grid;
@@ -35,10 +35,10 @@ export const Container = styled.div`
     overflow: hidden;
     grid-template-areas: ${props =>
       props.menu
-        ? `"vectra nav-selected clock"
-                "background-left-top nav-selected background-right-top"
+        ? `"vectra title clock"
+                "background-left-top nav-selected-top background-right-top"
                 "nav-left nav-selected nav-right"
-                "background-left-bottom nav-selected background-right-bottom"`
+                "background-left-bottom nav-selected-bottom background-right-bottom"`
         : props.settings
         ? `"vectra nav-selected clock"
                 "background-left-top nav-selected background-right-top"
@@ -116,22 +116,16 @@ export const Button = styled.button`
   -webkit-transition: background 0.5s, color 0.5s, border 0.5s;
 `;
 
-export const Text = styled.div`
+export const Text = styled.span`
   :hover {
     ${props =>
       (props.list && !props.mute && !props.disabled) || props.programList
         ? "color: #008fd1; font-weight: 600"
         : ""}}
 
-  :active {
-    text-shadow: ${props =>
-      props.centerMenu
-        ? "-1px 0 3px #008fd1, 0 1px 3px #008fd1, 1px 0 3px #008FD1, 0 -1px 3px #008fd1;"
-        : ""};
-  }
-
   font-family: "Nunito Sans", sans-serif; 
-  text-align: ${props => (props.right ? "right" : "left")}
+  text-align: ${props =>
+    props.right ? "right" : props.center ? "center" : "left"}
 
   text-transform: ${props =>
     props.paragraph || props.program || props.medium || props.programList
@@ -150,9 +144,9 @@ export const Text = styled.div`
       : "#989fa9"}
 
   font-weight: ${props =>
-    props.subtitle || props.extra || props.bold
-      ? 800
-      : props.menu || props.title || props.programList
+    props.subtitle || props.bold
+      ? 600
+      : props.light
       ? 200
       : 400};
   
@@ -163,13 +157,11 @@ export const Text = styled.div`
   transform: scale(1, 1.1);
 
   font-size: ${props =>
-    props.menu || props.centerMenu
-      ? "65px"
-      : props.title || props.programList
+    props.title || props.programList
       ? "43px"
       : props.subtitle || props.popupLink
       ? "30px"
-      : props.extra || props.program || props.popupText
+      : props.large || props.program || props.popupText
       ? "24px"
       : props.medium
       ? "20px"
@@ -185,3 +177,42 @@ export const Text = styled.div`
   -moz-o-transition: font-weight 0.2s, color 0.2s;
   -webkit-transition: font-weight 0.2s, color 0.2s;
 `;
+
+export const MenuTitle = styled(Text)`
+  :hover {
+    text-shadow: ${props =>
+      props.center
+        ? "-1px 0 7px #21b9ff, 0 1px 7px #21b9ff, 1px 0 7px #21b9ff, 0 -1px 7px #21b9ff"
+        : ""};
+  }
+
+  font-size: 65px;
+  color: ${props => (props.center ? "#008fd1" : "#989fa9")};
+  font-weight: ${props => (props.center ? 600 : 200)};
+  margin: 0 30px;
+  white-space: nowrap;
+`;
+
+export const Title = styled(Text)`
+  font-size: 43px;
+  text-transform: ${props => (props.list ? "none" : "uppercase")};
+  font-weight: 200;
+`;
+
+export const Subtitle = styled(Text)``;
+
+export const Description = styled(Text)``;
+
+export const Separator = styled.div`
+  background-color: #989fa9;
+  padding: 2px;
+  margin: 5px 100px 5px 0px;
+`;
+
+export const Container = styled.div`
+  display: ${props => props.display};
+`;
+
+export const Icon = styled.img`
+  width: 75px;
+`

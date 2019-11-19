@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -45,7 +45,7 @@ class PUF extends Component {
     const { setting, activeSlideIndex } = this.state;
     return (
       <Fragment>
-        <Container settings>
+        <Main settings>
           <div className="vectra flex align-center justify-around">
           {this.props.from === "ustawienia" ? <img src="/menu-icons/vectra.png" alt="Vectra Logo" /> : ""}
           </div>
@@ -58,11 +58,11 @@ class PUF extends Component {
                 <div>
                   <Text>{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</Text>
                   {setting.title ? (
-                    <Text paragraph white bold className="margin30-vertical">
+                    <Text small white bold className="margin30-vertical">
                       {setting.title}
                     </Text>
                   ) : setting.vod ? (
-                    <Text paragraph green bold className="margin30-vertical">
+                    <Text small green bold className="margin30-vertical">
                       {setting.vod}
                     </Text>
                   ) : (
@@ -90,7 +90,7 @@ class PUF extends Component {
                             {this.props.from === "ustawienia" ? "zamknij" : option.name}
                         </Link>
                       ) : (
-                        <span className="graphyne-font">{option.name}</span>
+                        <Text>{option.name}</Text>
                       )}
                       <Text small>
                         {option.chosen ? option.chosen : ""}
@@ -102,7 +102,7 @@ class PUF extends Component {
             </div>
           </div>
           <div className="background-right-top"></div>
-        </Container>
+        </Main>
         {activeSlideIndex > 1 && activeSlideIndex < 7 ? <Link
           to={this.props.from === "ustawienia" ? "/ustawienia/instalacja" : `/puf/${
             activeSlideIndex -1
