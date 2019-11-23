@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text, Title, ProgramTitle } from "../Components/Components.js";
+import { Main, Container, Button, Text, MenuTitle, ProgramTitle } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -131,9 +131,9 @@ class Recommended extends Component {
         </div>
         <div className="nav-left"></div>
         <div className="nav-selected">
-          <Title bold className="graphyne-font margin30-sides">
+          <MenuTitle bold className="graphyne-font margin30-sides">
             polecane
-          </Title>
+          </MenuTitle>
         </div>
         <div className="nav-right flex-center"></div>
         <div className="background-left-bottom align-top flex-end"></div>
