@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Title, ProgramTitle } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -39,10 +39,10 @@ class Recommended extends Component {
               {programs[activeSlideIndex].channelNumber + "  "}
               {programs[activeSlideIndex].channelTitle}
             </Text>
-            <Text program>
+            <ProgramTitle>
               {programs[activeSlideIndex].title}
-            </Text>
-            <Text>
+            </ProgramTitle>
+            <Text lowercase>
               {programs[activeSlideIndex].time} /{" "}
               {programs[activeSlideIndex].type}
               {programs[activeSlideIndex].PG
@@ -131,9 +131,9 @@ class Recommended extends Component {
         </div>
         <div className="nav-left"></div>
         <div className="nav-selected">
-          <Text menu bold className="graphyne-font margin30-sides">
+          <Title bold className="graphyne-font margin30-sides">
             polecane
-          </Text>
+          </Title>
         </div>
         <div className="nav-right flex-center"></div>
         <div className="background-left-bottom align-top flex-end"></div>

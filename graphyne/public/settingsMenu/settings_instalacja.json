@@ -90,7 +90,7 @@
   },
   {
     "name": "aktualizacja oprogramowania",
-    "title": "Wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
+    "description": "Wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
     "nested": [{}],
     "continue": true
   }

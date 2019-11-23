@@ -37,7 +37,7 @@ class App extends Component {
           <Route exact path="/portal" render={ (props) => <Fullscreen alt="portal" {...this.props} {...props} />} />
           <Route exact path="/moje pliki" render={ (props) => <Menu data="my-files"  photos="my-files-icons" address="moje pliki/" {...this.props} {...props} /> } />
           <Route exact path="/moje pliki/:type" render={ (props) => <MyFiles photos="my-files-icons/" {...this.props} {...props} />} />
-          <Route exact path="/wiadomosci" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
+          <Route exact path="/wiadomości" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
           <Route exact path="/szukaj" render={ (props) => <Search {...this.props} {...props} />} />
           
           <Route exact path="/ustawienia" render={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Title, ProgramTitle } from "../Components/Components.js";
 
 class VOD extends Component {
   state = {
@@ -40,7 +40,7 @@ class VOD extends Component {
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
         <div className="title flex-start">
-          <Text title className="margin20-sides">VOD</Text>
+          <Title>VOD</Title>
         </div>
         <div className="clock flex-center"></div>
         <div className="background-left-top flex-center"></div>
@@ -49,10 +49,10 @@ class VOD extends Component {
             <Text large bold>
               {programs[activeSlideIndex].channelNumber}
             </Text>
-            <Text program>
+            <ProgramTitle>
               {programs[activeSlideIndex].title}
-            </Text>
-            <Text className="program-time-and-type">
+            </ProgramTitle>
+            <Text lowercase>
               {programs[activeSlideIndex].type + " / " + 
               programs[activeSlideIndex].country + " / " + 
               programs[activeSlideIndex].year + " / " +

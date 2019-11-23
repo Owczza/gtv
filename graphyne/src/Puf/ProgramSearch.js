@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Popup, Text } from "../Components/Components.js";
+import { Main, Container, Popup, Text, Title } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -122,11 +122,11 @@ class PUF extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <Text title>
+              <Title noMargin>
                 {this.props.from === "puf"
                   ? "pierwsza instalacja"
                   : "ustawienia"}
-              </Text>
+              </Title>
               <div className="element-container">
                 <Text>
                   wyszukiwanie kanałów / automatyczne

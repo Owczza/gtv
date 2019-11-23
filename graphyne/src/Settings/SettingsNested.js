@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Title, Info } from "../Components/Components.js";
 
 class SettingsNested extends Component {
   state = {
@@ -110,7 +110,7 @@ class SettingsNested extends Component {
           <div className="background-left-top flex-center"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <Text title>ustawienia</Text>
+              <Title noMargin>ustawienia</Title>
               <div className="element-container">
                 <div>
                   <Text>.../ {data.name}</Text>
@@ -125,7 +125,7 @@ class SettingsNested extends Component {
                   ) : (
                     ""
                   )}
-                  <Text paragraph>{data.description}</Text>
+                  <Info>{data.description}</Info>
                 </div>
                 <div>
                   <div

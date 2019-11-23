@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text, Separator } from "../Components/Components.js";
+import { Main, Container, Button, Text, Separator, Title, ProgramTitle, Description } from "../Components/Components.js";
 import { ProgramDescription } from "./ProgramDescription";
 
 class Program extends Component {
@@ -71,20 +71,20 @@ class Program extends Component {
               ""
             ) : (
               <div className="nav-selected-padding padding145-top no-padding-bottom">
-                <Text program white>{activeProgram.title}</Text>
+                <ProgramTitle white>{activeProgram.title}</ProgramTitle>
                 {data === "television" ? (
                   <Separator />
                 ) : (
-                  <h3 className="font-weight400">{activeProgram.genre}</h3>
+                  <Text lowercase white>{activeProgram.genre}</Text>
                 )}
-                <Text white>
+                <Text lowercase white>
                   {activeProgram.time}
                   {activeProgram.type}
                   {}
                 </Text>
                 <br />
                 <br />
-                <Text medium white>{activeProgram.description}</Text>
+                <Description>{activeProgram.description}</Description>
                 <br />
                 {data !== "recordings" ? (
                   <ProgramDescription
@@ -97,13 +97,13 @@ class Program extends Component {
             )}
           </div>
           <div className="background-right-top flex justify-start align-center padding20-left">
-            <div className="padding145-top padding20-left">
+            <div className="padding145-top">
                 {list.map(option => (
-                  <Text programList
+                  <Title list
                     key={option}
                   >
                     {option}
-                  </Text>
+                  </Title>
                 ))}
             </div>
           </div>

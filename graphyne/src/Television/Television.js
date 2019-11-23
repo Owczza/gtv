@@ -1,7 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import {
+  Main,
+  Container,
+  Button,
+  Text,
+  Title,
+  ChannelName,
+  ProgramTitle
+} from "../Components/Components.js";
 
 class Television extends Component {
   state = {
@@ -54,16 +62,20 @@ class Television extends Component {
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
           <div className="title flex-start">
-            <Text title className="margin20-sides">{this.props.title}</Text>
+            <Title>{this.props.title}</Title>
           </div>
           <div className="clock flex-center"></div>
           <div className="background-left-top flex-center"></div>
           <div className="nav-selected-top flex-start align-bottom">
             <div className="margin20-sides">
-              <Text large bold>{programs[activeSlideIndex].channelNumber} </Text>
-              <Text subtitle>{programs[activeSlideIndex].channelTitle}</Text>
-              <Text program>{programs[activeSlideIndex].title}</Text>
-              <Text>
+              <Text large bold>
+                {programs[activeSlideIndex].channelNumber}{" "}
+              </Text>
+              <ChannelName>
+                {programs[activeSlideIndex].channelTitle}
+              </ChannelName>
+              <ProgramTitle>{programs[activeSlideIndex].title}</ProgramTitle>
+              <Text lowercase>
                 {programs[activeSlideIndex].time}
                 {programs[activeSlideIndex].type}
                 <br />
@@ -173,10 +185,7 @@ class Television extends Component {
               aby przejść do opcji
             </Text>
 
-            <Text list
-              onClick={() => this.hideListOptions()}
-              id="close"
-            >
+            <Text list onClick={() => this.hideListOptions()} id="close">
               Zamknij
             </Text>
           </div>

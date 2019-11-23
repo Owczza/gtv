@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Title, Info } from "../Components/Components.js";
 
 class Settings extends Component {
   state = {
@@ -92,7 +92,7 @@ class Settings extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <Text title>ustawienia</Text>
+              <Title noMargin>ustawienia</Title>
               <div className="element-container">
                 <div>
                   <Text>
@@ -109,9 +109,9 @@ class Settings extends Component {
                   ) : (
                     ""
                   )}
-                  <Text paragraph>{data.description}</Text>
+                  <Info>{data.description}</Info>
                 </div>
-                <div className="graphyne-font font20" id="options-list">
+                <div id="options-list">
                   {data.map(option => (
                     <div
                       className="flex align-center justify-between"

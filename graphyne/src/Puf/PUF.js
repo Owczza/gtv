@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Main, Container, Button, Text } from "../Components/Components.js";
+import { Main, Container, Button, Text, Title, Info } from "../Components/Components.js";
 
 class PUF extends Component {
   state = {
@@ -53,7 +53,7 @@ class PUF extends Component {
           <div className="background-left-top flex align-center justify-around"></div>
           <div className="nav-selected auto-height nav-selected-padding">
             <div className="element-container">
-              <Text title>{this.props.from === "ustawienia" ? "ustawienia" : "pierwsza instalacja"}</Text>
+              <Title noMargin>{this.props.from === "ustawienia" ? "ustawienia" : "pierwsza instalacja"}</Title>
               <div className="element-container">
                 <div>
                   <Text>{this.props.from === "ustawienia" ? "... / aktualizacja oprogramowania" : `/ ${setting.name}`}</Text>
@@ -68,7 +68,7 @@ class PUF extends Component {
                   ) : (
                     ""
                   )}
-                  <Text paragraph>{this.props.from === "ustawienia" ? "" : setting.description}</Text>
+                  <Info>{this.props.from === "ustawienia" ? "" : setting.description}</Info>
                 </div>
                 <Text list id="options-list">
                   {setting.choices.map(option => (

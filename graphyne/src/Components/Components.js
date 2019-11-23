@@ -21,7 +21,9 @@ export const Main = styled.div`
         ? "106px 1fr auto 142px"
         : ""}
     grid-template-columns: ${props =>
-      props.menu
+      props.files
+        ? "270px 400px 1fr"
+        : props.menu
         ? "270px auto 1fr"
         : props.settings
         ? "270px 3fr 2fr"
@@ -60,7 +62,7 @@ export const Main = styled.div`
                 "nav-selected nav-selected nav-selected"
                 "background-left-bottom background-left-bottom background-left-bottom"`
         : ""}
-    }
+    
 `;
 
 export const Popup = styled.div`
@@ -116,10 +118,10 @@ export const Button = styled.button`
   -webkit-transition: background 0.5s, color 0.5s, border 0.5s;
 `;
 
-export const Text = styled.span`
+export const Text = styled.div`
   :hover {
     ${props =>
-      (props.list && !props.mute && !props.disabled) || props.programList
+      props.list && !props.mute && !props.disabled
         ? "color: #008fd1; font-weight: 600"
         : ""}}
 
@@ -128,14 +130,12 @@ export const Text = styled.span`
     props.right ? "right" : props.center ? "center" : "left"}
 
   text-transform: ${props =>
-    props.paragraph || props.program || props.medium || props.programList
-      ? "none"
-      : "uppercase"};
+    props.lowercase ? "lowercase" : "uppercase"};
 
   color: ${props =>
     props.white
       ? "#ffffff"
-      : props.subtitle || props.program || props.blue
+      : props.blue
       ? "#008fd1"
       : props.green
       ? "#206f3a"
@@ -144,11 +144,7 @@ export const Text = styled.span`
       : "#989fa9"}
 
   font-weight: ${props =>
-    props.subtitle || props.bold
-      ? 600
-      : props.light
-      ? 200
-      : 400};
+    props.bold ? 600 : props.light ? 200 : 400};
   
   -webkit-transform: scale(1, 1.1);
   -moz-transform: scale(1, 1.1);
@@ -157,25 +153,17 @@ export const Text = styled.span`
   transform: scale(1, 1.1);
 
   font-size: ${props =>
-    props.title || props.programList
-      ? "43px"
-      : props.subtitle || props.popupLink
-      ? "30px"
-      : props.large || props.program || props.popupText
+      props.large || props.popupText
       ? "24px"
-      : props.medium
-      ? "20px"
-      : props.paragraph
-      ? "15px"
       : props.small
       ? "13px"
       : "17px"};  
 
-  transition: font-weight 0.2s, color 0.2s;
-  -o-transition: font-weight 0.2s, color 0.2s;
-  -ms-transition: font-weight 0.2s, color 0.2s;
-  -moz-o-transition: font-weight 0.2s, color 0.2s;
-  -webkit-transition: font-weight 0.2s, color 0.2s;
+  transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
+  -o-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
+  -ms-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
+  -moz-o-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
+  -webkit-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
 `;
 
 export const MenuTitle = styled(Text)`
@@ -184,6 +172,7 @@ export const MenuTitle = styled(Text)`
       props.center
         ? "-1px 0 7px #21b9ff, 0 1px 7px #21b9ff, 1px 0 7px #21b9ff, 0 -1px 7px #21b9ff"
         : ""};
+    color: #008fd1;
   }
 
   font-size: 65px;
@@ -197,11 +186,31 @@ export const Title = styled(Text)`
   font-size: 43px;
   text-transform: ${props => (props.list ? "none" : "uppercase")};
   font-weight: 200;
+  margin-left: ${props => (props.noMargin ? "" : "20px")};
 `;
 
-export const Subtitle = styled(Text)``;
+export const ChannelName = styled(Text)`
+font-size: 30px;
+color: #008fd1;
+font-weight: 600;
+`;
 
-export const Description = styled(Text)``;
+export const ProgramTitle = styled(Text)`
+font-size: 24px;
+color: #008fd1;
+font-weight: 200;
+`;
+
+export const Description = styled(Text)`
+  text-transform: none;
+  font-size: 20px;
+  color: #ffffff
+`;
+
+export const Info = styled(Text)`
+  text-transform: none;
+  font-size: 15px;
+`;
 
 export const Separator = styled.div`
   background-color: #989fa9;
@@ -215,4 +224,4 @@ export const Container = styled.div`
 
 export const Icon = styled.img`
   width: 75px;
-`
+`;

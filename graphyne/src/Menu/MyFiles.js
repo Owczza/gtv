@@ -8,16 +8,16 @@ const MyFiles = props => {
     ? props.match.params.type
     : props.photos
     ? "widok_listy"
-    : "wiadomosci";
+    : "wiadomości";
   console.log(props);
   return (
     <Fragment>
-      <Main menu>
+      <Main menu files>
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
         <div className="title">
-          <Title>{props.match.params.type.replace("/", "")}</Title>
+          <Title>{type.replace("/", "")}</Title>
         </div>
         <div className="clock flex-center"></div>
         <div className="nav-selected-top ">
