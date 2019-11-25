@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Container, Main } from "../Components/Components.js";
+import { Container, Main, Button, Description, Info, Text } from "../Components/Components.js";
 
 class Recommended extends Component {
   state = {
@@ -38,12 +38,12 @@ class Recommended extends Component {
         <div className="background-left-top flex-end auto-height"></div>
         <div className="nav-selected-top flex-end align-top flex-column auto-height">
             <div className="half-width text-align-right flex-column">
-                <h2 className="graphyne-font font-weight800">Szukaj</h2>
-                <h3 className="graphyne-font">Wszystkie typy</h3> <br />
-                <p className="gray-text line-height25">Użyj strzałek oraz OK, aby wpisać słowo. Wciśnij klawisz GÓRA, aby je potwierdzić.</p> <br /><br />
+                <Text bold>Szukaj</Text>
+                <Text small>Wszystkie typy</Text> <br />
+                <Info>Użyj strzałek oraz OK, aby wpisać słowo. Wciśnij klawisz GÓRA, aby je potwierdzić.</Info> <br /><br />
                 
             </div>
-            <div className="graphyne-font twofifths-width flex-center gray-border-bottom">{this.state.input}</div>
+            <Text className="twofifths-width flex-center gray-border-bottom">{this.state.input}</Text>
         </div>
         <div className="background-right-top flex-center flex-column "></div>
         <div className="nav-left"></div>
@@ -56,7 +56,7 @@ class Recommended extends Component {
       <Link
           to={this.props.match.url.replace(`/szukaj`, "")}
         >
-          Powrót
+          <Button />
         </Link>
       </Fragment>
     );

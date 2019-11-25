@@ -8,7 +8,8 @@ import {
   Text,
   Title,
   ChannelName,
-  ProgramTitle
+  ProgramTitle,
+  Info
 } from "../Components/Components.js";
 
 class Television extends Component {
@@ -175,15 +176,15 @@ class Television extends Component {
             />
           </div>
           <div className="background-left-bottom align-top flex-end">
-            <Text paragraph right className="margin20-sides" id="opt">
+            <Info right className="margin20-sides" id="opt" onClick={() => this.displayListOptions()}>
               Wybierz{" "}
-              <span className="opt" onClick={() => this.displayListOptions()}>
+              <span className="opt">
                 OPT
               </span>{" "}
               na pilocie
               <br />
               aby przejść do opcji
-            </Text>
+            </Info>
 
             <Text list onClick={() => this.hideListOptions()} id="close">
               Zamknij

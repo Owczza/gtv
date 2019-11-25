@@ -22,7 +22,7 @@ const MyFiles = props => {
         <div className="background-left-top flex-center"></div>
         <div className="background-left-bottom flex-center"></div>
       </Main>
-      <Link to={props.match.url.replace(`/widok_tabeli`, "")}><Button /></Link>
+      <Link to={props.match.url.replace(`/widok tabeli`, "")}><Button /></Link>
     </Fragment>
   );
 };

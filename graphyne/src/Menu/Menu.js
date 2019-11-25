@@ -5,7 +5,7 @@ import {
   Main,
   Container,
   Button,
-  MenuTitle,
+  Header,
   Title
 } from "../Components/Components.js";
 
@@ -47,35 +47,35 @@ class Menu extends Component {
           <div className="clock flex-center"></div>
           <div className="nav-selected-top"></div>
           <div className="nav-left flex-end">
-            <MenuTitle
+            <Header
               onClick={() => this.centerSlide(activeSlideIndex - 1)}
             >
               {activeSlideIndex > 0 ? slides[activeSlideIndex - 1] : ""}
-            </MenuTitle>
+            </Header>
           </div>
           <div className="nav-selected flex-center auto-height">
-            <MenuTitle center>
+            <Header center>
               <Link to={`/${this.props.address}${slides[activeSlideIndex]}`}>
                 {slides[activeSlideIndex]}
               </Link>
-            </MenuTitle>
+            </Header>
           </div>
           <div className="nav-right flex-center">
-            <MenuTitle
+            <Header
               onClick={() => this.centerSlide(activeSlideIndex + 1)}
             >
               {activeSlideIndex + 1 < slides.length
                 ? slides[activeSlideIndex + 1]
                 : ""}
-            </MenuTitle>
+            </Header>
             {slides[activeSlideIndex] ? (
-              <MenuTitle
+              <Header
                 onClick={() => this.centerSlide(activeSlideIndex + 2)}
               >
                 {activeSlideIndex + 2 < slides.length
                   ? slides[activeSlideIndex + 2]
                   : ""}
-              </MenuTitle>
+              </Header>
             ) : (
               <div className="half-width"></div>
             )}

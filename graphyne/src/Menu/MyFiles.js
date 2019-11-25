@@ -7,7 +7,7 @@ const MyFiles = props => {
   const type = props.match.params.type
     ? props.match.params.type
     : props.photos
-    ? "widok_listy"
+    ? "widok listy"
     : "wiadomości";
   console.log(props);
   return (

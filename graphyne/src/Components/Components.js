@@ -129,8 +129,7 @@ export const Text = styled.div`
   text-align: ${props =>
     props.right ? "right" : props.center ? "center" : "left"}
 
-  text-transform: ${props =>
-    props.lowercase ? "lowercase" : "uppercase"};
+  text-transform: ${props => (props.lowercase ? "lowercase" : "uppercase")};
 
   color: ${props =>
     props.white
@@ -143,8 +142,7 @@ export const Text = styled.div`
       ? "#989fa973"
       : "#989fa9"}
 
-  font-weight: ${props =>
-    props.bold ? 600 : props.light ? 200 : 400};
+  font-weight: ${props => (props.bold ? 600 : props.light ? 200 : 400)};
   
   -webkit-transform: scale(1, 1.1);
   -moz-transform: scale(1, 1.1);
@@ -153,11 +151,7 @@ export const Text = styled.div`
   transform: scale(1, 1.1);
 
   font-size: ${props =>
-      props.large || props.popupText
-      ? "24px"
-      : props.small
-      ? "13px"
-      : "17px"};  
+    props.large || props.popupText ? "24px" : props.small ? "13px" : "17px"};  
 
   transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
   -o-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
@@ -166,18 +160,18 @@ export const Text = styled.div`
   -webkit-transition: font-weight 0.2s, color 0.2s, text-shadow 0.2s;
 `;
 
-export const MenuTitle = styled(Text)`
+export const Header = styled(Text)`
   :hover {
     text-shadow: ${props =>
       props.center
         ? "-1px 0 7px #21b9ff, 0 1px 7px #21b9ff, 1px 0 7px #21b9ff, 0 -1px 7px #21b9ff"
         : ""};
-    color: #008fd1;
+    color: ${props => props.disabled ? "" : "#008fd1"}
   }
 
   font-size: 65px;
   color: ${props => (props.center ? "#008fd1" : "#989fa9")};
-  font-weight: ${props => (props.center ? 600 : 200)};
+  font-weight: ${props => (props.center || props.disabled ? 600 : 200)};
   margin: 0 30px;
   white-space: nowrap;
 `;
@@ -190,21 +184,22 @@ export const Title = styled(Text)`
 `;
 
 export const ChannelName = styled(Text)`
-font-size: 30px;
-color: #008fd1;
-font-weight: 600;
+  font-size: 30px;
+  color: #008fd1;
+  font-weight: 600;
 `;
 
 export const ProgramTitle = styled(Text)`
-font-size: 24px;
-color: #008fd1;
-font-weight: 200;
+  text-transform: none;
+  font-size: 24px;
+  color: #008fd1;
+  font-weight: 200;
 `;
 
 export const Description = styled(Text)`
   text-transform: none;
   font-size: 20px;
-  color: #ffffff
+  color: #ffffff;
 `;
 
 export const Info = styled(Text)`
