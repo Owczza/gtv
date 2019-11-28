@@ -223,7 +223,8 @@
         "name": "skrzynka odbiorcza conax",
         "nested": [
           {
-            "image": "/menu-icons/brak_wiadomosci.png"
+            "name": "brak wiadomości",
+            "disabled": true
           }
         ]
       },

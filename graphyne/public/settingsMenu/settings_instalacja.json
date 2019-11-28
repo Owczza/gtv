@@ -69,7 +69,13 @@
   },
   {
     "name": "przywróć domyślny pin",
-    "disabled": true
+    "nested": [
+      {
+        "name": "kod resetujący",
+        "chosen": "_ _ _ _ _ _",
+        "disabled": true
+      }
+    ]
   },
   {
     "name": "ustawienia domyślne",

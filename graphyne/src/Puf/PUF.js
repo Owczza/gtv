@@ -70,9 +70,9 @@ class PUF extends Component {
                   )}
                   <Info>{this.props.from === "ustawienia" ? "" : setting.description}</Info>
                 </div>
-                <Text list id="options-list">
+                <div list id="options-list">
                   {setting.choices.map(option => (
-                    <div
+                    <Text list
                       className="flex align-center justify-between"
                       key={option.name}
                     >
@@ -95,9 +95,9 @@ class PUF extends Component {
                       <Text small>
                         {option.chosen ? option.chosen : ""}
                       </Text>
-                    </div>
+                      </Text>
                   ))}
-                </Text>
+                </div>
               </div>
             </div>
           </div>

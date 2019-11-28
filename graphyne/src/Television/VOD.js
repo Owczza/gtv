@@ -101,6 +101,7 @@ class VOD extends Component {
             </div>
             <img
               className="margin10-sides"
+              id="left-program"
               src={
                 activeSlideIndex > 0
                   ? programs[activeSlideIndex - 1].image
@@ -155,6 +156,7 @@ class VOD extends Component {
             <Info
               right
               className="margin20-sides"
+              id="opt"
               onClick={() => this.displayListOptions()}
             >
               Wybierz <span className="opt">OPT</span> na pilocie

@@ -16,19 +16,17 @@ const MyFiles = props => {
         <div className="vectra flex-center">
           <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
         </div>
-        <div className="title">
+        <div className="title flex-start">
           <Title>{type.replace("/", "")}</Title>
         </div>
         <div className="clock flex-center"></div>
-        <div className="nav-selected-top ">
-          <div className="flex-center">
-            <Icon src="/info.png" />
+        <div className="nav-selected-top flex-start">
+            <Icon className="margin20-sides" src="/info.png" />
             <Text>
               {type === "wiadomości"
                 ? "Brak wiadomości"
                 : "Brak urządzeń usb lub dlna"}
             </Text>
-          </div>
         </div>
         <div className="nav-left flex-end"></div>
         <div className="nav-selected flex-center auto-height"></div>

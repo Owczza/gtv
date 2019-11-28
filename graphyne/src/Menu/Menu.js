@@ -43,7 +43,7 @@ class Menu extends Component {
           <div className="vectra flex-center">
             <img src="/menu-icons/vectra.png" alt="Vectra Logo" />
           </div>
-          <div className="title"><Title>{this.props.match.url.replace("/", "")}</Title></div>
+          <div className="title flex-start"><Title>{this.props.match.url.replace("/", "")}</Title></div>
           <div className="clock flex-center"></div>
           <div className="nav-selected-top"></div>
           <div className="nav-left flex-end">

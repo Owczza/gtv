@@ -152,12 +152,12 @@ class PUF extends Component {
                 <Text>
                   Trwa wyszukiwanie kanałów, proszę czekać...
                 </Text>
-                <div
+                <Text list
                   className="graphyne-font font20 list-hover"
                   onClick={() => this.pauseSearch()}
                 >
                   przerwij
-                </div>
+                </Text>
               </div>
             </div>
           </div>
