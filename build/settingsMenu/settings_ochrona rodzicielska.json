@@ -1,0 +1,23 @@
+[
+  {
+    "name": "zmiana pin",
+    "nested": [
+      {
+        "name": "potwierdź nowy pin",
+        "chosen": "___ ___ ___ ___",
+        "disabled": true
+      },
+      {
+        "name": "wprowadź nowy pin",
+        "chosen": "___ ___ ___ ___",
+        "disabled": true
+      }
+    ],
+    "disabled": true
+  },
+  {
+    "name": "status ochrony",
+    "chosen": "brak ochrony",
+    "choices": ["18", "16", "12", "7", "brak ochrony"]
+  }
+]
