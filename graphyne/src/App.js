@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Fullscreen from "./Components/Fullscreen"
 import Menu from "./Menu/Menu"
 import MyFiles from "./Menu/MyFiles"
