@@ -248,12 +248,12 @@
         "nested": [
           {
             "name": "potwierdź nowy pin",
-            "chosen": "_ _ _ _",
+            "chosen": "___ ___ ___ ___",
             "disabled": true
           },
           {
             "name": "wprowadź nowy pin",
-            "chosen": "_ _ _ _",
+            "chosen": "___ ___ ___ ___",
             "disabled": true
           }
         ]
