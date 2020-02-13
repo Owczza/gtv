@@ -1,0 +1,73 @@
+[
+  {
+    "channelNumber": 148,
+    "channelTitle": "Food Network",
+    "title": "Kuchenne rewolucje",
+    "time": "13:35-16:35",
+    "type": "teleturniej",
+    "PG": "4+",
+    "rating": "8",
+    "image": "/recommended-logos/FoodNetwork_Logo.jpg"
+  },
+  {
+    "channelNumber": 144,
+    "channelTitle": "Mango",
+    "title": "Mango to wygoda kupowa...",
+    "time": "21:00-22:00",
+    "type": "bieżące wydarzenia",
+    "image": "/recommended-logos/Mango_Logo.jpg"
+  },
+  {
+    "channelNumber": 136,
+    "channelTitle": "TVN 24 HD",
+    "title": "Fakty po faktach",
+    "time": "19:25-20:00",
+    "type": "bieżące wydarzenia",
+    "PG": "12+",
+    "image": "/recommended-logos/TVN_24_HD_Logo.jpg"
+  },
+  {
+    "channelNumber": 137,
+    "channelTitle": "TVN 24 BiS",
+    "title": "Drugie śniadanie mistrzów",
+    "time": "01:25-02:15",
+    "type": "bieżące wydarzenia",
+    "rating": "8",
+    "image": "/recommended-logos/TVN_24_Bis_Logo.jpg"
+  },
+  {
+    "channelNumber": 147,
+    "channelTitle": "TVN Fabuła",
+    "title": "Na Wspólnej",
+    "time": "11:55-12:30",
+    "type": "film",
+    "image": "/recommended-logos/TVN_Fabula_Logo.jpg"
+  },
+  {
+    "channelNumber": 146,
+    "channelTitle": "TVN Style HD",
+    "title": "W czym do ślubu?",
+    "time": "09:45-10:20",
+    "type": "teleturniej",
+    "PG": "16+",
+    "rating": "7",
+    "image": "/recommended-logos/TVN_Style_Logo.jpg"
+  },
+  {
+    "channelNumber": 134,
+    "channelTitle": "TVP Kultura",
+    "title": "Pegaz",
+    "time": "19:20-20:00",
+    "type": "sztuka",
+    "image": "/recommended-logos/TVP_Kultura_Logo.jpg"
+  },
+  {
+    "channelNumber": 133,
+    "channelTitle": "TVP Polonia",
+    "title": "Wiadomości",
+    "time": "20:15-20:40",
+    "type": "bieżące wydarzenia",
+    "PG": "4+",
+    "image": "/recommended-logos/TVP_Polonia_Logo.jpg"
+  }
+]

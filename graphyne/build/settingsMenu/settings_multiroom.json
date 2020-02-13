@@ -1,0 +1,30 @@
+[
+  {
+    "name": "test połączenia",
+    "title": "nie znaleziono serwera multiroom",
+    "nested": [{}]
+  },
+  {
+    "name": "status multiroom",
+    "title": "status usługi multiroom - usługa aktywna. tryb multiroom - ograniczony",
+    "nested": [{}]
+  },
+  {
+    "name": "rola urządzenia",
+    "chosen": "klient",
+    "choices": [
+      "serwer",
+      "multiroom wyłączony",
+      "klient"
+    ]
+  },
+  {
+    "name": "nazwa urządzenia",
+    "chosen": "ZC4110OVE",
+    "choices": [
+      "salon",
+      "kuchnia",
+      "ZC4110OVE"
+    ]
+  }
+]

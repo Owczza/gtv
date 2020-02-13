@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1",
+    "name": "opcje językowe",
+    "choices": [
+        { "name": "angielski" },
+        { "name": "polski" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "konfiguracja sieci",
+    "description": "Jeśli chcesz korzystać z usługi MULTIROOM, wybierz rodzaj konfiguracji sieci 'AUTOMATYCZNA' lub 'RĘCZNA'",
+    "choices": [
+      { "name": "ręczna" },
+      { "name": "automatyczna" },
+      { "name": "pomiń ten krok" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "aktualizacja oprogramowania",
+    "title": "zainstalowane oprogramowanie jest aktualne",
+    "description": "Dekoder sprawdza dostępność nowego oprogramowania po wejściu w tryb czuwania.",
+    "choices": [{ "name": "kontynuuj" }]
+  },
+  {
+    "id": "4",
+    "name": "ustawienia oszczędzania energii",
+    "description": "Jeśli chcesz korzystać z Multiroom, w opcji OSZCZĘDZANIE ENERGII musi być ustawiona wartość 'STANDARDOWE'. Jeśli ustawisz 'MAKSYMALNE', Multiroom nie będzie działał.",
+    "choices": [
+      { "name": "automatyczne wyłączenie", "chosen": "3 h" },
+      { "name": "oszczędzanie energii", "chosen": "standardowe" },
+      { "name": "kontynuuj" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "wyszukiwanie kanałów",
+    "choices": [
+      { "name": "pomiń wyszukiwanie kanałów" },
+      { "name": "ręczne" },
+      { "name": "automatyczne" }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "ustawienia vod",
+    "vod": "Pobieranie ustawień VOD zakończone sukcesem",
+    "choices": [
+      { "name": "kontynuuj" }
+    ]
+  }
+]
