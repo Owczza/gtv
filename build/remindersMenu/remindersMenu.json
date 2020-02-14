@@ -1,0 +1,49 @@
+[
+    [
+        {
+            "channelNumber": 1,
+            "channelTitle": "Discovery Channel",
+            "title": "🔔 Złomowisko PL",
+            "time": "20:50 - 21:00",
+            "isRecorded": "Program wystartuje za 94 min",
+            "image": "/television-logos/Discovery_Logo.png",
+            "icon": "/television-logos/Discovery_Icon.png"
+        },
+        {
+            "channelNumber": 2,
+            "channelTitle": "Animal Planet",
+            "title": "🔔 Klinika Henndersonów",
+            "time": "20:00 - 21:00",
+            "isRecorded": "Program wystartuje za 38 min",
+            "image": "/television-logos/Animal_Planet_Logo.png",
+            "icon": "/television-logos/Animal_Planet_Icon.png"
+        },
+        {
+            "channelNumber": 3,
+            "channelTitle": "Cbeebies",
+            "title": "🔔 Yaka Dee",
+            "time": "20:50 - 20:55",
+            "isRecorded": "Program wystartuje za 3 min",
+            "image": "/television-logos/Cbeebies_Logo.png",
+            "icon": "/television-logos/Cbeebies_Icon.png"
+        },
+        {
+            "channelNumber": 4,
+            "channelTitle": "Polsat Cafe HD",
+            "title": "🔔 Zdrady",
+            "time": "20:00 - 21:00",
+            "isRecorded":"Program wystartuje za 13 min",
+            "image": "/television-logos/Polsat_Cafe_HD_Logo.png",
+            "icon": "/television-logos/Polsat_Cafe_HD_Icon.png"
+        }
+    ],
+    [  
+        "przypomnienia"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]

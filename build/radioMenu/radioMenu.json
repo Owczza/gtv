@@ -1,0 +1,46 @@
+[
+    [
+        {
+            "channelNumber": 1,
+            "channelTitle": "RMF FM",
+            "title": "",
+            "time": "",
+            "type": "",
+            "image": "/radio-logos/RMF_Logo.png"
+        },
+        {
+            "channelNumber": 2,
+            "channelTitle": "RMF Classic",
+            "title": "",
+            "time": "",
+            "type": "",
+            "image": "/radio-logos/RMF_Classic_Logo.png"
+        },
+        {
+            "channelNumber": 3,
+            "channelTitle": "RMF MAXXX",
+            "title": "",
+            "time": "",
+            "type": "",
+            "image": "/radio-logos/RMF_MAXXX_Logo.png"
+        },
+        {
+            "channelNumber": 4,
+            "channelTitle": "Radio Zet",
+            "title": "",
+            "time": "",
+            "type": "",
+            "image": "/radio-logos/Radio_Zet_Logo.png"
+        }
+    ],
+    [
+        
+        "wszystkie"
+    ],
+    [
+        "elementy",
+        "lista",
+        "filtruj",
+        "sortuj"
+    ]
+]

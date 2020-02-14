@@ -1,0 +1,103 @@
+[
+  {
+    "name": "pobierz ustawienia vod",
+    "nested": [{}],
+    "vod": "Pobieranie ustawień VOD zakończone sukcesem",
+    "continue": true
+  },
+  {
+    "name": "konfiguracja sieci",
+    "nested": [
+      {
+        "name": "bez sieci",
+        "disabled": true
+      },
+      {
+        "name": "sieć docsis",
+        "chosen": "wyłączona",
+        "choices": ["włączona", "wyłączona"]
+      },
+      {
+        "name": "ethernet",
+        "nested": [
+          {
+            "name": "ręczna",
+            "disabled": true
+          },
+          {
+            "name": "automatyczna",
+            "continue": true,
+            "vod": "Konfiguracja sieci przebiegła pomyślnie",
+            "nested": [
+              {
+                "name": "adres ip",
+                "chosen": "192.168.0.47",
+                "disabled": true
+              },
+              {
+                "name": "maska podsieci",
+                "chosen": "255.255.255.0",
+                "disabled": true
+              },
+              {
+                "name": "brama",
+                "chosen": "192.168.0.1",
+                "disabled": true
+              },
+              {
+                "name": "dns serwery",
+                "chosen": "37.8.214.2 31.11.202.254",
+                "disabled": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "wyszukiwanie kanałów",
+    "nested": [
+      {
+        "name": "ręczne",
+        "disabled": true
+      },
+      {
+        "name": "automatyczne"
+      }
+    ]
+  },
+  {
+    "name": "przywróć domyślny pin",
+    "nested": [
+      {
+        "name": "kod resetujący",
+        "chosen": "_ _ _ _ _ _",
+        "disabled": true
+      }
+    ]
+  },
+  {
+    "name": "ustawienia domyślne",
+    "nested": [
+      {
+        "name": "przywróć ustawienia domyślne",
+        "chosen": "nie",
+        "choices": ["tak", "nie"]
+      },
+      {
+        "name": "usuń nagrania",
+        "chosen": "nie",
+        "choices": ["tak", "nie"]
+      }
+    ],
+    "continue": true,
+    "mute": true
+  },
+  {
+    "name": "aktualizacja oprogramowania",
+    "description": "Wybierz (kontynuuj), aby sprawdzić dostępność nowej wersji oprogramowania.",
+    "nested": [{}],
+    "continue": true
+  }
+]
