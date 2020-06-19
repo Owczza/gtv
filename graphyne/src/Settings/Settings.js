@@ -96,7 +96,7 @@ class Settings extends Component {
               <div className="element-container">
                 <div>
                   <Text>
-                    {type === "Menu" ? "" : `/ ${type}`}
+                    {type === "menu" ? "" : `/ ${type}`}
                   </Text>
                   {data.title ? (
                     <Text small white bold className="margin30-vertical">
@@ -160,7 +160,7 @@ class Settings extends Component {
           <div className="background-right-top"></div>
         </Main>
         {!this.state.setting.name ? (
-          <Link to={this.state.url.replace(`/${type === "Menu" ? "ustawienia" : type}`, "")}><Button /></Link>
+          <Link to={this.state.url.replace(`/${type === "menu" ? "ustawienia" : type}`, "")}><Button /></Link>
         ) : (
           <Button onClick={() => this.noChoice()}/>
         )}

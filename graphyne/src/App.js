@@ -40,7 +40,7 @@ class App extends Component {
           <Route exact path="/wiadomości" render={ (props) => <MyFiles photos="" {...this.props} {...props} />} />
           <Route exact path="/szukaj" render={ (props) => <Search {...this.props} {...props} />} />
           
-          <Route exact path="/ustawienia" render={ (props) => <Settings data="Menu" {...this.props} {...props} /> } />
+          <Route exact path="/ustawienia" render={ (props) => <Settings data="menu" {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type" render={ (props) => <Settings {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/:type/:subtype" render={ (props) => <SettingsNested {...this.props} {...props} /> } />
           <Route exact path="/ustawienia/instalacja/wyszukiwanie kanałów/automatyczne/szukanie/start" render={ (props) => <ProgramSearch from="settings" {...this.props} {...props} /> } />
